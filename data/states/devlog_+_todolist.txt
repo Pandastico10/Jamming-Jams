@@ -74,6 +74,10 @@ there will probably be more games named like this in the jam but eh
 added a scripting system too, to make it easier to do unique events on each level
 remind myelf to make the level create make a dummy script too
 
+04/10
+dude im trying to upload this to github to kinda like
+have this backed up just in case and bro this is so hard i dont understand shit
+i dont think  i shouldve done this without looking first i have no idea what im doing
 
 ------------------------------------------------------
 
