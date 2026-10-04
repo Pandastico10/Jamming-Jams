@@ -1,0 +1,16 @@
+<!DOCTYPE codename-mod-options>
+<!-- TEMPLATE FOR CUSTOM OPTIONS!!! -->
+<menu name="Jamming Jams Options" desc="Modify mod options here">
+	<checkbox id="performance" name="Performance mode" />
+	<checkbox id="performance" name="Performance mode" />
+	<!-- <number id="numberExample" name="Number example" min="0" max="10" change="1"/>
+	<choice id="choiceExample" name="Choice Example">
+		<value name="Disabled" value="disabled" />
+		<value name="This Only" value="thisonly" />
+		<value name="All" value="all" />
+	</choice>
+
+	<menu name="Submenu Example" desc="Submenu test">
+		<checkbox id="levelOfIdk2" name="Level of idk" />
+	</menu> -->
+</menu>

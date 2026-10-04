@@ -1,0 +1,31 @@
+<window width="600" height="620" title="${winTitle}">
+
+    <set name="MARGIN" value="20" />
+    <set name="XOFFSET" value="40" />
+    <set name="YOFFSET" value="28" />
+    <set name="TO" value="50" />
+
+    <exec>
+        function col(c:Int) {
+            return MARGIN + (260 * c);
+        }
+    </exec>
+
+    <title name="title" x="MARGIN" y="30" text="Stage Number" />
+    <section>
+        <set name="curY" value="title.y + TO" />
+
+        <textbox name="stageNumbers" label="Number of stages" value="stages" x="col(0)" y="curY" width="250" height="32" />
+    </section>
+
+    <exec>
+    function onSave() {
+        applyInfo(
+            Std.parseInt(stageNumbers.label.text)
+        );
+
+        trace("SAVED NUMBER OF STAGES");
+    }
+    </exec>
+
+</window>

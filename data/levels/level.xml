@@ -1,0 +1,13 @@
+<!DOCTYPE jam-level>
+<level bpm="136" music="field" name="level0">
+	<player maxJumpAmount="1" x="0" y="64"/>
+	<stages>
+		<stage name="stage0">
+			<box x="352" y="416"/>
+			<box x="608" y="416"/>
+			<box x="704" y="320"/>
+			<box x="0" y="0"/>
+			<box x="32" y="32"/>
+		</stage>
+	</stages>
+</level>

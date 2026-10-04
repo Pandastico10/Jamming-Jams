@@ -1,0 +1,140 @@
+[
+    {
+        "text": "SAKURA CORE."
+    },
+    {
+        "text": "3 DIAS DESPUES DEL FINAL DE LA CONEXIÓN."
+    },
+    {
+        "text": "LOG 01 START"
+    },
+    {
+        "text": "...",
+        "sound_pitch": 1.2,
+        "call": "sound"
+    },
+    {
+        "text": "...?",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Ah, estas despierta",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": ".....",
+        "sound_pitch": 1,
+        "call": "shake3"
+    },
+    {
+        "text": "*kick*",
+        "sound_pitch": 0.8,
+        "call": "shake"
+    },
+    {
+        "text": "OW !\nOKAY OKAY\nIm awake, stop kicking me!",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "Bueno no te estabas despertando\nasi que pensaba que necesitabas una pequeña ayuda",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Hmph, that wasn't very nice",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "Aaanywayy\nHow did i do, boss?",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "Primero que todo, no soy tu jefe",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "\nPero supongo que hiciste un buen trabajo",
+        "sound_pitch": 0.8,
+        "additive": true
+    },
+    {
+        "text": "Aunque si te tomaste mas tiempo\nde lo que normal en construir el faro",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Sabes que no nos podemos comunicar contigo sin ello",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "I mean, it was only a recon mission",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "\nIt was a nice chill mission tho\nI got to build a lot of machines!",
+        "sound_pitch": 1.2,
+        "additive": true
+    },
+    {
+        "text": "Uh huh, bueno ahora que estas aqui podemos comenzar\na hacer las preparaciones para la siguiente expedición",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "El siguiente turno es de Felix, asi que puedes tomarte un descanso",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Por cierto, puedes ir a despertarlo cuando estes de camino a los archivos?",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Aqui tienes tu leche de chocolate",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Oh! Thank you ^^",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "...\n*sip*",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "Yo voy a estar en la zona de descanso, por si me necesitas",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Okie Dokie",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "Alright, time to lock in",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "(If i remember correctly, Felix should be the next one to use the machine)",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "(He's probably drunk again)",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "(I should go wake him up)",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "(... and maybe start noting down some of this new tech stuff i learned)",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "Bleh, i'll do it later :p",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "Once i figure out why my steam train didn't work.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "LOG 01 END",
+        "sound_pitch": 1
+    }
+]

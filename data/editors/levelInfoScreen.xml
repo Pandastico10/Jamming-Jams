@@ -1,0 +1,66 @@
+<window width="600" height="620" title="${winTitle}">
+
+    <set name="MARGIN" value="20" />
+    <set name="XOFFSET" value="40" />
+    <set name="YOFFSET" value="28" />
+    <set name="TO" value="50" />
+
+    <exec>
+        function col(c:Int) {
+            return MARGIN + (260 * c);
+        }
+    </exec>
+
+    <title name="title" x="MARGIN" y="30" text="Level Information" />
+    <section>
+        <set name="curY" value="title.y + TO" />
+
+        <textbox name="levelTextBox" label="Level Name" value="level" x="col(0)" y="curY" width="250" height="32" />
+        <textbox name="musicTextBox" label="Music" value="music" x="col(1)" y="curY" width="250" height="32" />
+    </section>
+
+    <section>
+        <set name="curY" value="levelTextBox.y + levelTextBox.bHeight + YOFFSET" />
+
+        <label text="BPM" x="col(0)" y="curY + 10" />
+        <stepper name="bpmStepper" value="bpm" x="col(0)" y="curY + 18" step="1" width="120" />
+
+        <label text="Max Jumps" x="col(1)" y="curY + 10" />
+        <stepper name="maxJumpAmmStepper" value="maxJumpAmm" x="col(1)" y="curY + 18" step="1" width="120" />
+
+        <label text="Ai Level (0 = off)" x="col(1)" y="curY + 90" />
+        <stepper name="aiLvl" value="aiLvl" x="col(1)" y="curY + 90" step="1" width="120" />
+
+        <label text="Level Width" x="col(1)" y="curY + 180" />
+        <stepper name="levelWidth" value="levelWidth" x="col(1)" y="curY + 180" step="1" width="120" />
+    </section>
+
+    <section>
+        <set name="curY" value="bpmStepper.y + bpmStepper.bHeight + YOFFSET" />
+
+        <label text="Player Spawn" x="col(0)" y="curY" />
+
+        <stepper name="playerXStepper" label="X" value="playerX" x="col(0)" y="curY + 18" step="1" width="120" />
+        <stepper name="playerYStepper" label="Y" value="playerY" x="last.x + last.bWidth + 20" y="curY + 18" step="1" width="120" />
+    </section>
+
+    
+
+    <exec>
+    function onSave() {
+        applyInfo(
+            levelTextBox.label.text,
+            musicTextBox.label.text,
+            Std.int(bpmStepper.value),
+            Std.int(playerXStepper.value),
+            Std.int(playerYStepper.value),
+            Std.int(maxJumpAmmStepper.value),
+            Std.int(aiLvl.value),
+            Std.int(levelWidth.value)
+        );
+
+        <!-- trace("SAVED LEVEL INFO"); -->
+    }
+    </exec>
+
+</window>

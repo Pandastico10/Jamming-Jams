@@ -1,0 +1,7 @@
+<!DOCTYPE jam-level>
+<level name="wonder" music="wonder" bpm="190">
+	<player x="0" y="64" maxJumpAmount="3"/>
+	<stages>
+		<stage name="stage0"/>
+	</stages>
+</level>

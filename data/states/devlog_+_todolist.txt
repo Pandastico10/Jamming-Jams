@@ -1,0 +1,134 @@
+28/09
+actually started the prroject a bit before but im just doing this now
+kinda just doing this to note down how fast i do programming and also what is left to do
+(excuse my broken keyboard i might to a lot of mistakes)
+today i worked on the level editor, now you can create walls on a grid, create and copy multiple stages in a level
+customize it in a window, along with the music and bpm 
+finished the player class hopefully to create the player more easily
+wrote this (lol)
+
+29/09
+i slept all day today (cool)
+okay but fr i got to work on the level selector today and oh boy
+took me almost all day to make it even work with a dummy option cuz i didnt understand it
+and it wasnt documented at all
+nothing worked for like 2 hours but magically did when i restarted the game
+
+30/09
+hate
+let me tell you how much i hate this damn level editor i made myself :sob:
+ok so i got to fix the level selector today
+since the editor itself is a UIState i had no idea how to pass the of the selected level to the editor itself
+and i still have no idea so i came up with a bullshit way to do it
+i basically copy the contents of the xml selected and paste it into a separate xml that doesnt show up in the list
+then the editor itself can load that other xml and change the values and whatnot
+when a seasoned cne programmer sees this code theyre gonna kill me ohno i swear i tried for a long time bro :sob:
+still have to make the editor itself load the data but we're getting there
+
+ok its like 10pm but i got back to it and yeah it loads data now, atleast the metadata and not the objects yet but thats good
+finished the level selector with a stupid ammount of research basicallyalmost all day but yeah it works now
+
+01/10
+halloween!!! so spooky!
+today i made a level creator screen but i run into a bug with the UIWindow stuff trying to do it like the
+stage editor so i just made a modsubstate and parsed the data to that and made a screen to create a new level and add it into the list
+also had to change the way the levels are listed to be able to add the new level button and add the newly created one
+
+also finished the editor loading and fixed a bug in the picker so now levels can be selected, created, saved and edited
+for now the only options are player coords, boxes and positions, stages and ammount of jumps
+yay!
+i could start making the cannons cuz that will take some time to learn and create but loading stuff should be easier i think
+
+02/10
+its about 1am but i managed to make a cannon class :sob: yayyyyyyy
+okay so rn i only have about 2 types of cannons but thats okay i dont even have all the ideas yet, nor levels
+ok but cool cool, this shit suckssss major ass cuz im getting confused on my own code
+think later im gonna do graphics for the cannons since i have 2 now but man this took longer than expected
+maybe cuz im doing it very shit but hey yeah
+
+YO WHY DIDNT ANYBODY TELL ME FlxNestedSprite WAS A THING BRUH I WASTED SO MUCH TIMEEEEEEEE
+ok but the class is way easier to handle now
+esp with collision and type creation since its separate children coming from different cannons now
+so now technically make a cannon shoot 2 bullets!... i think?
+
+well anyways a couple hours later and i made a few more cannon types and added the option to made the level width longer!
+had to restrict the top and bottom cuz i do like the screen wrapping the level has cuz i might use that too
+
+03/10
+yooo so i kept messing with the cannon class to add a couple more and fixing the stage saving
+added a new event group to do more stuff and im planning in adding an event manager
+to maybe do dynamic music and dialogue
+but yeah also fixed bullet hitboxes, and added cannon angle to point to the player
+it does slow down my fps by a bit but i hope thats just my pc 
+anyways im gonna add an option for that in the options
+level creation screen is done now i think and its so much easier than doing it manually
+sfx and graphics also being worked on
+
+also fun fact today i found out the playformer genre is actually called masocore!
+pretty funny but also means i gotta make the game hard as hell to have it qualify
+also thought of the name today, i think im calling it "Jamming Jams"
+cuz yknow, game jam, jamming out to music, stuck in the level like a traffic "jam", being in a "jam"
+and also im reading that apparently it means fun in korean or smth like that 
+there will probably be more games named like this in the jam but eh
+
+added a scripting system too, to make it easier to do unique events on each level
+remind myelf to make the level create make a dummy script too
+
+
+------------------------------------------------------
+
+firstly here's the game concept which i kinda have finalized
+-game concept-
+HORROR BAIT N' SWITCH JAM
+a mix of Give up by Armor games with a rhythm twist on it & Fnaf style Sit n' survive
+the jam required a rhythm mechanic so the rhythm comes from the cannons and bullets being fired each 'beat' or step or whatever
+the bait and switch would come from the game adding a fnaf styled mechanic where you have to check on the doors next to you
+and fend off some monsters (not yet idealized) and more obstacles with the objective being 
+beating the give up level without dying to the fnaf style
+
+atleast 5 levels  + 1 tutorial with custom music and a level editor
+
+-Platformer section-
+obstacles to-do{
+    cannon that shoots at you every bar (done)
+    laser that toggles every measure (done)
+    static spikes
+    spikes that appear every beat
+    spikes that move between 2 pos every step
+}
+to-do{
+    Level editor(sorta)
+    level selector (done)
+    level loader (done)
+    player class (done)
+    bg effects
+}
+-Fnaf section-
+monsters to-do{
+    left/right door hold for a bit
+    left/right dont close door
+    behind check on plushtrap type beat
+    top fix game glitch with spam
+    bottom to activate power-ups?{
+        close both doors
+        skip a stage
+    }
+}
+to-do{
+    basically almost anything
+    monster AIs
+    Custom night screen
+    cube sprites
+    power ups?
+}
+-General to-do list-
+States{
+    mainmenu fake/real
+    credits using GamebananaUtil (shoutouts to itsjcool)
+    freeplay menu
+}
+write dialogue and integrate it for at the start/end of nights
+Do the art (oh god)
+sound design
+make a shit ton of music
+
