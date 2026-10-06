@@ -79,6 +79,21 @@ dude im trying to upload this to github to kinda like
 have this backed up just in case and bro this is so hard i dont understand shit
 i dont think  i shouldve done this without looking first i have no idea what im doing
 
+ok i managed to do it but i lowkey dont wanna do anything else so im calling today my resting day 
+peace
+
+05/10
+big day for a big guy yayyyyyyy
+OK SO started today with my classes canceled so i lowkey locked in
+and made the level class loader finally so i can load the levels into the sstate correctly and not having to sstruggle with all that shit
+now, the player wasnt working for some reason so i separated the,
+also, no, i will not update the editor cuz that shit is way past saving i am so sorry
+i reealy really should get working into getting the other mechanics working yknow
+i have to code in 4 more monsters and their implementation into the States
+think im gonna just go easy and add one monster per night and give them all the same ai value
+yeah but thats for later i wanna finih the Platformerlevel state first and start working on menus maybe!
+also implement the typetext to read lore and dialogue and shish
+
 ------------------------------------------------------
 
 firstly here's the game concept which i kinda have finalized

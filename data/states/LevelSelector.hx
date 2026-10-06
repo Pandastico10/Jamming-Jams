@@ -10,7 +10,7 @@ var levels:Array<String>;
 var menu:TreeMenuScreen;
 
 function create() {
-	levels = getList();
+	levels = JamUtils.getList();
 
 	var options:Array<FlxSprite> = [];
 
@@ -30,21 +30,7 @@ function create() {
 	menu = new TreeMenuScreen("Level Editor", "Select a level to edit", null, options);
 	addMenu(menu);
 }
-
-function getList():Array<String> {
-	var list:Array<String> = [];
-
-	for (path in Paths.getFolderContent("data/levels/", false)) {
-		var extension = Path.extension(path);
-
-		if (extension == "xml" && path != "current.xml")
-			list.push(Path.withoutExtension(path));
-	}
-
-	return list;
-}
-
-public function makeStageOption(stage:String):TextOption {
+function makeStageOption(stage:String):TextOption {
 	return new TextOption(stage, '', '', () -> {
 		var xml = Xml.parse(Assets.getText(Paths.xml('levels/' + stage)));
 

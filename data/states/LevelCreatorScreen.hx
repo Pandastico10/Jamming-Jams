@@ -147,6 +147,31 @@ function saveLevel() {
 		+ '" maxJumpAmount="'
 		+ maxJumps
 		+ '"/>\n\t<stages>\n\t\t<stage name="stage0"/>\n\t</stages>\n</level>');
+	// yeah i hardcoded the default script creation what you gonna do about it?
+	CoolUtil.safeSaveFile(Paths.getAssetsRoot()
+		+ "/data/scripts/"
+		+ name
+		+ ".hx",
+		'// mostly used for bg stuff only and specific events\n\n'
+		+ 'function create() {\n\n'
+		+ '}\n\n'
+		+ 'function update(elapsed:Float) {}\n\n'
+		+ 'function nextStage(curStage:Int) {}\n\n'
+		+ 'function measureHit(curMeasure:Int) {\n\n'
+		+ '    level.shootCannon("normal", player);\n'
+		+ '    level.shootCannon("fast", player);\n'
+		+ '    level.shootCannon("door", player);\n\n'
+		+ '}\n\n'
+		+ 'function beatHit(curBeat:Int) {\n\n'
+		+ '    level.shootCannon("down", player);\n'
+		+ '    level.shootCannon("left", player);\n'
+		+ '    level.shootCannon("right", player);\n'
+		+ '    level.shootCannon("up", player);\n\n'
+		+ '}\n\n'
+		+ 'function stepHit(curStep:Int) {\n\n'
+		+ '    level.shootCannon("rotate", player);\n\n'
+		+ '}\n\n'
+		+ 'function death() {}');
 	if (songBytes != null)
 		File.saveBytes(Paths.getAssetsRoot() + '/music/' + music + '.ogg', songBytes);
 	#end

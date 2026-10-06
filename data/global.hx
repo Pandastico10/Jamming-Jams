@@ -1,8 +1,13 @@
 import funkin.backend.utils.ShaderResizeFix; // script by 
 import openfl.system.Capabilities; // script by care
+import JamUtils;
 
-function update(elapsed)
+static var JamUtils = new JamUtils();
+
+function update(elapsed){
     if (FlxG.keys.justPressed.X) FlxG.switchState(new ModState("Test"));
+    if (FlxG.keys.justPressed.G) FlxG.switchState(new ModState("PlatformerState"));
+}
 
 function new() {
     FlxG.save.bind("Save data", "Jamming Jams");

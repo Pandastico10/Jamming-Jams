@@ -22,17 +22,30 @@ class Cannon extends FlxNestedSprite {
 				makeGraphic(32, 32, FlxColor.TRANSPARENT);
 				setGraphicSize(32, 32);
 				setup(FlxColor.BLUE);
-
-			case "down", "left", "right", "up":
+			case "right":
 				makeGraphic(32, 32, FlxColor.WHITE);
 				setGraphicSize(32, 32);
 				this.color = FlxColor.ORANGE;
-
+				angle = 0;
+			case "down":
+				makeGraphic(32, 32, FlxColor.WHITE);
+				setGraphicSize(32, 32);
+				this.color = FlxColor.ORANGE;
+				angle = 90;
+			case "left":
+				makeGraphic(32, 32, FlxColor.WHITE);
+				setGraphicSize(32, 32);
+				this.color = FlxColor.ORANGE;
+				angle = 180;
+			case "up":
+				makeGraphic(32, 32, FlxColor.WHITE);
+				setGraphicSize(32, 32);
+				this.color = FlxColor.ORANGE;
+				angle = -90;
 			case "door":
 				makeGraphic(32, 32, FlxColor.WHITE);
 				setGraphicSize(32, 32);
 				this.color = FlxColor.LIME;
-
 			case "hazard":
 				makeGraphic(32, 32, FlxColor.WHITE);
 				setGraphicSize(32, 32);
@@ -67,54 +80,31 @@ class Cannon extends FlxNestedSprite {
 		// ill take out color out of here someday but im too lazy to do it now blehhhh
 		switch (this.type) {
 			case "normal":
-				shootNormal(x, y);
+				shootTarget(x, y, 100, FlxColor.CYAN);
 			case "fast":
-				shootFast(x, y);
+				shootTarget(x, y, 200, FlxColor.BLUE);
 			case "down", "left", "up", "right":
 				shootDir(this.type);
 			case "door":
-				shootDoor(x, y);
+				shootDoor();
 			case "rotate":
-				shootRotate(x, y);
+				shootRotate();
 		}
 	}
 
-	function shootNormal(x:Float, y:Float) {
+	function shootTarget(x:Float, y:Float, speed:Float, color:FlxColor) {
 		var dx = x - this.x;
 		var dy = y - this.y;
 		var length = Math.sqrt(dx * dx + dy * dy);
-		var speed = 100;
 
 		var bullet = new FlxNestedSprite(this.x, this.y);
-		bullet.makeGraphic(8, 8, FlxColor.CYAN);
+		bullet.makeGraphic(8, 8, color);
 		bullet.relativeX = 12;
 		bullet.relativeY = 12;
+		bullet.updateHitbox();
+
 		this.add(bullet);
-		bullet.relativeVelocity.x = dx / length * speed;
-		bullet.relativeVelocity.y = dy / length * speed;
 
-		FlxTween.num(0, 2, 2, {
-			onComplete: function(_) {
-				if (bullet != null && bullet.alive) {
-					bullet.destroy();
-
-					this.remove(bullet);
-				}
-			}
-		});
-	}
-
-	function shootFast(x:Float, y:Float) {
-		var dx = x - this.x;
-		var dy = y - this.y;
-		var length = Math.sqrt(dx * dx + dy * dy);
-		var speed = 200;
-
-		var bullet = new FlxNestedSprite(this.x, this.y);
-		bullet.makeGraphic(8, 8, FlxColor.BLUE);
-		bullet.relativeX = 12;
-		bullet.relativeY = 12;
-		this.add(bullet);
 		bullet.relativeVelocity.x = dx / length * speed;
 		bullet.relativeVelocity.y = dy / length * speed;
 
@@ -138,25 +128,7 @@ class Cannon extends FlxNestedSprite {
 		bullet.relativeY = 12;
 		this.add(bullet);
 		// ok so i realized too late that i could move the angle of the parent instead of moving the entire fucking velodity but whatever
-		if (dir == "down") {
-			bullet.relativeVelocity.x = 0;
-			bullet.relativeVelocity.y = speed;
-		}
-
-		if (dir == "up") {
-			bullet.relativeVelocity.x = 0;
-			bullet.relativeVelocity.y = speed * -1;
-		}
-
-		if (dir == "right") {
-			bullet.relativeVelocity.x = speed;
-			bullet.relativeVelocity.y = 0;
-		}
-
-		if (dir == "left") {
-			bullet.relativeVelocity.x = speed * -1;
-			bullet.relativeVelocity.y = 0;
-		}
+		bullet.relativeVelocity.x = speed;
 
 		FlxTween.num(0, 2, 2, {
 			onComplete: function(_) {
@@ -169,7 +141,7 @@ class Cannon extends FlxNestedSprite {
 		});
 	}
 
-	function shootDoor(x:Float, y:Float) {
+	function shootDoor() {
 		toggle = !toggle;
 
 		if (toggle) {
@@ -178,14 +150,11 @@ class Cannon extends FlxNestedSprite {
 			door.relativeX = 8;
 			door.relativeY = 32;
 			door.updateHitbox();
-
 			this.add(door);
 		} else {
 			if (door != null) {
 				this.remove(door);
-
 				door.destroy();
-
 				door = null;
 			}
 		}
@@ -198,6 +167,7 @@ class Cannon extends FlxNestedSprite {
 		bullet.makeGraphic(8, 8, FlxColor.PINK);
 		bullet.relativeX = 12;
 		bullet.relativeY = 12;
+		bullet.updateHitbox();
 		this.add(bullet);
 		cannonSprite.relativeAngularVelocity = 50;
 		var angle = -cannonSprite.angle * Math.PI / 180;
@@ -220,21 +190,18 @@ class Cannon extends FlxNestedSprite {
 		for (bullet in this.children) {
 			if (FlxG.overlap(bullet, boxes)) {
 				this.remove(bullet);
-
 				bullet.destroy();
+				continue;
 			}
-
 			if (FlxG.overlap(bullet, player)) {
 				if (onHit != null)
 					onHit();
+				return;
 			}
-
-			if (door != null && door.alive) {
-				if (FlxCollision.pixelPerfectCheck(player, door)) {
-					if (onHit != null)
-						onHit();
-				}
-			}
+		}
+		if (door != null && door.alive && FlxCollision.pixelPerfectCheck(player, door)) {
+			if (onHit != null)
+				onHit();
 		}
 	}
 

@@ -35,15 +35,14 @@ class Player extends FlxSprite {
 			maxVelocity.y = maxSpeed * 2;
 			maxVelocity.x = maxSpeed;
 			drag.x = maxVelocity.x * 4;
-		}
-        else {
-            acceleration.y = 0;
+		} else {
+			acceleration.y = 0;
 			acceleration.x = 0;
-            maxVelocity.y = 0;
+			maxVelocity.y = 0;
 			maxVelocity.x = 0;
 			velocity.x = 0;
 			velocity.y = 0;
-        }
+		}
 	}
 
 	override public function update(elapsed:Float) {
@@ -53,7 +52,7 @@ class Player extends FlxSprite {
 				jumpSfx.play();
 			}
 
-			if ((FlxG.keys.justPressed.UP || FlxG.keys.justPressed.W)  && !isTouching(0x1000) && jumpAmm > 0) {
+			if ((FlxG.keys.justPressed.UP || FlxG.keys.justPressed.W) && !isTouching(0x1000) && jumpAmm > 0) {
 				jumpSfx.pitch += 0.1;
 				jumpSfx.play();
 
@@ -74,19 +73,19 @@ class Player extends FlxSprite {
 				jumpSfx.pitch = 1;
 			}
 
-			if (FlxG.keys.justPressed.DOWN || FlxG.keys.justPressed.S  && !isTouching(0x1000)) {
+			if (FlxG.keys.justPressed.DOWN || FlxG.keys.justPressed.S && !isTouching(0x1000)) {
 				velocity.y = poundStrength;
 				FlxG.sound.play(Paths.sound("sfxPound"));
 			}
 
 			acceleration.x = 0;
 
-			if (FlxG.keys.pressed.LEFT || FlxG.keys.pressed.A ) {
+			if (FlxG.keys.pressed.LEFT || FlxG.keys.pressed.A) {
 				flipX = true;
 				acceleration.x -= drag.x;
 			}
 
-			if (FlxG.keys.pressed.RIGHT || FlxG.keys.pressed.D ) {
+			if (FlxG.keys.pressed.RIGHT || FlxG.keys.pressed.D) {
 				flipX = false;
 				acceleration.x += drag.x;
 			}
