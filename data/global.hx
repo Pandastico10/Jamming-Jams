@@ -12,6 +12,10 @@ function update(elapsed){
 function new() {
     FlxG.save.bind("Save data", "Jamming Jams");
     FlxG.save.data.performance ??= false;
+    FlxG.save.data.shaders ??= true;
+    FlxG.save.data.freeplayUnlocked ??= false;
+     FlxG.save.data.editorUnlocked ??= false;
+    //legit no idea what i wanted to do with this
     FlxG.save.data.bgs ??= false;
     FlxG.save.flush();
     windowShit(1024, 768); // script by care

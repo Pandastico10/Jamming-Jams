@@ -14,6 +14,7 @@ class Cannon extends FlxNestedSprite {
 
 		switch (this.type) {
 			case "normal":
+				
 				makeGraphic(32, 32, FlxColor.TRANSPARENT);
 				setGraphicSize(32, 32);
 				setup(FlxColor.CYAN);
@@ -23,27 +24,28 @@ class Cannon extends FlxNestedSprite {
 				setGraphicSize(32, 32);
 				setup(FlxColor.BLUE);
 			case "right":
-				makeGraphic(32, 32, FlxColor.WHITE);
+				loadGraphic(Paths.image('game/cannon'));
 				setGraphicSize(32, 32);
 				this.color = FlxColor.ORANGE;
 				angle = 0;
 			case "down":
-				makeGraphic(32, 32, FlxColor.WHITE);
+				loadGraphic(Paths.image('game/cannon'));
 				setGraphicSize(32, 32);
 				this.color = FlxColor.ORANGE;
 				angle = 90;
 			case "left":
-				makeGraphic(32, 32, FlxColor.WHITE);
+				loadGraphic(Paths.image('game/cannon'));
 				setGraphicSize(32, 32);
 				this.color = FlxColor.ORANGE;
 				angle = 180;
 			case "up":
-				makeGraphic(32, 32, FlxColor.WHITE);
+				loadGraphic(Paths.image('game/cannon'));
 				setGraphicSize(32, 32);
 				this.color = FlxColor.ORANGE;
 				angle = -90;
 			case "door":
-				makeGraphic(32, 32, FlxColor.WHITE);
+				loadGraphic(Paths.image('game/door'));
+				// makeGraphic(32, 32, FlxColor.WHITE);
 				setGraphicSize(32, 32);
 				this.color = FlxColor.LIME;
 			case "hazard":
@@ -62,12 +64,13 @@ class Cannon extends FlxNestedSprite {
 				makeGraphic(32, 32, FlxColor.TRANSPARENT);
 				setup(FlxColor.PINK);
 				setGraphicSize(32, 32);
+				angle -= 90;
 		}
 	}
 
 	public function setup(col:FlxColor) {
 		cannonSprite = new FlxNestedSprite(this.x, this.y);
-		cannonSprite.makeGraphic(32, 32, col);
+		cannonSprite.loadGraphic(Paths.image('game/cannon'));
 		cannonSprite.color = col;
 		cannonSprite.relativeX = 0;
 		cannonSprite.relativeY = 0;
@@ -146,9 +149,9 @@ class Cannon extends FlxNestedSprite {
 
 		if (toggle) {
 			door = new FlxNestedSprite(this.x, this.y);
-			door.makeGraphic(16, 96, FlxColor.GREEN);
-			door.relativeX = 8;
-			door.relativeY = 32;
+			door.makeGraphic(8, 116, FlxColor.GREEN);
+			door.relativeX = 12;
+			door.relativeY = 12;
 			door.updateHitbox();
 			this.add(door);
 		} else {

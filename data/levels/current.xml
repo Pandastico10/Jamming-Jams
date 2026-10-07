@@ -1,6 +1,6 @@
 <!DOCTYPE jam-level>
-<level music="field" levelWidth="2000" aiLvl="0" name="level0" bpm="136">
-	<player maxJumpAmount="1" x="32" y="192"/>
+<level music="field" levelWidth="2000" aiLvl="0" bpm="136" name="level0">
+	<player x="32" maxJumpAmount="1" y="192"/>
 	<stages>
 		<stage name="stage0">
 			<box x="384" y="384"/>
@@ -87,23 +87,23 @@
 			<box x="64" y="96"/>
 			<box x="32" y="736"/>
 			<next x="896" y="416"/>
-			<cannon type="up" x="480" y="224"/>
-			<cannon type="left" x="416" y="288"/>
-			<cannon type="right" x="544" y="288"/>
-			<cannon type="normal" x="416" y="64"/>
-			<cannon type="down" x="576" y="64"/>
-			<cannon type="hazard" x="320" y="416"/>
-			<cannon type="hazard" x="288" y="416"/>
-			<cannon type="hazard" x="224" y="416"/>
-			<cannon type="hazard" x="256" y="416"/>
-			<cannon type="hazard" x="192" y="416"/>
-			<cannon type="hazard" x="160" y="416"/>
-			<cannon type="hazard" x="128" y="416"/>
-			<cannon type="hazard" x="96" y="416"/>
-			<cannon type="door" x="832" y="384"/>
-			<cannon type="fast" x="416" y="224"/>
-			<cannon type="rotate" x="448" y="640"/>
-			<cannon type="rotate" x="704" y="640"/>
+			<cannon x="480" type="up" y="224"/>
+			<cannon x="416" type="left" y="288"/>
+			<cannon x="544" type="right" y="288"/>
+			<cannon x="416" type="normal" y="64"/>
+			<cannon x="576" type="down" y="64"/>
+			<cannon x="320" type="hazard" y="416"/>
+			<cannon x="288" type="hazard" y="416"/>
+			<cannon x="224" type="hazard" y="416"/>
+			<cannon x="256" type="hazard" y="416"/>
+			<cannon x="192" type="hazard" y="416"/>
+			<cannon x="160" type="hazard" y="416"/>
+			<cannon x="128" type="hazard" y="416"/>
+			<cannon x="96" type="hazard" y="416"/>
+			<cannon x="832" type="door" y="384"/>
+			<cannon x="416" type="fast" y="224"/>
+			<cannon x="448" type="rotate" y="640"/>
+			<cannon x="704" type="rotate" y="640"/>
 		</stage>
 		<stage name="stage1">
 			<box x="384" y="384"/>
@@ -188,12 +188,12 @@
 			<box x="320" y="352"/>
 			<box x="352" y="320"/>
 			<next x="896" y="416"/>
-			<cannon type="door" x="480" y="384"/>
-			<cannon type="up" x="480" y="224"/>
-			<cannon type="left" x="416" y="288"/>
-			<cannon type="right" x="544" y="288"/>
-			<cannon type="normal" x="416" y="64"/>
-			<cannon type="down" x="576" y="64"/>
+			<cannon x="480" type="door" y="384"/>
+			<cannon x="480" type="up" y="224"/>
+			<cannon x="416" type="left" y="288"/>
+			<cannon x="544" type="right" y="288"/>
+			<cannon x="416" type="normal" y="64"/>
+			<cannon x="576" type="down" y="64"/>
 		</stage>
 	</stages>
 </level>

@@ -94,6 +94,16 @@ think im gonna just go easy and add one monster per night and give them all the 
 yeah but thats for later i wanna finih the Platformerlevel state first and start working on menus maybe!
 also implement the typetext to read lore and dialogue and shish
 
+05/10
+ok so i finalized the level class, and the main platformer only state, which will be used for the tutorial and level 1
+it also creates and imports scripts automatically to customize each level separately now (yay)
+think im gonna work on the menus today cuz i still have no way to access the different states due to having it all be 
+hardcoded 
+i think its gonna take a bit cuz i wanna have 2 menus depending if the bait n switch has happened yet or not
+
+also made some graphics for the cannons today!
+very basic but thats fine since its the max of my artistic abilities
+
 ------------------------------------------------------
 
 firstly here's the game concept which i kinda have finalized

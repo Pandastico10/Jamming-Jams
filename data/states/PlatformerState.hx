@@ -8,6 +8,9 @@ public var blend = new FlxSprite();
 public var camGame:FlxCamera = new FlxCamera();
 public var camBg:FlxCamera = new FlxCamera();
 
+// game shaders
+var scanline = new CustomShader('scanline');
+
 function create() {
 	FlxG.cameras.add(camBg, false);
 	blend.makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
@@ -16,8 +19,11 @@ function create() {
 	FlxG.cameras.add(camGame, true);
 	camGame.bgColor = 0;
 
+	if (FlxG.save.data.shaders) {
+		camGame.addShader(scanline);
+	}
 	// load the level  name // assign cam
-	level = new Level("current", camGame);
+	level = new Level(data, camGame);
 
 	add(level.cannons);
 	add(level.boxes);
@@ -50,6 +56,7 @@ function create() {
 function update(elapsed:Float) {
 	FlxG.overlap(level.eventBoxes, player, nextStage);
 	level.update(player);
+	if (controls.BACK) FlxG.switchState(new FreeplayState());
 }
 
 function nextStage() {

@@ -63,17 +63,8 @@ public var topMenuSpr:UITopMenu;
 public var gridToggle:Bool = false;
 public var gridSize:Int = 32;
 public var curStage:Int = 0;
-public var script:Script;
 
 function create() {
-	// init scripts if they exist
-	for (path in Paths.getFolderContent("data/scripts/")) {
-		var extension = Path.extension(path);
-
-		if (extension == "hx" && Path.withoutExtension(path) == level)
-			script = importScript("data/scripts/" + level);
-	}
-	// script.call("doTrace", ["hello"]);
 	loadLevelInfo();
 
 	// trace("LEVEL: " + level);
@@ -405,8 +396,6 @@ function select(cur:Int) {
 }
 
 function measureHit(curMeasure:Int) {
-	if (script != null)
-		script.call("measureHit", [curMeasure]);
 	FlxTween.cancelTweensOf(blend);
 
 	// eventually replace these with fadeout()
@@ -426,8 +415,6 @@ function measureHit(curMeasure:Int) {
 }
 
 function beatHit(curBeat:Int) {
-	if (script != null)
-		script.call("beatHit", [curBeat]);
 	// top tier lazyness here
 	if (curBeat % 2 == 0) {
 		for (cannon in cannons.members) {
@@ -596,9 +583,6 @@ function nextStage() {
 	// also take this one out in playstate
 	saveCurrentStage();
 	// remember to eventually not make it loop and have it end the night when reaching stageAmm
-
-	if (script != null)
-		script.call("nextStage", [curStage]);
 	player.x = playerX;
 	player.y = playerY;
 	curStage = FlxMath.wrap(curStage + 1, 0, stages.length - 1);

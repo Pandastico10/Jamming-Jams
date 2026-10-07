@@ -2,7 +2,8 @@
 <!-- TEMPLATE FOR CUSTOM OPTIONS!!! -->
 <menu name="Jamming Jams Options" desc="Modify mod options here">
 	<checkbox id="performance" name="Performance mode" />
-	<checkbox id="performance" name="Performance mode" />
+	<checkbox id="shaders" name="Shaders on" />
+	<checkbox id="bg" name="Background on" />
 	<!-- <number id="numberExample" name="Number example" min="0" max="10" change="1"/>
 	<choice id="choiceExample" name="Choice Example">
 		<value name="Disabled" value="disabled" />
