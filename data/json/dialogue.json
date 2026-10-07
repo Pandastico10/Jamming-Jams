@@ -1,6 +1,7 @@
 [
     {
-        "text": "SAKURA CORE."
+        "text": "SAKURA CORE.",
+        "waitForInput": true
     },
     {
         "text": "3 DIAS DESPUES DEL FINAL DE LA CONEXIÓN."
@@ -10,8 +11,7 @@
     },
     {
         "text": "...",
-        "sound_pitch": 1.2,
-        "call": "sound"
+        "sound_pitch": 1.2
     },
     {
         "text": "...?",
@@ -23,13 +23,11 @@
     },
     {
         "text": ".....",
-        "sound_pitch": 1,
-        "call": "shake3"
+        "sound_pitch": 1
     },
     {
         "text": "*kick*",
-        "sound_pitch": 0.8,
-        "call": "shake"
+        "sound_pitch": 0.8
     },
     {
         "text": "OW !\nOKAY OKAY\nIm awake, stop kicking me!",

@@ -258,7 +258,6 @@ class FunkinTypeText extends FlxText {
 
 		if (item.additive) {
 			final_text += item.text;
-			_has_started = false;
 		} else {
 			resetText(item.text);
 		}

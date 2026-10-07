@@ -1,5 +1,6 @@
-package source;
+import FunkinTypeText;
 import haxe.io.Path;
+import flixel.text.FlxText.FlxTextBorderStyle;
 
 class JamUtils {
 	public function getList():Array<String> {
@@ -49,7 +50,7 @@ class JamUtils {
 
     if (alignment == null)
         alignment = "center";
-    text.font = Paths.font("wondermail.ttf");
+    text.font = Paths.font("outline.ttf");
     text.size = size;
     text.color = FlxColor.WHITE;
     text.alignment = alignment;

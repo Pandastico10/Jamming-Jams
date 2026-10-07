@@ -42,14 +42,6 @@ function create() {
 }
 
 function update(elapsed:Float) {
-	if (controls.SWITCHMOD) {
-		persistentUpdate = !(persistentDraw = true);
-		openSubState(new ModSwitchMenu());
-	}
-	if (FlxG.keys.justPressed.SEVEN) {
-		persistentUpdate = !(persistentDraw = true);
-		openSubState(new EditorPicker());
-	}
 	if (FlxG.keys.justPressed.DOWN || FlxG.keys.justPressed.RIGHT)
 		changeSelect(1);
 	if (FlxG.keys.justPressed.UP || FlxG.keys.justPressed.LEFT)
@@ -58,6 +50,7 @@ function update(elapsed:Float) {
         trace(levels[curSelected]);
         FlxG.switchState(new ModState("PlatformerState", levels[curSelected]));
 	}
+    if (controls.BACK) FlxG.switchState(new MainMenuState());
 }
 
 function changeSelect(cur:Int) {
