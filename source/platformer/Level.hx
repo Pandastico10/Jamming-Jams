@@ -3,6 +3,7 @@ import openfl.Assets;
 import flixel.group.FlxGroup;
 import haxe.io.Path;
 import platformer.Cannon;
+import platformer.DeathCounter;
 import Xml;
 
 class Level {
@@ -11,6 +12,7 @@ class Level {
 	public var bpm:Int = 136;
 	public var aiLvl:Int = 0;
 	public var levelWidth:Int = 0;
+	public var deaths:Int = 0;
 
 	public var playerX:Int = 0;
 	public var playerY:Int = 64;
@@ -40,6 +42,8 @@ class Level {
 		eventBoxes = new FlxGroup();
 
 		loadLevelInfo(levelFile);
+
+		deaths = DeathCounter.load(level);
 
 		wideLevel = levelWidth > 768;
 
@@ -78,8 +82,8 @@ class Level {
 		if (stages.length == 0)
 			return;
 
-		stage = FlxMath.wrap(stage, 0, stages.length - 1);
-		curStage = stage;
+		curStage += stage;
+		if (curStage > stages.length - 1) return;
 
 		clearStage();
 
@@ -133,6 +137,7 @@ class Level {
 		player.y = playerY;
 
 		FlxG.sound.play(Paths.sound("sfxDeath"));
+		deaths = DeathCounter.add(level);
 	}
 
 	public function shootCannon(type:String, player:FlxObject) {

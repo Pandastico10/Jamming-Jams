@@ -6,6 +6,7 @@ public var level:Level;
 public var player:Player;
 var script:Script;
 public var blend = new FlxSprite();
+public var deathCounter:FlxText;
 public var camGame:FlxCamera = new FlxCamera();
 public var camBg:FlxCamera = new FlxCamera();
 public var camHUD:FlxCamera = new FlxCamera();
@@ -38,6 +39,11 @@ function create() {
 	player.jumpAmm = level.maxJumpAmm;
 	add(player);
 	player.test();
+	//add hud
+	deathCounter = new FlxText(0, FlxG.height - 32, FlxG.width, "Deaths: " + level.deaths);
+	JamUtils.setupText(deathCounter, 32, 'left');
+	add(deathCounter);
+	deathCounter.cameras = [camHUD];
 
 	for (path in Paths.getFolderContent("data/scripts/")) {
 		if (Path.extension(path) == "hx" && Path.withoutExtension(path) == level.level) {
@@ -54,6 +60,7 @@ function create() {
 }
 
 function update(elapsed:Float) {
+	deathCounter.text = "Deaths: "+ level.deaths;
 	FlxG.overlap(level.eventBoxes, player, nextStage);
 	level.update(player);
 	if (controls.BACK)
@@ -67,9 +74,10 @@ function update(elapsed:Float) {
 }
 
 function nextStage() {
+	if(level.curStage == level.stages.length - 1) FlxG.switchState(new MainMenuState());
 	player.x = level.playerX;
 	player.y = level.playerY;
-	level.loadStage(level.curStage + 1);
+	level.loadStage(1);
 }
 
 function beatHit(curBeat:Int) {}

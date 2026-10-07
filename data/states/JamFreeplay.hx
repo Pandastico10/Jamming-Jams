@@ -47,7 +47,6 @@ function update(elapsed:Float) {
 	if (FlxG.keys.justPressed.UP || FlxG.keys.justPressed.LEFT)
 		changeSelect(-1);
 	if (FlxG.keys.justPressed.ENTER) {
-        trace(levels[curSelected]);
         FlxG.switchState(new ModState("PlatformerState", levels[curSelected]));
 	}
     if (controls.BACK) FlxG.switchState(new MainMenuState());
