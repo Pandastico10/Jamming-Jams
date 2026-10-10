@@ -19,24 +19,22 @@ var textX:Int = 125;
 var textY:Int = 85;
 var textSep:Int = 62.5;
 
-var what:Array<String> = [
-	"Play the Main Story of the mod",
-	"Check out treasure town and replay songs here!.",
-	"Change your options here.",
-	"Take the Personality Test again.",
-	"Check out the mod's extra content!"
-];
+var scanline = new CustomShader('scanline');
 
 function create() {
 	CoolUtil.playMenuSong();
+	if (FlxG.save.data.shaders) {
+		FlxG.camera.addShader(scanline);
+	}
 	// if (FlxG.save.data.freeplayUnlocked)
 		unlocked[1] = true;
-	if (FlxG.save.data.editorUnlocked)
+	// if (FlxG.save.data.editorUnlocked)
 		unlocked[4] = true;
 
 	for (i in 0...options.length) {
 		var txt = new FlxText(textX, textY + i * textSep, FlxG.width, options[i]);
 		add(txt);
+		JamUtils.setupText(txt, 24, 'left', "Small.otf");
 		texts.push(txt);
 	}
     changeSelect(0);

@@ -107,6 +107,13 @@ very basic but thats fine since its the max of my artistic abilities
 also also did some veeery basic and barebones menu states for now 
 so testers can access levels n shit yeahh
 
+08/10
+ok so i realized way too late that i forgot to write these but yesterday i took another break and today
+i got the OfficeState working, being a combination of the normal platformer state with the room class
+also got some menus working and a lil bit better looking, and ssome friends lended me some of their mashups to use
+probably as freeplay levels but yeah, ince i got the office class going i think i should worrk on their mechanics now
+oh yeah i guess i made a death counter  and a time counter thing too
+
 ------------------------------------------------------
 
 firstly here's the game concept which i kinda have finalized

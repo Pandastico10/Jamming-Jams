@@ -21,6 +21,7 @@ class Level {
 	public var cannons:FlxGroup;
 	public var boxes:FlxGroup;
 	public var eventBoxes:FlxGroup;
+	public var backgroundSprites:FlxGroup;
 
 	public var stages:Array<String> = [];
 	public var stageBoxes:Array<Array<Dynamic>> = [];
@@ -30,9 +31,15 @@ class Level {
 	public var curStage:Int = 0;
 	public var gridSize:Int = 32;
 
+	var time:Float = 0;
+
 	public var camGame:FlxCamera;
 
 	var wideLevel:Bool = false;
+
+	public var background:FlxSprite;
+	public var backgroundOverlay:FlxSprite;
+	public var backgroundShader = new CustomShader(FlxG.save.data.bgs);
 
 	public function new(levelFile:String = "current", ?camera:FlxCamera) {
 		camGame = camera != null ? camera : FlxG.camera;
@@ -40,7 +47,9 @@ class Level {
 		cannons = new FlxGroup();
 		boxes = new FlxGroup();
 		eventBoxes = new FlxGroup();
+		backgroundSprites = new FlxGroup();
 
+		createBackground();
 		loadLevelInfo(levelFile);
 
 		deaths = DeathCounter.load(level);
@@ -50,7 +59,7 @@ class Level {
 		loadStage(curStage);
 	}
 
-	public function update(player:FlxObject) {
+	public function update(player:FlxObject, elapsed:Float) {
 		if (wideLevel)
 			FlxSpriteUtil.screenWrap(player, false, false);
 		else
@@ -59,6 +68,8 @@ class Level {
 		FlxG.collide(boxes, player);
 
 		updateCannons(player);
+		time += elapsed;
+		backgroundShader.iTime = time;
 	}
 
 	function updateCannons(player:FlxObject) {
@@ -83,7 +94,8 @@ class Level {
 			return;
 
 		curStage += stage;
-		if (curStage > stages.length - 1) return;
+		if (curStage > stages.length - 1)
+			return;
 
 		clearStage();
 
@@ -109,6 +121,28 @@ class Level {
 			cannon.cameras = [camGame];
 			cannons.add(cannon);
 		}
+	}
+
+	function createBackground() {
+		background = new FlxSprite();
+		background.makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
+		background.scrollFactor.set(0, 0);
+		background.cameras = [camGame];
+		background.visible = true;
+
+		if (FlxG.save.data.bg) {
+			background.shader = backgroundShader;
+		}
+
+		backgroundOverlay = new FlxSprite();
+		backgroundOverlay.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		backgroundOverlay.alpha = 0.985;
+		backgroundOverlay.scrollFactor.set(0, 0);
+		backgroundOverlay.cameras = [camGame];
+		backgroundOverlay.visible = true;
+
+		backgroundSprites.add(background);
+		backgroundSprites.add(backgroundOverlay);
 	}
 
 	function clearStage() {

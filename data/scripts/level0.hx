@@ -1,5 +1,9 @@
 // mostly used for bg stuff only and specific events
 typing.onStart.add(() -> {
+	if (isOffice) {
+		active = false;
+		room.gameon = true;
+	}
 	blend.makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
 	blend.alpha = 0;
 	blend.cameras = [camHUD];
@@ -7,6 +11,10 @@ typing.onStart.add(() -> {
 	FlxTween.tween(blend, {alpha: 0.75}, 2, {ease: FlxEase.cubeOut});
 });
 typing.onComplete.add(() -> {
+	if (isOffice) {
+		active = true;
+		room.gameon = false;
+	}
 	player.test();
 	FlxTween.tween(blend, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
 	FlxTween.tween(typing, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
@@ -16,13 +24,13 @@ typing.onProgress.add(() -> {
 	typing.screenCenter(); // re-centers the text to the screen on every new character typed.
 });
 function create() {
-	//stop everything if dialogue exists aka this script
+	// stop everything if dialogue exists aka this script
 	CoolUtil.playMusic(null, true, 0, true, 0);
 	player.test();
-	//start dialogue + setup
+	// start dialogue + setup
 	JamUtils.startDialogue(typing, "json/dialogue");
 	add(typing);
-	JamUtils.setupText(typing, 48);
+	JamUtils.setupText(typing, 48, 'center', 'Outline.ttf');
 	typing.cameras = [camHUD];
 	typing.sounds = [FlxG.sound.load(Paths.sound("talk"))];
 }

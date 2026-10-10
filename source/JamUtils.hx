@@ -43,14 +43,14 @@ class JamUtils {
      * @param size Size of the text
      * @param alignment Text alignment ("center" or "left")
      */
-    public function setupText(text:FlxText, ?size:Int = 72, ?alignment:String = "center")
+    public function setupText(text:FlxText, ?size:Int = 72, ?alignment:String = "center", ?font:String = "outline.ttf")
     {
         if (size == null)
         size = 72;
 
     if (alignment == null)
         alignment = "center";
-    text.font = Paths.font("outline.ttf");
+    text.font = Paths.font(font);
     text.size = size;
     text.color = FlxColor.WHITE;
     text.alignment = alignment;

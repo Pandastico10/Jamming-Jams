@@ -11,6 +11,7 @@ public var camGame:FlxCamera = new FlxCamera();
 public var camBg:FlxCamera = new FlxCamera();
 public var camHUD:FlxCamera = new FlxCamera();
 public var typing:FunkinTypeText = new FunkinTypeText(0, 0, FlxG.width, 8);
+public var isOffice:Bool = false;
 
 // game shaders
 var scanline = new CustomShader('scanline');
@@ -30,6 +31,7 @@ function create() {
 	}
 	// load the level  name // assign cam
 	level = new Level(data, camGame);
+	add(level.backgroundSprites);
 	add(level.cannons);
 	add(level.boxes);
 	add(level.eventBoxes);
@@ -40,8 +42,8 @@ function create() {
 	add(player);
 	player.test();
 	//add hud
-	deathCounter = new FlxText(0, FlxG.height - 32, FlxG.width, "Deaths: " + level.deaths);
-	JamUtils.setupText(deathCounter, 32, 'left');
+	deathCounter = new FlxText(0, FlxG.height - 48, FlxG.width, "Deaths: " + level.deaths);
+	JamUtils.setupText(deathCounter, 48, 'left', 'Small.otf');
 	add(deathCounter);
 	deathCounter.cameras = [camHUD];
 
@@ -62,7 +64,7 @@ function create() {
 function update(elapsed:Float) {
 	deathCounter.text = "Deaths: "+ level.deaths;
 	FlxG.overlap(level.eventBoxes, player, nextStage);
-	level.update(player);
+	level.update(player, elapsed);
 	if (controls.BACK)
 		FlxG.switchState(new FreeplayState());
 	if (controls.ACCEPT) {
