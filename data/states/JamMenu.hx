@@ -15,17 +15,28 @@ var unlocked:Array<Bool> = [true, false, true, true, false];
 var texts:Array<FlxText> = [];
 var curSelected:Int = 0;
 
+var bg = new FlxSprite();
+
 var textX:Int = 125;
 var textY:Int = 85;
 var textSep:Int = 62.5;
+var time:Float = 0;
 
 var scanline = new CustomShader('scanline');
+var black = new CustomShader('blackshader');
 
 function create() {
 	CoolUtil.playMenuSong();
 	if (FlxG.save.data.shaders) {
 		FlxG.camera.addShader(scanline);
 	}
+
+	bg = new FlxBackdrop(Paths.image('game/square'), FlxAxes.XY, 0, 0);
+	bg.setGraphicSize(FlxG.width, FlxG.height);
+	bg.velocity.set(-30, 7.5);
+	add(bg);
+	bg.screenCenter();
+	bg.shader = black;
 	// if (FlxG.save.data.freeplayUnlocked)
 		unlocked[1] = true;
 	// if (FlxG.save.data.editorUnlocked)
@@ -34,7 +45,7 @@ function create() {
 	for (i in 0...options.length) {
 		var txt = new FlxText(textX, textY + i * textSep, FlxG.width, options[i]);
 		add(txt);
-		JamUtils.setupText(txt, 24, 'left', "Small.otf");
+		JamUtils.setupText(txt, 32, 'left', "Small.otf");
 		texts.push(txt);
 	}
     changeSelect(0);
@@ -42,6 +53,8 @@ function create() {
 }
 
 function update(elapsed:Float) {
+	time += elapsed;
+	black.iTime = time*4;
 	if (controls.SWITCHMOD) {
 		persistentUpdate = !(persistentDraw = true);
 		openSubState(new ModSwitchMenu());

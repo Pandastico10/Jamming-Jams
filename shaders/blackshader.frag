@@ -28,7 +28,7 @@ uniform float iTime;
 float colorSteps = 8.;
 float scale = 0.25;
 float timeFactor = 0.03;
-float blur = 1.;
+float blur = 1;
 
 float rgbToGray(vec4 rgba) {
 	const vec3 W = vec3(0.2125, 0.7154, 0.0721);

@@ -7,11 +7,14 @@ public var player:Player;
 var script:Script;
 public var blend = new FlxSprite();
 public var deathCounter:FlxText;
+public var timeCounter:FlxText;
 public var camGame:FlxCamera = new FlxCamera();
 public var camBg:FlxCamera = new FlxCamera();
 public var camHUD:FlxCamera = new FlxCamera();
 public var typing:FunkinTypeText = new FunkinTypeText(0, 0, FlxG.width, 8);
 public var isOffice:Bool = false;
+public var active:Bool = true;
+public var time:Float = 0;
 
 // game shaders
 var scanline = new CustomShader('scanline');
@@ -41,11 +44,16 @@ function create() {
 	player.jumpAmm = level.maxJumpAmm;
 	add(player);
 	player.test();
-	//add hud
+	// add hud
 	deathCounter = new FlxText(0, FlxG.height - 48, FlxG.width, "Deaths: " + level.deaths);
 	JamUtils.setupText(deathCounter, 48, 'left', 'Small.otf');
 	add(deathCounter);
 	deathCounter.cameras = [camHUD];
+
+	timeCounter = new FlxText(FlxG.width - 155, FlxG.height - 48, FlxG.width, "");
+	JamUtils.setupText(timeCounter, 48, 'left', 'Small.otf');
+	add(timeCounter);
+	timeCounter.cameras = [camHUD];
 
 	for (path in Paths.getFolderContent("data/scripts/")) {
 		if (Path.extension(path) == "hx" && Path.withoutExtension(path) == level.level) {
@@ -62,21 +70,30 @@ function create() {
 }
 
 function update(elapsed:Float) {
-	deathCounter.text = "Deaths: "+ level.deaths;
+	deathCounter.text = "Deaths: " + level.deaths;
+	if (active) {
+		time += elapsed * 1000;
+		timeCounter.text = CoolUtil.timeToStr(time);
+	}
 	FlxG.overlap(level.eventBoxes, player, nextStage);
 	level.update(player, elapsed);
 	if (controls.BACK)
 		FlxG.switchState(new FreeplayState());
-	if (controls.ACCEPT) {
-		if (typing.isTyping)
-			typing.skip();
-		else
-			typing.continueDialogue();
+	if (!active) {
+		if (controls.ACCEPT) {
+			if (typing.isTyping)
+				typing.skip();
+			else
+				typing.continueDialogue();
+		}
 	}
 }
 
 function nextStage() {
-	if(level.curStage == level.stages.length - 1) FlxG.switchState(new MainMenuState());
+	if (level.curStage == level.stages.length - 1) {
+		DeathCounter.saveBestTime(level.level, time);
+		FlxG.switchState(new MainMenuState());
+	}
 	player.x = level.playerX;
 	player.y = level.playerY;
 	level.loadStage(1);

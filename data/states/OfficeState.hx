@@ -146,7 +146,7 @@ function update(elapsed:Float) {
 						level.backgroundOverlay.visible = true;
 						level.backgroundOverlay.alpha = 1;
 
-						FlxTween.tween(level.backgroundOverlay, {alpha: 0.985}, 0.5);
+						FlxTween.tween(level.backgroundOverlay, {alpha: 0.975}, 0.5);
 					} else {
 						level.backgroundOverlay.visible = false;
 						level.backgroundOverlay.alpha = 1;

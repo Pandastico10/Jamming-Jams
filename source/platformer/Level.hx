@@ -1,4 +1,5 @@
 import flixel.util.FlxSpriteUtil;
+import openfl.display.BlendMode;
 import openfl.Assets;
 import flixel.group.FlxGroup;
 import haxe.io.Path;
@@ -38,6 +39,8 @@ class Level {
 	var wideLevel:Bool = false;
 
 	public var background:FlxSprite;
+	public var backgroundTop:FlxSprite;
+	public var vignette:FlxSprite;
 	public var backgroundOverlay:FlxSprite;
 	public var backgroundShader = new CustomShader(FlxG.save.data.bgs);
 
@@ -130,19 +133,35 @@ class Level {
 		background.cameras = [camGame];
 		background.visible = true;
 
+		backgroundTop = new FlxSprite();
+		backgroundTop.makeGraphic(FlxG.width, FlxG.height, 0xFF131313);
+		backgroundTop.alpha = 0;
+		backgroundTop.blend = BlendMode.ADD;
+		backgroundTop.scrollFactor.set(0, 0);
+		backgroundTop.cameras = [camGame];
+		backgroundTop.visible = true;
+
 		if (FlxG.save.data.bg) {
 			background.shader = backgroundShader;
 		}
+		vignette = new FlxSprite().loadGraphic(Paths.image("game/vignette"));
+		vignette.setGraphicSize(FlxG.width, FlxG.height);
+		vignette.screenCenter();
+		vignette.scrollFactor.set(0, 0);
+		vignette.cameras = [camGame];
+		vignette.visible = true;
 
 		backgroundOverlay = new FlxSprite();
 		backgroundOverlay.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		backgroundOverlay.alpha = 0.985;
+		backgroundOverlay.alpha = 0.975;
 		backgroundOverlay.scrollFactor.set(0, 0);
 		backgroundOverlay.cameras = [camGame];
 		backgroundOverlay.visible = true;
 
 		backgroundSprites.add(background);
+		backgroundSprites.add(vignette);
 		backgroundSprites.add(backgroundOverlay);
+		backgroundSprites.add(backgroundTop);
 	}
 
 	function clearStage() {

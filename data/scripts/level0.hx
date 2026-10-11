@@ -1,9 +1,10 @@
 // mostly used for bg stuff only and specific events
+import flixel.util.FlxSpriteUtil;
+
 typing.onStart.add(() -> {
-	if (isOffice) {
-		active = false;
+	if (isOffice)
 		room.gameon = true;
-	}
+	active = false;
 	blend.makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
 	blend.alpha = 0;
 	blend.cameras = [camHUD];
@@ -11,10 +12,9 @@ typing.onStart.add(() -> {
 	FlxTween.tween(blend, {alpha: 0.75}, 2, {ease: FlxEase.cubeOut});
 });
 typing.onComplete.add(() -> {
-	if (isOffice) {
-		active = true;
+	if (isOffice)
 		room.gameon = false;
-	}
+	active = true;
 	player.test();
 	FlxTween.tween(blend, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
 	FlxTween.tween(typing, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
@@ -39,6 +39,8 @@ function update(elapsed:Float) {}
 function nextStage(curStage:Int) {}
 
 function measureHit(curMeasure:Int) {
+	level.backgroundTop.alpha = 1;
+	FlxSpriteUtil.fadeOut(level.backgroundTop, 1);
 	level.shootCannon("normal", player);
 	level.shootCannon("fast", player);
 	level.shootCannon("door", player);

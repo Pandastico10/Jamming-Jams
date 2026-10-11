@@ -10,6 +10,8 @@ class Player extends FlxSprite {
 	public var playable:Bool = false;
 	public var ogX:Float;
 	public var ogY:Float;
+	public var jumpTimer:Float = 0;
+	public var maxJumpTime:Float = 0.25;
 
 	public var jumpSfx:FlxSound = new FlxSound();
 
@@ -42,54 +44,72 @@ class Player extends FlxSprite {
 			maxVelocity.x = 0;
 			velocity.x = 0;
 			velocity.y = 0;
+			jumpTimer = 0;
 		}
 	}
 
 	override public function update(elapsed:Float) {
-		if (playable) {
-			if ((FlxG.keys.justPressed.UP || FlxG.keys.justPressed.W) && isTouching(0x1000)) {
-				velocity.y = -jumpStrength;
-				jumpSfx.play();
-			}
-
-			if ((FlxG.keys.justPressed.UP || FlxG.keys.justPressed.W) && !isTouching(0x1000) && jumpAmm > 0) {
-				jumpSfx.pitch += 0.1;
-				jumpSfx.play();
-
-				velocity.y = -jumpStrength;
-				jumpAmm--;
-
-				FlxTween.cancelTweensOf(this);
-				angle = 0;
-
-				FlxTween.tween(this, {angle: -360}, 0.5, {
-					ease: FlxEase.cubeOut
-				});
-			}
-
-			if (isTouching(0x1000)) {
-				jumpAmm = maxJumpAmm;
-				angle = 0;
-				jumpSfx.pitch = 1;
-			}
-
-			if (FlxG.keys.justPressed.DOWN || FlxG.keys.justPressed.S && !isTouching(0x1000)) {
-				velocity.y = poundStrength;
-				FlxG.sound.play(Paths.sound("sfxPound"));
-			}
-
-			acceleration.x = 0;
-
-			if (FlxG.keys.pressed.LEFT || FlxG.keys.pressed.A) {
-				flipX = true;
-				acceleration.x -= drag.x;
-			}
-
-			if (FlxG.keys.pressed.RIGHT || FlxG.keys.pressed.D) {
-				flipX = false;
-				acceleration.x += drag.x;
-			}
+		if (!playable) {
+			super.update(elapsed);
+			return;
 		}
+
+		if ((FlxG.keys.pressed.UP || FlxG.keys.pressed.W)) {
+			jumpTimer += elapsed;
+
+			if (jumpTimer < 0.025)
+				velocity.y = -jumpStrength;
+		}
+
+		if ((FlxG.keys.justPressed.UP || FlxG.keys.justPressed.W) && isTouching(0x1000)) {
+			jumpSfx.play();
+		}
+
+		if ((FlxG.keys.justReleased.UP || FlxG.keys.justReleased.W) && jumpTimer < 0.25) {
+			velocity.y += 200;
+			jumpTimer = 0.25;
+		}
+
+		if ((FlxG.keys.justPressed.UP || FlxG.keys.justPressed.W) && !isTouching(0x1000) && jumpAmm > 0) {
+			jumpSfx.pitch += 0.1;
+			jumpSfx.play();
+
+			velocity.y = -jumpStrength;
+			jumpAmm--;
+			jumpTimer = 0;
+
+			FlxTween.cancelTweensOf(this);
+			angle = 0;
+
+			FlxTween.tween(this, {angle: -360}, 0.5, {
+				ease: FlxEase.cubeOut
+			});
+		}
+
+		if (isTouching(0x1000)) {
+			jumpAmm = maxJumpAmm;
+			angle = 0;
+			jumpSfx.pitch = 1;
+			jumpTimer = 0;
+		}
+
+		if (FlxG.keys.justPressed.DOWN || FlxG.keys.justPressed.S && !isTouching(0x1000)) {
+			velocity.y = poundStrength;
+			FlxG.sound.play(Paths.sound("sfxPound"));
+		}
+
+		acceleration.x = 0;
+
+		if (FlxG.keys.pressed.LEFT || FlxG.keys.pressed.A) {
+			flipX = true;
+			acceleration.x -= drag.x;
+		}
+
+		if (FlxG.keys.pressed.RIGHT || FlxG.keys.pressed.D) {
+			flipX = false;
+			acceleration.x += drag.x;
+		}
+
 		super.update(elapsed);
 	}
 }
