@@ -21,7 +21,10 @@ public var level:String = "level0";
 public var music:String = "field";
 var levelWidth:Int = 0;
 public var bpm:Int = 136;
-public var aiLvl:Int = 0;
+public var leftAi:Int = 0;
+public var rightAi:Int = 0;
+public var backAi:Int = 0;
+public var upAi:Int = 0;
 
 // player vars default
 public var playerX:Int = 0;
@@ -36,6 +39,7 @@ public var blend1 = new FlxSprite();
 public var debugLayer = new FlxGroup();
 public var toolSprites = new FlxGroup();
 public var stageTxt:FlxText;
+public var infotxt:FlxText;
 
 // groups & other stuff
 public var stages:Array<String> = [];
@@ -112,19 +116,26 @@ function create() {
 							"maxJumpAmm" => player.maxJumpAmm,
 							"playerX" => playerX,
 							"playerY" => playerY,
-							"aiLvl" => aiLvl,
+							"leftAi" => leftAi,
+							"rightAi" => rightAi,
+							"backAi" => backAi,
+							"upAi" => upAi,
 							"levelWidth" => levelWidth,
-							"applyInfo" => function(newLevel:String, newMusic:String, newBpm:Int, newX:Int, newY:Int, newJumps:Int, newAi:Int, newWidth:Int) {
+							"applyInfo" => function(newLevel:String, newMusic:String, newBpm:Int, newX:Int, newY:Int, newJumps:Int, newWidth:Int,
+									newLeftAi:Int, newRightAi:Int, newBackAi:Int, newUpAi:Int) {
 								level = newLevel;
 								music = newMusic;
 								bpm = newBpm;
-
 								playerX = newX;
 								playerY = newY;
 								maxJumpAmm = newJumps;
 								player.maxJumpAmm = newJumps;
-								aiLvl = newAi;
 								levelWidth = newWidth;
+
+								leftAi = newLeftAi;
+								rightAi = newRightAi;
+								backAi = newBackAi;
+								upAi = newUpAi;
 							}
 						]));
 					}
@@ -278,6 +289,10 @@ function create() {
 	stageTxt.screenCenter();
 	stageTxt.alpha = 0;
 	add(stageTxt);
+	infotxt = new FlxText(0, FlxG.height - 70, FlxG.width, "T & Y to Scroll blocks\nO & P to Scroll stages\nI to copy last stage");
+	infotxt.setFormat(null, 16, FlxColor.WHITE);
+	infotxt.cameras = [camHud];
+	add(infotxt);
 	select(0);
 	topMenuSpr = new UITopMenu(topMenu);
 	topMenuSpr.cameras = [camHud];
@@ -472,8 +487,11 @@ function buildStage():String {
 	saveToXml(xml, "name", level);
 	saveToXml(xml, "music", music);
 	saveToXml(xml, "bpm", bpm);
-	saveToXml(xml, "aiLvl", aiLvl);
 	saveToXml(xml, "levelWidth", levelWidth);
+	saveToXml(xml, "leftAi", leftAi, 0);
+	saveToXml(xml, "rightAi", rightAi, 0);
+	saveToXml(xml, "backAi", backAi, 0);
+	saveToXml(xml, "upAi", upAi, 0);
 
 	var player = Xml.createElement("player");
 
@@ -680,8 +698,11 @@ function loadLevelInfo() {
 	level = xml.get("name");
 	music = xml.get("music");
 	bpm = Std.parseInt(xml.get("bpm"));
-	aiLvl = Std.parseInt(xml.get("aiLvl"));
 	levelWidth = Std.parseInt(xml.get("levelWidth"));
+	leftAi = Std.parseInt(xml.get("leftAi") ?? "0");
+	rightAi = Std.parseInt(xml.get("rightAi") ?? "0");
+	backAi = Std.parseInt(xml.get("backAi") ?? "0");
+	upAi = Std.parseInt(xml.get("upAi") ?? "0");
 
 	stages = [];
 	stageBoxes = [];

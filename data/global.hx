@@ -5,8 +5,8 @@ import JamUtils;
 static var JamUtils = new JamUtils();
 
 function update(elapsed){
-    if (FlxG.keys.justPressed.X) FlxG.switchState(new ModState("Test"));
-    if (FlxG.keys.justPressed.G) FlxG.switchState(new ModState("PlatformerState"));
+    // if (FlxG.keys.justPressed.L) FlxG.switchState(new ModState("Test"));
+    // if (FlxG.keys.justPressed.M) FlxG.switchState(new ModState("PlatformerState"));
 }
 
 function new() {
@@ -19,6 +19,7 @@ function new() {
     //legit no idea what i wanted to do with this
     //i membered
     FlxG.save.data.bgs ??= 'square';
+    FlxG.save.data.rooms ??= 'room1';
     FlxG.save.flush();
     windowShit(1024, 768); // script by care
 }

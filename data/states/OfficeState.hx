@@ -1,27 +1,28 @@
 import office.Room;
+import office.MonsterManager;
 import platformer.Level;
 import platformer.Player;
 import FunkinTypeText;
-import openfl.geom.Matrix;
 
 public var room:Room;
 public var level:Level;
 public var player:Player;
+public var manager:Manager;
 var script:Script;
 public var typing:FunkinTypeText = new FunkinTypeText(0, 0, FlxG.width, 8);
-public var deathCounter:FlxText;
-public var timeCounter:FlxText;
 public var blend = new FlxSprite();
 public var blend2 = new FlxSprite();
 public var vignette = new FlxSprite();
-public var flash = new FlxSprite();
+public var flash1 = new FlxSprite();
+public var flash0 = new FlxSprite();
+public var drone = new FlxSound();
+public var flashOn:Bool;
 public var camOffice:FlxCamera = new FlxCamera();
 public var camGame:FlxCamera = new FlxCamera();
 public var camHUD:FlxCamera = new FlxCamera();
 public var gameon:Bool = false;
 public var active:Bool = true;
 public var isOffice:Bool = true;
-public var time:Float = 0;
 
 function create() {
 	FlxG.cameras.add(camOffice, false);
@@ -39,10 +40,12 @@ function create() {
 	add(room.sprites);
 
 	level = new Level(data, camGame);
+
 	add(level.backgroundSprites);
 	add(level.cannons);
 	add(level.boxes);
 	add(level.eventBoxes);
+
 	level.background.visible = false;
 
 	player = new Player(level.playerX, level.playerY);
@@ -51,6 +54,8 @@ function create() {
 	player.cameras = [camGame];
 	add(player);
 	player.test();
+
+	manager = new Manager(level.leftAi, level.rightAi, level.backAi, level.upAi);
 
 	if (level.levelWidth > 768) {
 		camGame.setScrollBoundsRect(0, 0, level.levelWidth, camGame.height, true);
@@ -65,12 +70,19 @@ function create() {
 	add(blend2);
 
 	// add hud
-	flash = new FlxSprite().loadGraphic(Paths.image("game/flash"));
-	flash.screenCenter();
-	flash.setGraphicSize(FlxG.width * 2.5, FlxG.height * 2);
-	flash.alpha = 0.75;
-	flash.cameras = [camHUD];
-	add(flash);
+	flash1 = new FlxSprite().loadGraphic(Paths.image("game/flash1"));
+	flash1.screenCenter();
+	flash1.setGraphicSize(FlxG.width * 2.5, FlxG.height * 2);
+	flash1.alpha = 0.8;
+	flash1.cameras = [camHUD];
+	add(flash1);
+
+	flash0 = new FlxSprite().loadGraphic(Paths.image("game/flash0"));
+	flash0.screenCenter();
+	flash0.setGraphicSize(FlxG.width * 2.5, FlxG.height * 2);
+	flash0.alpha = 0.8;
+	flash0.cameras = [camHUD];
+	add(flash0);
 
 	vignette = new FlxSprite().loadGraphic(Paths.image("game/vignette"));
 	vignette.setGraphicSize(FlxG.width, FlxG.height);
@@ -78,15 +90,8 @@ function create() {
 	vignette.cameras = [camHUD];
 	add(vignette);
 
-	deathCounter = new FlxText(0, FlxG.height - 48, FlxG.width, "Deaths: " + level.deaths);
-	JamUtils.setupText(deathCounter, 48, 'left', 'Small.otf');
-	add(deathCounter);
-	deathCounter.cameras = [camHUD];
-
-	timeCounter = new FlxText(FlxG.width - 155, FlxG.height - 48, FlxG.width, "");
-	JamUtils.setupText(timeCounter, 48, 'left', 'Small.otf');
-	add(timeCounter);
-	timeCounter.cameras = [camHUD];
+	level.hudElements.cameras = [camHUD];
+	add(level.hudElements);
 
 	for (path in Paths.getFolderContent("data/scripts/")) {
 		if (Path.extension(path) == "hx" && Path.withoutExtension(path) == level.level) {
@@ -95,12 +100,19 @@ function create() {
 		}
 	}
 	CoolUtil.playMusic(Paths.music(level.music), true, 0.8, true, level.bpm);
+	drone.loadEmbedded(Paths.music("drone"), true);
+	drone.group = FlxG.sound.defaultMusicGroup;
+	FlxG.sound.defaultMusicGroup.add(drone);
+	drone.volume = 0;
+	drone.play();
 }
 
 function update(elapsed:Float) {
 	var mouse = FlxG.mouse.getScreenPosition(camHUD);
-	flash.x = mouse.x - flash.width / 2;
-	flash.y = mouse.y - flash.height / 2;
+	flashOn = FlxG.mouse.pressed;
+
+	flash1.x = mouse.x - flash1.width / 2;
+	flash1.y = mouse.y - flash1.height / 2;
 	if (controls.BACK)
 		FlxG.switchState(new MainMenuState());
 	room.update(elapsed);
@@ -114,14 +126,18 @@ function update(elapsed:Float) {
 	}
 
 	if (active) {
-		deathCounter.text = "Deaths: " + level.deaths;
-		time += elapsed * 1000;
-		timeCounter.text = CoolUtil.timeToStr(time);
-
 		level.update(player, elapsed);
+		manager.update(elapsed);
 		FlxG.overlap(level.eventBoxes, player, nextStage);
 
-		if (FlxG.keys.justPressed.H) {
+		flash1.visible = flashOn;
+		flash0.visible = !flashOn;
+		if (FlxG.mouse.justPressed && !gameon)
+			FlxG.sound.play(Paths.sound('sfxFlashlightOn'));
+		if (FlxG.mouse.justReleased && !gameon)
+			FlxG.sound.play(Paths.sound('sfxFlashlightOff'));
+
+		if (FlxG.keys.justPressed.W && !room.lookingBehind) {
 			gameon = !gameon;
 			room.gameon = gameon;
 			player.playable = gameon;
@@ -133,8 +149,11 @@ function update(elapsed:Float) {
 				room.shaderRight,
 				room.shaderTop,
 				room.shaderBottom
-			])
-				FlxTween.tween(shader, {fov: gameon ? 3 : 0.5}, 0.75, {ease: gameon ? FlxEase.cubeInOut : FlxEase.quartOut});
+			]) {
+				FlxTween.tween(shader, {fov: gameon ? 3 : 0.5}, 0.75, {
+					ease: gameon ? FlxEase.cubeInOut : FlxEase.quartOut
+				});
+			}
 
 			FlxTween.cancelTweensOf(camGame);
 			FlxTween.cancelTweensOf(level.backgroundOverlay);
@@ -153,21 +172,34 @@ function update(elapsed:Float) {
 					}
 				}
 			});
+
 			FlxTween.tween(blend2, {alpha: gameon ? 1 : 0}, gameon ? 0.5 : 0.1);
 			FlxTween.tween(vignette, {alpha: gameon ? 0 : 1}, gameon ? 0.5 : 0.1);
-			FlxTween.tween(flash, {alpha: gameon ? 0 : 0.75}, gameon ? 0.5 : 0.1);
-			FlxG.sound.music.volume = gameon ? 0.8 : 0.25;
+			FlxTween.tween(flash0, {alpha: gameon ? 0 : 0.75}, gameon ? 0.5 : 0.1);
+			FlxTween.tween(flash1, {alpha: gameon ? 0 : 0.75}, gameon ? 0.5 : 0.1);
+
+			// FlxG.sound.music.volume = gameon ? 0.8 : 0.25;
+
 			if (!gameon) {
-				level.background.visible = false;
+				FlxG.sound.music.pause();
+				drone.fadeIn(2, 0, 2);
+			} else {
+				FlxG.sound.music.resume();
+				drone.pause();
 			}
+
+			if (!gameon)
+				level.background.visible = false;
 		}
 	}
 }
 
 function nextStage() {
+	FlxG.sound.play(Paths.sound('win'));
 	if (level.curStage == level.stages.length - 1) {
-		DeathCounter.saveBestTime(level.level, time);
+		DeathCounter.saveBestTime(level.level, level.time * 1000);
 		FlxG.switchState(new MainMenuState());
+		return;
 	}
 	player.x = level.playerX;
 	player.y = level.playerY;

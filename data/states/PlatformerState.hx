@@ -6,15 +6,14 @@ public var level:Level;
 public var player:Player;
 var script:Script;
 public var blend = new FlxSprite();
-public var deathCounter:FlxText;
-public var timeCounter:FlxText;
 public var camGame:FlxCamera = new FlxCamera();
 public var camBg:FlxCamera = new FlxCamera();
 public var camHUD:FlxCamera = new FlxCamera();
 public var typing:FunkinTypeText = new FunkinTypeText(0, 0, FlxG.width, 8);
 public var isOffice:Bool = false;
 public var active:Bool = true;
-public var time:Float = 0;
+public var noclip:Bool = false;
+public var canDie:Bool = true;
 
 // game shaders
 var scanline = new CustomShader('scanline');
@@ -35,25 +34,22 @@ function create() {
 	// load the level  name // assign cam
 	level = new Level(data, camGame);
 	add(level.backgroundSprites);
+	add(level.particles);
 	add(level.cannons);
+	
+	add(level.emitter);
 	add(level.boxes);
 	add(level.eventBoxes);
+	add(level.hudElements);
+	
+	level.hudElements.cameras = [camHUD];
 	// add player
 	player = new Player(level.playerX, level.playerY);
 	player.maxJumpAmm = level.maxJumpAmm;
 	player.jumpAmm = level.maxJumpAmm;
 	add(player);
 	player.test();
-	// add hud
-	deathCounter = new FlxText(0, FlxG.height - 48, FlxG.width, "Deaths: " + level.deaths);
-	JamUtils.setupText(deathCounter, 48, 'left', 'Small.otf');
-	add(deathCounter);
-	deathCounter.cameras = [camHUD];
-
-	timeCounter = new FlxText(FlxG.width - 155, FlxG.height - 48, FlxG.width, "");
-	JamUtils.setupText(timeCounter, 48, 'left', 'Small.otf');
-	add(timeCounter);
-	timeCounter.cameras = [camHUD];
+	
 
 	for (path in Paths.getFolderContent("data/scripts/")) {
 		if (Path.extension(path) == "hx" && Path.withoutExtension(path) == level.level) {
@@ -70,12 +66,8 @@ function create() {
 }
 
 function update(elapsed:Float) {
-	deathCounter.text = "Deaths: " + level.deaths;
-	if (active) {
-		time += elapsed * 1000;
-		timeCounter.text = CoolUtil.timeToStr(time);
-	}
 	FlxG.overlap(level.eventBoxes, player, nextStage);
+	if (!noclip && active)
 	level.update(player, elapsed);
 	if (controls.BACK)
 		FlxG.switchState(new FreeplayState());
@@ -90,13 +82,21 @@ function update(elapsed:Float) {
 }
 
 function nextStage() {
+	noclip = true;
 	if (level.curStage == level.stages.length - 1) {
-		DeathCounter.saveBestTime(level.level, time);
+		DeathCounter.saveBestTime(level.level, level.time * 1000);
+		//make open win substate later
 		FlxG.switchState(new MainMenuState());
 	}
+	
+	level.loadStage(1);
+	FlxG.sound.play(Paths.sound("win"));
 	player.x = level.playerX;
 	player.y = level.playerY;
-	level.loadStage(1);
+	//to avoid getting stuck on walls when going back to spawn
+	new FlxTimer().start(0.05, function(_) {
+        noclip = false;
+    });
 }
 
 function beatHit(curBeat:Int) {}

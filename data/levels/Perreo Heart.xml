@@ -1,5 +1,5 @@
 <!DOCTYPE jam-level>
-<level name="testing upload" music="wonderland" bpm="190" aiLvl="0" levelWidth="2000">
+<level name="Perreo Heart" music="Killer bean" bpm="140" aiLvl="5" levelWidth="2304">
 	<player x="0" y="64" maxJumpAmount="2"/>
 	<stages>
 		<stage name="stage0"/>

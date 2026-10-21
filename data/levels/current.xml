@@ -1,5 +1,5 @@
 <!DOCTYPE jam-level>
-<level music="field" levelWidth="2000" aiLvl="0" bpm="136" name="level0">
+<level rightAi="0" music="field" levelWidth="2000" bpm="136" name="level0" upAi="0" backAi="20" leftAi="0">
 	<player x="32" maxJumpAmount="1" y="192"/>
 	<stages>
 		<stage name="stage0">

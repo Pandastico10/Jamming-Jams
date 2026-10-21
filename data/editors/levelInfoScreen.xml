@@ -28,11 +28,20 @@
         <label text="Max Jumps" x="col(1)" y="curY + 10" />
         <stepper name="maxJumpAmmStepper" value="maxJumpAmm" x="col(1)" y="curY + 18" step="1" width="120" />
 
-        <label text="Ai Level (0 = off)" x="col(1)" y="curY + 90" />
-        <stepper name="aiLvl" value="aiLvl" x="col(1)" y="curY + 90" step="1" width="120" />
+        <label text="Left AI" x="col(0)" y="curY + 170" />
+        <stepper name="leftAiStepper" value="leftAi" x="col(0)" y="curY + 168" step="1" width="120" />
 
-        <label text="Level Width" x="col(1)" y="curY + 180" />
-        <stepper name="levelWidth" value="levelWidth" x="col(1)" y="curY + 180" step="1" width="120" />
+        <label text="Right AI" x="col(1)" y="curY + 170" />
+        <stepper name="rightAiStepper" value="rightAi" x="col(1)" y="curY + 168" step="1" width="120" />
+
+        <label text="Back AI" x="col(0)" y="curY + 240" />
+        <stepper name="backAiStepper" value="backAi" x="col(0)" y="curY + 238" step="1" width="120" />
+
+        <label text="Up AI" x="col(1)" y="curY + 240" />
+        <stepper name="upAiStepper" value="upAi" x="col(1)" y="curY + 238" step="1" width="120" />
+
+        <label text="Level Width" x="col(1)" y="curY + 300" />
+        <stepper name="levelWidth" value="levelWidth" x="col(1)" y="curY + 298" step="1" width="120" />
     </section>
 
     <section>
@@ -44,23 +53,24 @@
         <stepper name="playerYStepper" label="Y" value="playerY" x="last.x + last.bWidth + 20" y="curY + 18" step="1" width="120" />
     </section>
 
-    
+
 
     <exec>
-    function onSave() {
-        applyInfo(
-            levelTextBox.label.text,
-            musicTextBox.label.text,
-            Std.int(bpmStepper.value),
-            Std.int(playerXStepper.value),
-            Std.int(playerYStepper.value),
-            Std.int(maxJumpAmmStepper.value),
-            Std.int(aiLvl.value),
-            Std.int(levelWidth.value)
-        );
-
-        <!-- trace("SAVED LEVEL INFO"); -->
-    }
+        function onSave() {
+                applyInfo(
+                    levelTextBox.label.text,
+                    musicTextBox.label.text,
+                    Std.int(bpmStepper.value),
+                    Std.int(playerXStepper.value),
+                    Std.int(playerYStepper.value),
+                    Std.int(maxJumpAmmStepper.value),
+                    Std.int(levelWidth.value),
+                    Std.int(leftAiStepper.value),
+                    Std.int(rightAiStepper.value),
+                    Std.int(backAiStepper.value),
+                    Std.int(upAiStepper.value)
+                );
+            }
     </exec>
 
 </window>

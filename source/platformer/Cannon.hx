@@ -1,20 +1,26 @@
 import flixel.addons.display.FlxNestedSprite;
 import flixel.util.FlxCollision;
+import flixel.effects.particles.FlxParticle;
+import flixel.effects.particles.FlxTypedEmitter;
 
 class Cannon extends FlxNestedSprite {
 	public var type:String;
 	public var door:FlxNestedSprite;
 	public var toggle:Bool = false;
 	public var cannonSprite:FlxNestedSprite;
+	public var bulletTime:Int = 5;
+	public var emitter:FlxTypedEmitter = new FlxTypedEmitter(0, 0, 5);
 
 	public function new(x:Float, y:Float, type:String = "normal") {
 		super(x, y);
 
 		this.type = type;
 
+		emitter.lifespan.set(0.3, 0.5);
+		emitter.alpha.set(1, 0);
+
 		switch (this.type) {
 			case "normal":
-				
 				makeGraphic(32, 32, FlxColor.TRANSPARENT);
 				setGraphicSize(32, 32);
 				setup(FlxColor.CYAN);
@@ -27,22 +33,26 @@ class Cannon extends FlxNestedSprite {
 				loadGraphic(Paths.image('game/cannon'));
 				setGraphicSize(32, 32);
 				this.color = FlxColor.ORANGE;
+				setup(FlxColor.RED);
 				angle = 0;
 			case "down":
 				loadGraphic(Paths.image('game/cannon'));
 				setGraphicSize(32, 32);
 				this.color = FlxColor.ORANGE;
 				angle = 90;
+				setup(FlxColor.RED);
 			case "left":
 				loadGraphic(Paths.image('game/cannon'));
 				setGraphicSize(32, 32);
 				this.color = FlxColor.ORANGE;
 				angle = 180;
+				setup(FlxColor.RED);
 			case "up":
 				loadGraphic(Paths.image('game/cannon'));
 				setGraphicSize(32, 32);
 				this.color = FlxColor.ORANGE;
 				angle = -90;
+				setup(FlxColor.RED);
 			case "door":
 				loadGraphic(Paths.image('game/door'));
 				// makeGraphic(32, 32, FlxColor.WHITE);
@@ -69,14 +79,19 @@ class Cannon extends FlxNestedSprite {
 	}
 
 	public function setup(col:FlxColor) {
-		cannonSprite = new FlxNestedSprite(this.x, this.y);
-		cannonSprite.loadGraphic(Paths.image('game/cannon'));
-		cannonSprite.color = col;
-		cannonSprite.relativeX = 0;
-		cannonSprite.relativeY = 0;
-		cannonSprite.relativeAngle = 0;
-		cannonSprite.updateHitbox();
-		this.add(cannonSprite);
+		if (this.type == "normal" || this.type == "fast" || this.type == "rotate") {
+			cannonSprite = new FlxNestedSprite(this.x, this.y);
+			cannonSprite.loadGraphic(Paths.image('game/cannon'));
+			cannonSprite.color = col;
+			cannonSprite.relativeX = 0;
+			cannonSprite.relativeY = 0;
+			cannonSprite.relativeAngle = 0;
+			cannonSprite.updateHitbox();
+			this.add(cannonSprite);
+		}
+		if (FlxG.save.data.performance)
+			return;
+		emitter.makeParticles(2, 2, col, 5);
 	}
 
 	public function shoot(x:Float, y:Float) {
@@ -111,11 +126,11 @@ class Cannon extends FlxNestedSprite {
 		bullet.relativeVelocity.x = dx / length * speed;
 		bullet.relativeVelocity.y = dy / length * speed;
 
-		FlxTween.num(0, 2, 2, {
+		// looking bad at this bro why did i make it a fucking tween and not a timer???
+		FlxTween.num(0, 1, bulletTime, {
 			onComplete: function(_) {
 				if (bullet != null && bullet.alive) {
 					bullet.destroy();
-
 					this.remove(bullet);
 				}
 			}
@@ -133,11 +148,10 @@ class Cannon extends FlxNestedSprite {
 		// ok so i realized too late that i could move the angle of the parent instead of moving the entire fucking velodity but whatever
 		bullet.relativeVelocity.x = speed;
 
-		FlxTween.num(0, 2, 2, {
+		FlxTween.num(0, 1, bulletTime, {
 			onComplete: function(_) {
 				if (bullet != null && bullet.alive) {
 					bullet.destroy();
-
 					this.remove(bullet);
 				}
 			}
@@ -178,11 +192,10 @@ class Cannon extends FlxNestedSprite {
 		bullet.relativeVelocity.x = speed * Math.sin(angle);
 		bullet.relativeVelocity.y = speed * Math.cos(angle);
 
-		FlxTween.num(0, 2, 2, {
+		FlxTween.num(0, 1, bulletTime, {
 			onComplete: function(_) {
 				if (bullet != null && bullet.alive) {
 					bullet.destroy();
-
 					this.remove(bullet);
 				}
 			}
@@ -193,6 +206,8 @@ class Cannon extends FlxNestedSprite {
 		for (bullet in this.children) {
 			if (FlxG.overlap(bullet, boxes)) {
 				this.remove(bullet);
+				emitter.setPosition(bullet.x, bullet.y);
+				emitter.start(true);
 				bullet.destroy();
 				continue;
 			}
@@ -209,6 +224,8 @@ class Cannon extends FlxNestedSprite {
 	}
 
 	public function lookAt(x:Float, y:Float) {
+		if (FlxG.save.data.performance)
+			return;
 		var dx = x - (this.x + this.width / 2);
 		var dy = y - (this.y + this.height / 2);
 

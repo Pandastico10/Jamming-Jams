@@ -37,7 +37,7 @@ class DeathCounter {
     public static function saveBestTime(level:String, time:Float):Bool {
         var previous:Dynamic = Reflect.field(FlxG.save.data, level + "_bestTime");
 
-        if (previous == null || time < previous) {
+        if ((previous == 0 || previous == null) || time < previous) {
             Reflect.setField(FlxG.save.data, level + "_bestTime", time);
             FlxG.save.flush();
         }
@@ -45,6 +45,7 @@ class DeathCounter {
 
     public static function reset(level:String) {
         Reflect.setField(FlxG.save.data, level, 0);
+        Reflect.setField(FlxG.save.data, level + "_bestTime", 0);
         FlxG.save.flush();
     }
 }

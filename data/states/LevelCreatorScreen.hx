@@ -12,7 +12,10 @@ var playerXTextBox:UITextBox;
 var playerYTextBox:UITextBox;
 var maxJumpsTextBox:UITextBox;
 var maxLevelWidth:UITextBox;
-var aiLvl:UITextBox;
+var leftAiTextBox:UITextBox;
+var rightAiTextBox:UITextBox;
+var backAiTextBox:UITextBox;
+var upAiTextBox:UITextBox;
 var song:UIFileExplorer;
 var songPlayer:UIAudioPlayer;
 
@@ -75,9 +78,21 @@ function create() {
 	add(maxLevelWidth);
 	addLabelOn(maxLevelWidth, "Max level width (x<768 = default)");
 
-	aiLvl = new UITextBox(background.x + 550, background.y + 290, "0", 200);
-	add(aiLvl);
-	addLabelOn(aiLvl, "AI Level (0 = off)");
+	leftAiTextBox = new UITextBox(background.x + 30, background.y + 380, "0", 200);
+	add(leftAiTextBox);
+	addLabelOn(leftAiTextBox, "Left AI");
+
+	rightAiTextBox = new UITextBox(background.x + 300, background.y + 380, "0", 200);
+	add(rightAiTextBox);
+	addLabelOn(rightAiTextBox, "Right AI");
+
+	backAiTextBox = new UITextBox(background.x + 550, background.y + 380, "0", 200);
+	add(backAiTextBox);
+	addLabelOn(backAiTextBox, "Back AI");
+
+	upAiTextBox = new UITextBox(background.x + 800, background.y + 380, "0", 200);
+	add(upAiTextBox);
+	addLabelOn(upAiTextBox, "Up AI");
 
 	var saveButton = new UIButton(background.x + background.width - 280, background.y + background.height - 70, "Save", saveLevel, 125);
 
@@ -98,10 +113,15 @@ function saveLevel() {
 	var playerY = Std.parseInt(playerYTextBox.label.text);
 	var maxJumps = Std.parseInt(maxJumpsTextBox.label.text);
 	var levelWidth = Std.parseInt(maxLevelWidth.label.text);
-	var aiLvl = Std.parseInt(aiLvl.label.text);
+
+	var leftAi = Std.parseInt(leftAiTextBox.label.text);
+	var rightAi = Std.parseInt(rightAiTextBox.label.text);
+	var backAi = Std.parseInt(backAiTextBox.label.text);
+	var upAi = Std.parseInt(upAiTextBox.label.text);
+
 	var songBytes = song.file;
 
-	if (name == "Level")
+	if (name == "Level" || name == "")
 		return;
 
 	if (music == "")
@@ -119,11 +139,20 @@ function saveLevel() {
 	if (Math.isNaN(maxJumps))
 		maxJumps = 1;
 
-	if (levelWidth == "")
+	if (Math.isNaN(levelWidth))
 		levelWidth = 0;
 
-	if (Math.isNaN(aiLvl))
-		aiLvl = 0;
+	if (Math.isNaN(leftAi))
+		leftAi = 0;
+
+	if (Math.isNaN(rightAi))
+		rightAi = 0;
+
+	if (Math.isNaN(backAi))
+		backAi = 0;
+
+	if (Math.isNaN(upAi))
+		upAi = 0;
 
 	#if sys
 	CoolUtil.safeSaveFile(Paths.getAssetsRoot()
@@ -136,8 +165,14 @@ function saveLevel() {
 		+ music
 		+ '" bpm="'
 		+ bpm
-		+ '" aiLvl="'
-		+ aiLvl
+		+ '" leftAi="'
+		+ leftAi
+		+ '" rightAi="'
+		+ rightAi
+		+ '" backAi="'
+		+ backAi
+		+ '" upAi="'
+		+ upAi
 		+ '" levelWidth="'
 		+ levelWidth
 		+ '">\n\t<player x="'
@@ -147,7 +182,7 @@ function saveLevel() {
 		+ '" maxJumpAmount="'
 		+ maxJumps
 		+ '"/>\n\t<stages>\n\t\t<stage name="stage0"/>\n\t</stages>\n</level>');
-	// yeah i hardcoded the default script creation what you gonna do about it?
+
 	CoolUtil.safeSaveFile(Paths.getAssetsRoot()
 		+ "/data/scripts/"
 		+ name
@@ -172,8 +207,9 @@ function saveLevel() {
 		+ '    level.shootCannon("rotate", player);\n\n'
 		+ '}\n\n'
 		+ 'function death() {}');
+
 	if (songBytes != null)
-		File.saveBytes(Paths.getAssetsRoot() + '/music/' + music + '.ogg', songBytes);
+		File.saveBytes(Paths.getAssetsRoot() + "/music/" + music + ".ogg", songBytes);
 	#end
 
 	FlxG.state.persistentUpdate = true;

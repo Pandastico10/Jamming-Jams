@@ -1,4 +1,6 @@
 import flixel.util.FlxSpriteUtil;
+import flixel.effects.particles.FlxParticle;
+import flixel.effects.particles.FlxTypedEmitter;
 import openfl.display.BlendMode;
 import openfl.Assets;
 import flixel.group.FlxGroup;
@@ -11,28 +13,39 @@ class Level {
 	public var level:String = "level0";
 	public var music:String = "field";
 	public var bpm:Int = 136;
-	public var aiLvl:Int = 0;
 	public var levelWidth:Int = 0;
 	public var deaths:Int = 0;
+	public var leftAi:Int = 0;
+	public var rightAi:Int = 0;
+	public var backAi:Int = 0;
+	public var upAi:Int = 0;
 
 	public var playerX:Int = 0;
 	public var playerY:Int = 64;
 	public var maxJumpAmm:Int = 1;
 
 	public var cannons:FlxGroup;
+	public var particles:FlxGroup;
 	public var boxes:FlxGroup;
 	public var eventBoxes:FlxGroup;
 	public var backgroundSprites:FlxGroup;
+	public var hudElements:FlxGroup;
+
+	public var emitter:FlxTypedEmitter = new FlxTypedEmitter(200, 200, 15);
 
 	public var stages:Array<String> = [];
 	public var stageBoxes:Array<Array<Dynamic>> = [];
 	public var stageCannons:Array<Array<Dynamic>> = [];
 	public var stageEvents:Array<Array<Dynamic>> = [];
 
+	public var deathCounter:FlxText;
+	public var timeCounter:FlxText;
+	public var stageCounter:FlxText;
+
 	public var curStage:Int = 0;
 	public var gridSize:Int = 32;
 
-	var time:Float = 0;
+	public var time:Float = 0;
 
 	public var camGame:FlxCamera;
 
@@ -48,11 +61,15 @@ class Level {
 		camGame = camera != null ? camera : FlxG.camera;
 
 		cannons = new FlxGroup();
+		particles = new FlxGroup();
 		boxes = new FlxGroup();
 		eventBoxes = new FlxGroup();
 		backgroundSprites = new FlxGroup();
+		hudElements = new FlxGroup();
 
 		createBackground();
+		createHud();
+		createParticles();
 		loadLevelInfo(levelFile);
 
 		deaths = DeathCounter.load(level);
@@ -60,19 +77,28 @@ class Level {
 		wideLevel = levelWidth > 768;
 
 		loadStage(curStage);
+		
+	}
+	public function createParticles() {
+		emitter.makeParticles(5, 5, FlxColor.RED, 15);
+		emitter.lifespan.set(0.3, 0.5);
+		emitter.alpha.set(1, 0);
 	}
 
 	public function update(player:FlxObject, elapsed:Float) {
 		if (wideLevel)
+			// warp up and down but not left n right
 			FlxSpriteUtil.screenWrap(player, false, false);
 		else
 			FlxSpriteUtil.screenWrap(player);
-
 		FlxG.collide(boxes, player);
-
 		updateCannons(player);
 		time += elapsed;
 		backgroundShader.iTime = time;
+		// hud elements
+		deathCounter.text = "Deaths: " + deaths;
+		stageCounter.text = "Stage " + (curStage + 1) + "/" + stages.length;
+		timeCounter.text = CoolUtil.timeToStr(time * 1000);
 	}
 
 	function updateCannons(player:FlxObject) {
@@ -121,6 +147,7 @@ class Level {
 
 		for (data in stageCannons[curStage]) {
 			var cannon = new Cannon(data.x, data.y, data.type);
+			particles.add(cannon.emitter);
 			cannon.cameras = [camGame];
 			cannons.add(cannon);
 		}
@@ -164,6 +191,21 @@ class Level {
 		backgroundSprites.add(backgroundTop);
 	}
 
+	function createHud() {
+		deathCounter = new FlxText(0, FlxG.height - 48, FlxG.width, "Deaths: " + deaths);
+		JamUtils.setupText(deathCounter, 48, 'left', 'Small.otf');
+
+		timeCounter = new FlxText(FlxG.width - 155, FlxG.height - 48, FlxG.width, "");
+		JamUtils.setupText(timeCounter, 48, 'left', 'Small.otf');
+
+		stageCounter = new FlxText(0, FlxG.height - 48, FlxG.width, "Stage " + curStage);
+		JamUtils.setupText(stageCounter, 48, 'center', 'Small.otf');
+
+		hudElements.add(deathCounter);
+		hudElements.add(timeCounter);
+		hudElements.add(stageCounter);
+	}
+
 	function clearStage() {
 		for (cube in boxes.members) {
 			if (cube != null)
@@ -179,17 +221,25 @@ class Level {
 			if (cannon != null)
 				cannon.destroy();
 		}
+		for (particle in particles.members) {
+			if (particle != null)
+				particle.destroy();
+		}
 
 		boxes.clear();
 		eventBoxes.clear();
 		cannons.clear();
+		particles.clear();
 	}
 
 	public function death(player:FlxObject) {
+		emitter.setPosition(player.x, player.y);
+		emitter.start(true);
 		player.x = playerX;
 		player.y = playerY;
 
 		FlxG.sound.play(Paths.sound("sfxDeath"));
+		
 		deaths = DeathCounter.add(level);
 	}
 
@@ -209,8 +259,11 @@ class Level {
 		level = xml.get("name");
 		music = xml.get("music");
 		bpm = Std.parseInt(xml.get("bpm"));
-		aiLvl = Std.parseInt(xml.get("aiLvl"));
-		levelWidth = Std.parseInt(xml.get("levelWidth"));
+		leftAi = Std.parseInt(xml.get("leftAi") ?? "0");
+		rightAi = Std.parseInt(xml.get("rightAi") ?? "0");
+		backAi = Std.parseInt(xml.get("backAi") ?? "0");
+		upAi = Std.parseInt(xml.get("upAi") ?? "0");
+		levelWidth = Std.parseInt(xml.get("levelWidth") ?? "0");
 
 		stages = [];
 		stageBoxes = [];
