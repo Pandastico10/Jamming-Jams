@@ -1,8 +1,15 @@
 import flixel.util.FlxSpriteUtil;
+import funkin.backend.system.Controls;
+import funkin.options.PlayerSettings;
 
 class Player extends FlxSprite {
+	public var controls(get, never):Controls;
+
+	inline function get_controls():Controls
+		return PlayerSettings.solo.controls;
+
 	public var jumpStrength:Int = 500;
-	public var poundStrength:Int = 500;
+	public var poundStrength:Int = 700;
 	public var maxSpeed:Int = 300;
 	public var gravity:Int = 1400;
 	public var maxJumpAmm:Int = 1;
@@ -54,23 +61,23 @@ class Player extends FlxSprite {
 			return;
 		}
 
-		if ((FlxG.keys.pressed.UP || FlxG.keys.pressed.W)) {
+		if (controls.getPressed("player_up")) {
 			jumpTimer += elapsed;
 
 			if (jumpTimer < 0.025)
 				velocity.y = -jumpStrength;
 		}
 
-		if ((FlxG.keys.justPressed.UP || FlxG.keys.justPressed.W) && isTouching(0x1000)) {
+		if (controls.getJustPressed("player_up") && isTouching(0x1000)) {
 			jumpSfx.play();
 		}
 
-		if ((FlxG.keys.justReleased.UP || FlxG.keys.justReleased.W) && jumpTimer < 0.25) {
+		if (controls.getJustReleased("player_up") && jumpTimer < 0.25) {
 			velocity.y += 200;
 			jumpTimer = 0.25;
 		}
 
-		if ((FlxG.keys.justPressed.UP || FlxG.keys.justPressed.W) && !isTouching(0x1000) && jumpAmm > 0) {
+		if (controls.getJustPressed("player_up") && !isTouching(0x1000) && jumpAmm > 0) {
 			jumpSfx.pitch += 0.1;
 			jumpSfx.play();
 
@@ -93,19 +100,19 @@ class Player extends FlxSprite {
 			jumpTimer = 0;
 		}
 
-		if (FlxG.keys.justPressed.DOWN || FlxG.keys.justPressed.S && !isTouching(0x1000)) {
+		if (controls.getJustPressed("player_down") && !isTouching(0x1000)) {
 			velocity.y = poundStrength;
 			FlxG.sound.play(Paths.sound("sfxPound"));
 		}
 
 		acceleration.x = 0;
 
-		if (FlxG.keys.pressed.LEFT || FlxG.keys.pressed.A) {
+		if (controls.getPressed("player_left")) {
 			flipX = true;
 			acceleration.x -= drag.x;
 		}
 
-		if (FlxG.keys.pressed.RIGHT || FlxG.keys.pressed.D) {
+		if (controls.getPressed("player_right")) {
 			flipX = false;
 			acceleration.x += drag.x;
 		}

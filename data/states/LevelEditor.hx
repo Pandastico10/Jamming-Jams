@@ -19,6 +19,7 @@ import Xml;
 // probably but hey i can script events easier like this
 public var level:String = "level0";
 public var music:String = "field";
+public var artist:String = "Pandastico";
 var levelWidth:Int = 0;
 public var bpm:Int = 136;
 public var leftAi:Int = 0;
@@ -112,6 +113,7 @@ function create() {
 							"winTitle" => "Editing Level Info",
 							"level" => level,
 							"music" => music,
+							"artist" => artist,
 							"bpm" => bpm,
 							"maxJumpAmm" => player.maxJumpAmm,
 							"playerX" => playerX,
@@ -121,10 +123,11 @@ function create() {
 							"backAi" => backAi,
 							"upAi" => upAi,
 							"levelWidth" => levelWidth,
-							"applyInfo" => function(newLevel:String, newMusic:String, newBpm:Int, newX:Int, newY:Int, newJumps:Int, newWidth:Int,
+							"applyInfo" => function(newLevel:String, newMusic:String, newArtist:String, newBpm:Int, newX:Int, newY:Int, newJumps:Int, newWidth:Int,
 									newLeftAi:Int, newRightAi:Int, newBackAi:Int, newUpAi:Int) {
 								level = newLevel;
 								music = newMusic;
+								artist = newArtist;
 								bpm = newBpm;
 								playerX = newX;
 								playerY = newY;
@@ -486,6 +489,7 @@ function buildStage():String {
 
 	saveToXml(xml, "name", level);
 	saveToXml(xml, "music", music);
+	saveToXml(xml, "artist", artist);
 	saveToXml(xml, "bpm", bpm);
 	saveToXml(xml, "levelWidth", levelWidth);
 	saveToXml(xml, "leftAi", leftAi, 0);
@@ -697,6 +701,7 @@ function loadLevelInfo() {
 
 	level = xml.get("name");
 	music = xml.get("music");
+	artist = xml.get("artist");
 	bpm = Std.parseInt(xml.get("bpm"));
 	levelWidth = Std.parseInt(xml.get("levelWidth"));
 	leftAi = Std.parseInt(xml.get("leftAi") ?? "0");

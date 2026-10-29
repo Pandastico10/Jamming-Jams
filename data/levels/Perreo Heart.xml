@@ -1,5 +1,5 @@
 <!DOCTYPE jam-level>
-<level name="Perreo Heart" music="Killer bean" bpm="140" aiLvl="5" levelWidth="2304">
+<level name="Perreo Heart" music="Killer bean" bpm="140" levelWidth="2304" artist="Indrax">
 	<player x="0" y="64" maxJumpAmount="2"/>
 	<stages>
 		<stage name="stage0"/>

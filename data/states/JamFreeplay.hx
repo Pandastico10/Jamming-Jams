@@ -26,6 +26,11 @@ var textSep:Int = 62.5;
 var scanline = new CustomShader('scanline');
 var active:Bool = false;
 
+var lerpTime:Int = 0;
+var intendedTime:Int = 0;
+var lerpDeath:Int = 0;
+var intendedDeath:Int = 0;
+
 function create() {
 	CoolUtil.playMenuSong();
 	if (FlxG.save.data.shaders) {
@@ -69,6 +74,14 @@ function update(elapsed:Float) {
 	if (FlxG.keys.justReleased.CONTROL && active == false)
 		resetTimer = 0;
 	bar.value = resetTimer;
+
+	//lerp scores
+	intendedTime = DeathCounter.loadBestTime(levels[curSelected]);
+    lerpTime = Math.floor(FlxMath.lerp(intendedTime, lerpTime, Math.exp(-elapsed * 24)));
+
+	intendedDeath = DeathCounter.loadBestDeaths(levels[curSelected]);
+    lerpDeath = Math.floor(FlxMath.lerp(intendedDeath, lerpDeath, Math.exp(-elapsed * 24)));
+
 	if ((FlxG.keys.justPressed.UP || FlxG.keys.justPressed.LEFT) && active == false)
 		changeSelect(-1);
 	if (FlxG.keys.justPressed.ENTER) {
@@ -89,13 +102,14 @@ function update(elapsed:Float) {
 	}
 	if (controls.BACK)
 		FlxG.switchState(new MainMenuState());
-	deathCounter.text = "Deaths: " + DeathCounter.load(levels[curSelected]);
-	timeCounter.text = "Best time: " + CoolUtil.timeToStr(DeathCounter.loadBestTime(levels[curSelected]));
+	deathCounter.text = "Deaths: " + lerpDeath;
+	timeCounter.text = "Best time: " + CoolUtil.timeToStr(lerpTime);
 }
 
 function changeSelect(cur:Int) {
 	active = true;
 	curSelected = FlxMath.wrap(curSelected + cur, 0, levels.length - 1);
+	intendedTime = 0;
 	CoolUtil.playMenuSFX(0, 1);
 	for (i in 0...texts.length) {
 		FlxTween.tween(texts[i], {y: textY + (i - curSelected) * textSep}, 0.20, {

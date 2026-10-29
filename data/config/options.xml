@@ -6,17 +6,18 @@
 	<checkbox id="bg" name="Background on" />
 	<!-- <number id="numberExample" name="Number example" min="0" max="10" change="1"/> -->
 	<choice id="bgs" name="BG type">
-		<value name="BG 1" value="circle" />
-		<value name="BG 2" value="circle2" />
-		<value name="BG 3" value="circle3" />
-		<value name="BG 4" value="circle4" />
-		<value name="BG 5" value="lines" />
-		<value name="BG 6" value="lines2" />
-		<value name="BG 7" value="square" />
+		<value name="Circles 1" value="circle" />
+		<value name="Circles 2" value="circle2" />
+		<value name="Circles 3" value="circle3" />
+		<value name="Circles 4" value="circle4" />
+		<value name="Lines 1" value="lines" />
+		<value name="Lines 2" value="lines2" />
+		<value name="Squares 1" value="square" />
 	</choice>
 	<choice id="rooms" name="Room skin">
 		<value name="Cabin" value="cabin" />
 	</choice>
+	<checkbox id="canDie" name="GODMODE on" />
 
 	<!-- <menu name="Submenu Example" desc="Submenu test">
 		<checkbox id="levelOfIdk2" name="Level of idk" />

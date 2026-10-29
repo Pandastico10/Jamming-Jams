@@ -3,7 +3,7 @@
 
 
 class DeathCounter {
-    public static function load(level:String):Int {
+    public static function loadBestDeaths(level:String):Int {
         var value:Dynamic = Reflect.field(FlxG.save.data, level);
 
         if (value == null) {
@@ -14,15 +14,13 @@ class DeathCounter {
 
         return Std.int(value);
     }
+    public static function saveBestDeaths(level:String, deaths:Float):Bool {
+        var previous:Dynamic = Reflect.field(FlxG.save.data, level);
 
-    public static function add(level:String):Int {
-        var value:Int = load(level);
-        value++;
-
-        Reflect.setField(FlxG.save.data, level, value);
-        FlxG.save.flush();
-
-        return value;
+        if ((previous == 0 || previous == null) || deaths < previous) {
+            Reflect.setField(FlxG.save.data, level, deaths);
+            FlxG.save.flush();
+        }
     }
 
     public static function loadBestTime(level:String):Float {

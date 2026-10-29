@@ -1,5 +1,5 @@
 <!DOCTYPE jam-level>
-<level music="Aeom" levelWidth="0" aiLvl="0" name="Lady&#039;s Locker Room" bpm="128">
+<level music="Aeom" levelWidth="0" name="Lady&#039;s Locker Room" bpm="128" artist="Sebas">
 	<player maxJumpAmount="1" x="128" y="96"/>
 	<stages>
 		<stage name="stage0">

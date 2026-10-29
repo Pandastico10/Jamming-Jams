@@ -7,6 +7,7 @@ import sys.io.File;
 
 var levelNameTextBox:UITextBox;
 var musicTextBox:UITextBox;
+var artistTextBox:UITextBox;
 var bpmTextBox:UITextBox;
 var playerXTextBox:UITextBox;
 var playerYTextBox:UITextBox;
@@ -48,6 +49,10 @@ function create() {
 	add(musicTextBox);
 	addLabelOn(musicTextBox, "Music");
 
+	artistTextBox = new UITextBox(background.x + 360, background.y + 40, "Pandastico", 200);
+	add(artistTextBox);
+	addLabelOn(artistTextBox, "Artist");
+
 	song = new UIFileExplorer(background.x + 550, background.y + 110, null, null, 'ogg', function(path, res) {
 		if (path == null || res == null)
 			return;
@@ -86,11 +91,11 @@ function create() {
 	add(rightAiTextBox);
 	addLabelOn(rightAiTextBox, "Right AI");
 
-	backAiTextBox = new UITextBox(background.x + 550, background.y + 380, "0", 200);
+	backAiTextBox = new UITextBox(background.x + 30, background.y + 440, "0", 200);
 	add(backAiTextBox);
 	addLabelOn(backAiTextBox, "Back AI");
 
-	upAiTextBox = new UITextBox(background.x + 800, background.y + 380, "0", 200);
+	upAiTextBox = new UITextBox(background.x + 300, background.y + 440, "0", 200);
 	add(upAiTextBox);
 	addLabelOn(upAiTextBox, "Up AI");
 
@@ -108,6 +113,7 @@ function create() {
 function saveLevel() {
 	var name = levelNameTextBox.label.text;
 	var music = musicTextBox.label.text;
+	var artist = artistTextBox.label.text;
 	var bpm = Std.parseInt(bpmTextBox.label.text);
 	var playerX = Std.parseInt(playerXTextBox.label.text);
 	var playerY = Std.parseInt(playerYTextBox.label.text);
@@ -126,6 +132,9 @@ function saveLevel() {
 
 	if (music == "")
 		music = "field";
+
+	if (artist == "")
+		artist = "Pandastico";
 
 	if (Math.isNaN(bpm))
 		bpm = 136;
@@ -165,6 +174,8 @@ function saveLevel() {
 		+ music
 		+ '" bpm="'
 		+ bpm
+		+ '" artist="'
+		+ artist
 		+ '" leftAi="'
 		+ leftAi
 		+ '" rightAi="'
@@ -187,26 +198,41 @@ function saveLevel() {
 		+ "/data/scripts/"
 		+ name
 		+ ".hx",
-		'// mostly used for bg stuff only and specific events\n\n'
+		'import flixel.util.FlxSpriteUtil;\n\n'
+		+ '// mostly used for bg stuff only and specific events\n\n'
 		+ 'function create() {\n\n'
 		+ '}\n\n'
 		+ 'function update(elapsed:Float) {}\n\n'
-		+ 'function nextStage(curStage:Int) {}\n\n'
-		+ 'function measureHit(curMeasure:Int) {\n\n'
-		+ '    level.shootCannon("normal", player);\n'
-		+ '    level.shootCannon("fast", player);\n'
-		+ '    level.shootCannon("door", player);\n\n'
+		+ 'function nextStage(curStage:Int) {\n'
+		+ '    trace("you on the next stage");\n'
 		+ '}\n\n'
-		+ 'function beatHit(curBeat:Int) {\n\n'
-		+ '    level.shootCannon("down", player);\n'
-		+ '    level.shootCannon("left", player);\n'
-		+ '    level.shootCannon("right", player);\n'
-		+ '    level.shootCannon("up", player);\n\n'
+		+ 'function measureHit(curMeasure:Int) {\n'
+		+ '    if (active) {\n'
+		+ '        level.backgroundTop.alpha = 1;\n'
+		+ '        FlxSpriteUtil.fadeOut(level.backgroundTop, 0.5);\n'
+		+ '        level.shootCannon("normal", player);\n'
+		+ '        level.shootCannon("fast", player);\n'
+		+ '        level.shootCannon("door", player);\n'
+		+ '    }\n'
 		+ '}\n\n'
-		+ 'function stepHit(curStep:Int) {\n\n'
-		+ '    level.shootCannon("rotate", player);\n\n'
+		+ 'function beatHit(curBeat:Int) {\n'
+		+ '    if (active) {\n'
+		+ '        if (curBeat % 2 != 0)\n'
+		+ '            return;\n\n'
+		+ '        level.shootCannon("down", player);\n'
+		+ '        level.shootCannon("left", player);\n'
+		+ '        level.shootCannon("right", player);\n'
+		+ '        level.shootCannon("up", player);\n'
+		+ '    }\n'
 		+ '}\n\n'
-		+ 'function death() {}');
+		+ 'function stepHit(curStep:Int) {\n'
+		+ '    if (active) {\n'
+		+ '        if (curStep % 4 != 0)\n'
+		+ '            return;\n\n'
+		+ '        level.shootCannon("rotate", player);\n'
+		+ '    }\n'
+		+ '}\n\n'
+		+ 'function death() {}\n');
 
 	if (songBytes != null)
 		File.saveBytes(Paths.getAssetsRoot() + "/music/" + music + ".ogg", songBytes);

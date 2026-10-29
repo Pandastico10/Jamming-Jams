@@ -25,6 +25,8 @@
         <label text="BPM" x="col(0)" y="curY + 10" />
         <stepper name="bpmStepper" value="bpm" x="col(0)" y="curY + 18" step="1" width="120" />
 
+        <textbox name="artistTextBox" label="Artist" value="artist" x="last.x + last.bWidth + 20" y="curY + 18" step="1" width="120" />
+
         <label text="Max Jumps" x="col(1)" y="curY + 10" />
         <stepper name="maxJumpAmmStepper" value="maxJumpAmm" x="col(1)" y="curY + 18" step="1" width="120" />
 
@@ -60,6 +62,7 @@
                 applyInfo(
                     levelTextBox.label.text,
                     musicTextBox.label.text,
+                    artistTextBox.label.text,
                     Std.int(bpmStepper.value),
                     Std.int(playerXStepper.value),
                     Std.int(playerYStepper.value),

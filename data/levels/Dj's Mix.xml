@@ -1,5 +1,5 @@
 <!DOCTYPE jam-level>
-<level name="Dj's Mix" music="Off" bpm="128" aiLvl="3" levelWidth="1536">
+<level name="Dj's Mix" music="Off" bpm="128" levelWidth="1536" artist="Gueta189">
 	<player x="0" y="64" maxJumpAmount="1"/>
 	<stages>
 		<stage name="stage0"/>

@@ -123,6 +123,24 @@ i also did some grarphics for the room class and also a kinda skin system?
 its easily moddable is the thing 
 ok so yeah once i get fully healed and dont get skinned alive by uni i will go back on work full on this
 
+23/10
+i did stuff
+ok actually writing here, thanks to my gf that made me remember i had this
+been a couple of days where ive been pushing this project back cuz of school an general mood but i 
+think i got a big step on the next thing
+basically got done with the monster system (or animatronic system) in a way that doesnt break my head 
+thanks to itsmealex1 on github for their fnaf2 codename port i was able to write a system thats based on that
+but with a few new additions!
+now every of the 4 monsters has a new variation system
+starting from ai 10 monsters will have a change to spawn in another variations changing their mechanics!
+for example instead of shining your light on the monster in the back you have to ignore them, or close another door!
+stuff like that
+next up i think im doing the flashlight system and finally finishing the monsters so i can focus more on the graphics an music for release
+25/10
+so i finally did the flashlightmechanic now, being now on a battery that charges during the night 
+and being depleted while using it with a bar!
+also some sound design but nothing more
+
 ------------------------------------------------------
 
 firstly here's the game concept which i kinda have finalized
@@ -140,22 +158,21 @@ atleast 5 levels  + 1 tutorial with custom music and a level editor
 obstacles to-do{
     cannon that shoots at you every bar (done)
     laser that toggles every measure (done)
-    static spikes
+    static spikes (done)
     spikes that appear every beat
-    spikes that move between 2 pos every step
 }
 to-do{
-    Level editor(sorta)
+    Level editor(one)
     level selector (done)
     level loader (done)
     player class (done)
-    bg effects
+    bg effects (done)
 }
 -Fnaf section-
 monsters to-do{
-    left/right door hold for a bit
+    left/right door hold for a bit 
     left/right dont close door
-    behind check on plushtrap type beat
+    behind check on plushtrap type beat (done)
     top fix game glitch with spam
     bottom to activate power-ups?{
         close both doors
@@ -164,19 +181,18 @@ monsters to-do{
 }
 to-do{
     basically almost anything
-    monster AIs
+    monster AIs (almost)
     Custom night screen
-    cube sprites
+    cube sprites (never)
     power ups?
 }
 -General to-do list-
 States{
     mainmenu fake/real
-    credits using GamebananaUtil (shoutouts to itsjcool)
-    freeplay menu
+    freeplay menu (almost)
 }
 write dialogue and integrate it for at the start/end of nights
 Do the art (oh god)
-sound design
-make a shit ton of music
+sound design (kinda)
+make a shit ton of music (yeah man)
 

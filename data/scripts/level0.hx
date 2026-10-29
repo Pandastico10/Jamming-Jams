@@ -4,7 +4,7 @@ import flixel.util.FlxSpriteUtil;
 typing.onStart.add(() -> {
 	if (isOffice)
 		room.gameon = true;
-	active = false;
+	
 	blend.makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
 	blend.alpha = 0;
 	blend.cameras = [camHUD];
@@ -12,20 +12,21 @@ typing.onStart.add(() -> {
 	FlxTween.tween(blend, {alpha: 0.75}, 2, {ease: FlxEase.cubeOut});
 });
 typing.onComplete.add(() -> {
-	if (isOffice)
+	if (isOffice){
 		room.gameon = false;
+		drone.play();
+	}
 	active = true;
 	player.test();
 	FlxTween.tween(blend, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
 	FlxTween.tween(typing, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
-	CoolUtil.playMusic(Paths.music(level.music), true, 0.8, true, level.bpm);
 });
 typing.onProgress.add(() -> {
 	typing.screenCenter(); // re-centers the text to the screen on every new character typed.
 });
 function create() {
+	active = false;
 	// stop everything if dialogue exists aka this script
-	CoolUtil.playMusic(null, true, 0, true, 0);
 	player.test();
 	// start dialogue + setup
 	JamUtils.startDialogue(typing, "json/dialogue");
@@ -39,28 +40,40 @@ function update(elapsed:Float) {}
 function nextStage(curStage:Int) {}
 
 function measureHit(curMeasure:Int) {
-	level.backgroundTop.alpha = 1;
-	FlxSpriteUtil.fadeOut(level.backgroundTop, 1);
-	level.shootCannon("normal", player);
-	level.shootCannon("fast", player);
-	level.shootCannon("door", player);
+	if (active) {
+		level.backgroundTop.alpha = 1;
+		FlxSpriteUtil.fadeOut(level.backgroundTop, 0.5);
+		level.shootCannon("normal", player);
+		level.shootCannon("fast", player);
+		level.shootCannon("door", player);
+	}
 }
 
 function beatHit(curBeat:Int) {
-	if (curBeat % 2 != 0)
-		return;
+	if (active) {
+		if (curBeat % 2 != 0)
+			return;
 
-	level.shootCannon("down", player);
-	level.shootCannon("left", player);
-	level.shootCannon("right", player);
-	level.shootCannon("up", player);
+		level.shootCannon("down", player);
+		level.shootCannon("left", player);
+		level.shootCannon("right", player);
+		level.shootCannon("up", player);
+	}
 }
 
 function stepHit(curStep:Int) {
-	if (curStep % 4 != 0)
-		return;
+	if (active) {
+		if (curStep % 4 != 0)
+			return;
 
-	level.shootCannon("rotate", player);
+		level.shootCannon("rotate", player);
+	}
 }
 
-function death() {}
+function death() {
+	
+}
+
+function nextStage() {
+	trace("you on the next stage");
+}

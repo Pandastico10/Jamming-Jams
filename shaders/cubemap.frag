@@ -25,7 +25,7 @@
 uniform float yaw; 
 uniform float fov; 
 uniform float pitch; 
-uniform float side; // mid 0, left 1, back 2, right 3, top 4, bottom 5
+uniform float side;
 
 const float PI = 3.14159265;
 

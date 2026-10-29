@@ -12,6 +12,7 @@ import Xml;
 class Level {
 	public var level:String = "level0";
 	public var music:String = "field";
+	public var artist:String = "Pandastico";
 	public var bpm:Int = 136;
 	public var levelWidth:Int = 0;
 	public var deaths:Int = 0;
@@ -50,6 +51,7 @@ class Level {
 	public var camGame:FlxCamera;
 
 	var wideLevel:Bool = false;
+	var godmode:Bool = false;
 
 	public var background:FlxSprite;
 	public var backgroundTop:FlxSprite;
@@ -72,13 +74,11 @@ class Level {
 		createParticles();
 		loadLevelInfo(levelFile);
 
-		deaths = DeathCounter.load(level);
-
 		wideLevel = levelWidth > 768;
 
 		loadStage(curStage);
-		
 	}
+
 	public function createParticles() {
 		emitter.makeParticles(5, 5, FlxColor.RED, 15);
 		emitter.lifespan.set(0.3, 0.5);
@@ -195,10 +195,10 @@ class Level {
 		deathCounter = new FlxText(0, FlxG.height - 48, FlxG.width, "Deaths: " + deaths);
 		JamUtils.setupText(deathCounter, 48, 'left', 'Small.otf');
 
-		timeCounter = new FlxText(FlxG.width - 155, FlxG.height - 48, FlxG.width, "");
+		timeCounter = new FlxText(FlxG.width - 155, FlxG.height - 48, FlxG.width, CoolUtil.timeToStr(0));
 		JamUtils.setupText(timeCounter, 48, 'left', 'Small.otf');
 
-		stageCounter = new FlxText(0, FlxG.height - 48, FlxG.width, "Stage " + curStage);
+		stageCounter = new FlxText(0, FlxG.height - 48, FlxG.width, "Stage " + (curStage + 1) + "/??");
 		JamUtils.setupText(stageCounter, 48, 'center', 'Small.otf');
 
 		hudElements.add(deathCounter);
@@ -233,14 +233,20 @@ class Level {
 	}
 
 	public function death(player:FlxObject) {
+		if (godmode)
+			return;
+		godmode = true;
 		emitter.setPosition(player.x, player.y);
 		emitter.start(true);
 		player.x = playerX;
 		player.y = playerY;
 
 		FlxG.sound.play(Paths.sound("sfxDeath"));
-		
-		deaths = DeathCounter.add(level);
+
+		deaths++;
+		new FlxTimer().start(0.25, () -> {
+			godmode = false;
+		});
 	}
 
 	public function shootCannon(type:String, player:FlxObject) {
@@ -258,6 +264,7 @@ class Level {
 
 		level = xml.get("name");
 		music = xml.get("music");
+		artist = xml.get("artist");
 		bpm = Std.parseInt(xml.get("bpm"));
 		leftAi = Std.parseInt(xml.get("leftAi") ?? "0");
 		rightAi = Std.parseInt(xml.get("rightAi") ?? "0");

@@ -1,7 +1,15 @@
+import funkin.backend.system.Controls;
+import funkin.options.PlayerSettings;
+
 class Room {
 	public var camOffice:FlxCamera;
 
 	var room:String = FlxG.save.data.rooms;
+
+	public var controls(get, never):Controls;
+
+	inline function get_controls():Controls
+		return PlayerSettings.solo.controls;
 
 	public var left:FlxSprite;
 	public var middle:FlxSprite;
@@ -96,7 +104,7 @@ class Room {
 
 		var mousePos = FlxG.mouse.getScreenPosition(camOffice);
 
-		if (FlxG.keys.justPressed.S && !gameon && offsetTween == null) {
+		if (controls.getJustPressed("cabin_turn") && !gameon && offsetTween == null) {
 			lookingBehind = !lookingBehind;
 			var target:Float;
 
@@ -113,6 +121,18 @@ class Room {
 			}, function(value:Float) {
 				offsetExtra = value;
 			});
+			for (shader in [shaderLeft, shaderMid, shaderBack, shaderRight, shaderTop, shaderBottom]) {
+				FlxTween.tween(shader, {fov: lookingBehind ? 1.25 : 0.5}, 0.75, {
+					ease: lookingBehind ? FlxEase.cubeInOut : FlxEase.quartOut
+				});
+			}
+			if (lookingBehind) {
+				maxOffset = maxOffset / 4;
+				maxOffsetY = maxOffsetY / 4;
+			} else {
+				maxOffset = maxOffset * 4;
+				maxOffsetY = maxOffsetY * 4;
+			}
 		}
 
 		targetOffsetX = gameon ? 0 : ((mousePos.x / FlxG.width - 0.5) / 1.5) * maxOffset;
