@@ -4,6 +4,7 @@
         <control name="player_right" saveName="player_right" menuName="RIGHT" keyP1="RIGHT" keyP2=""/>
         <control name="player_up" saveName="player_up" menuName="JUMP" keyP1="UP" keyP2=""/>
         <control name="player_down" saveName="player_down" menuName="GROUND POUND" keyP1="DOWN" keyP2=""/>
+        <control name="player_ability" saveName="player_ability" menuName="ABILITY" keyP1="Z" keyP2=""/>
     </category>
     <category name="CABIN CONTROLS">
         <control name="cabin_game" saveName="cabin_game" menuName="GAME ON" keyP1="W" keyP2=""/>

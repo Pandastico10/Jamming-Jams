@@ -81,9 +81,7 @@ function create() {
 
 	level.background.visible = false;
 
-	player = new Player(level.playerX, level.playerY);
-	player.maxJumpAmm = level.maxJumpAmm;
-	player.jumpAmm = level.maxJumpAmm;
+	player = new Player(level.playerX, level.playerY, level.maxJumpAmm);
 	player.cameras = [camGame];
 	add(player);
 	player.test();

@@ -7,6 +7,7 @@ import flixel.group.FlxGroup;
 import haxe.io.Path;
 import platformer.Cannon;
 import platformer.DeathCounter;
+import flixel.effects.FlxFlicker;
 import Xml;
 
 class Level {
@@ -47,17 +48,18 @@ class Level {
 	public var gridSize:Int = 32;
 
 	public var time:Float = 0;
-
 	public var camGame:FlxCamera;
 
 	var wideLevel:Bool = false;
-	var godmode:Bool = false;
+
+	public var godmode:Bool = false;
 
 	public var background:FlxSprite;
 	public var backgroundTop:FlxSprite;
 	public var vignette:FlxSprite;
 	public var backgroundOverlay:FlxSprite;
 	public var backgroundShader = new CustomShader(FlxG.save.data.bgs);
+	public var sfxDeath:FlxSound;
 
 	public function new(levelFile:String = "current", ?camera:FlxCamera) {
 		camGame = camera != null ? camera : FlxG.camera;
@@ -77,6 +79,7 @@ class Level {
 		wideLevel = levelWidth > 768;
 
 		loadStage(curStage);
+		sfxDeath = FlxG.sound.load(Paths.sound("sfxDeath"), 1, false);
 	}
 
 	public function createParticles() {
@@ -235,15 +238,30 @@ class Level {
 	public function death(player:FlxObject) {
 		if (godmode)
 			return;
+		if (player.ability == "immunity" && (player.immune || !player.gotHit)) {
+			player.gotHit = true;
+			if (player.gotHit)
+				player.immunitySfx.play();
+			FlxFlicker.flicker(player.abilityIndicator, player.immunityCooldown, 0.05, true);
+			FlxFlicker.flicker(player, player.immunityDuration, 0.05, true);
+			new FlxTimer().start(player.immunityDuration, () -> {
+				player.immune = false;
+				player.gotHit = false;
+			});
+			return;
+		}
+		if (player.ability != "immunity" && player.immune)
+			return;
+
+		FlxFlicker.flicker(player, 0.5, 0.05, true);
+		sfxDeath.play();
 		godmode = true;
 		emitter.setPosition(player.x, player.y);
 		emitter.start(true);
 		player.x = playerX;
 		player.y = playerY;
-
-		FlxG.sound.play(Paths.sound("sfxDeath"));
-
 		deaths++;
+
 		new FlxTimer().start(0.25, () -> {
 			godmode = false;
 		});

@@ -1,5 +1,5 @@
 <!DOCTYPE jam-level>
-<level music="field" levelWidth="2000" name="level0" artist="Pandastico" bpm="136" leftAi="0" rightAi="0" backAi="20" upAi="0">
+<level music="field" levelWidth="2000" name="level0" artist="Pandastico" bpm="136" leftAi="0" rightAi="0" backAi="0" upAi="0">
 	<player maxJumpAmount="1" x="32" y="192"/>
 	<stages>
 		<stage name="stage0">

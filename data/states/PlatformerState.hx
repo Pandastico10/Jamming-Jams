@@ -54,10 +54,12 @@ function create() {
 
 	level.hudElements.cameras = [camHUD];
 	// add player
-	player = new Player(level.playerX, level.playerY);
-	player.maxJumpAmm = level.maxJumpAmm;
-	player.jumpAmm = level.maxJumpAmm;
+	player = new Player(level.playerX, level.playerY, level.maxJumpAmm);
+	if (!FlxG.save.data.performance)
+	add(player.trail);
+	add(player.abilityIndicator);
 	add(player);
+	
 	player.test();
 
 	for (path in Paths.getFolderContent("data/scripts/")) {
@@ -85,8 +87,15 @@ function update(elapsed:Float) {
 	}
 	FlxG.overlap(level.eventBoxes, player, nextStage);
 	if (!noclip && active) {
-		level.godmode = canDie;
-		camGame.zoom = CoolUtil.fpsLerp(camGame.zoom, 1, 0.1);
+		//godmode on ?
+		level.godmode = FlxG.save.data.canDie;
+
+		if (player.slowdown) {
+			camGame.zoom = CoolUtil.fpsLerp(camGame.zoom, 1.075, 0.1);
+		} else {
+			camGame.zoom = CoolUtil.fpsLerp(camGame.zoom, 1, 0.1);
+		}
+
 		level.update(player, elapsed);
 		curStage = level.curStage;
 	}

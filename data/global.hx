@@ -15,6 +15,7 @@ function new() {
     FlxG.save.data.shaders ??= true;
     FlxG.save.data.bg ??= true;
     FlxG.save.data.canDie ??= true;
+    FlxG.save.data.playerAbility ??= "none";
     FlxG.save.data.freeplayUnlocked ??= false;
     FlxG.save.data.editorUnlocked ??= false;
     //legit no idea what i wanted to do with this

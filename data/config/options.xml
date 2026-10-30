@@ -1,11 +1,13 @@
 <!DOCTYPE codename-mod-options>
 <!-- TEMPLATE FOR CUSTOM OPTIONS!!! -->
 <menu name="Jamming Jams" desc="Modify mod options here">
-	<checkbox id="performance" name="Performance mode" />
-	<checkbox id="shaders" name="Shaders on" />
-	<checkbox id="bg" name="Background on" />
+	<menu name="Appearance" desc="Change your appearance options here!">
+		<checkbox id="performance" name="Performance mode" desc="Will disable some math in order to win some frames" />
+		<checkbox id="shaders" name="Shaders on" desc="If shaders should be on (Big impact)"/>
+		<checkbox id="bg" name="Background on" desc="If the background should be on during gameplay"/>
+	</menu>
 	<!-- <number id="numberExample" name="Number example" min="0" max="10" change="1"/> -->
-	<choice id="bgs" name="BG type">
+	<choice id="bgs" name="BG type" desc="Choose which background to use in gameplay">
 		<value name="Circles 1" value="circle" />
 		<value name="Circles 2" value="circle2" />
 		<value name="Circles 3" value="circle3" />
@@ -14,12 +16,22 @@
 		<value name="Lines 2" value="lines2" />
 		<value name="Squares 1" value="square" />
 	</choice>
-	<choice id="rooms" name="Room skin">
+	<choice id="rooms" name="Room skin" desc="Choose the skin for the room">
 		<value name="Cabin" value="cabin" />
 	</choice>
-	<checkbox id="canDie" name="GODMODE on" />
+	<menu name="Debug options" desc="Options used in development">
+		<checkbox id="canDie" name="GODMODE on" desc="If you can die during gameplay"/>
+		<checkbox id="freeplayUnlocked" name="Freeplay unlocked" desc="If freeplay is unlocked in the menu"/>
+		<checkbox id="editorUnlocked" name="Editor unlocked" desc="If Editor is unlocked in the menu"/>
+		<choice id="playerAbility" name="Player ability" desc="Change the player ability">
+			<value name="None" value="none" desc="You dont need any abilities"/>
+			<value name="Dash" value="dash" desc="Dash in the direction you move"/>
+			<value name="Slow time" value="time" desc="Slow down time by half while holding down ability"/>
+			<value name="Inmunity" value="immunity" desc="Ignore a death every 30 secs"/>
+			<value name="+1 Jump" value="jump" desc="Gives you an extra jump"/>
+			<value name="Speedy" value="speed" desc="Makes your speed x1.25"/>
+			<value name="Gravity" value="gravity" desc="Change gravity at will"/>
+		</choice>
+	</menu>
 
-	<!-- <menu name="Submenu Example" desc="Submenu test">
-		<checkbox id="levelOfIdk2" name="Level of idk" />
-	</menu> -->
 </menu>
