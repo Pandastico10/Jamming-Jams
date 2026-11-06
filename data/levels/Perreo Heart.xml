@@ -1,7 +1,2926 @@
 <!DOCTYPE jam-level>
-<level name="Perreo Heart" music="Killer bean" bpm="140" levelWidth="2304" artist="Indrax">
-	<player x="0" y="64" maxJumpAmount="2"/>
+<level music="Killer bean" levelWidth="2304" name="Perreo Heart" artist="Indrax" bpm="140" leftAi="9" rightAi="9" backAi="5" nextLvl="Last man Standing">
+	<player maxJumpAmount="2" x="64" y="320"/>
 	<stages>
-		<stage name="stage0"/>
+		<stage name="stage0">
+			<box x="0" y="384"/>
+			<box x="32" y="384"/>
+			<box x="64" y="384"/>
+			<box x="96" y="384"/>
+			<box x="128" y="384"/>
+			<box x="160" y="384"/>
+			<box x="0" y="352"/>
+			<box x="0" y="256"/>
+			<box x="0" y="224"/>
+			<box x="0" y="288"/>
+			<box x="0" y="320"/>
+			<box x="0" y="192"/>
+			<box x="0" y="160"/>
+			<box x="0" y="128"/>
+			<box x="0" y="64"/>
+			<box x="0" y="32"/>
+			<box x="0" y="0"/>
+			<box x="0" y="96"/>
+			<box x="0" y="416"/>
+			<box x="0" y="448"/>
+			<box x="0" y="480"/>
+			<box x="0" y="544"/>
+			<box x="0" y="576"/>
+			<box x="0" y="512"/>
+			<box x="0" y="608"/>
+			<box x="0" y="640"/>
+			<box x="0" y="672"/>
+			<box x="0" y="704"/>
+			<box x="0" y="736"/>
+			<box x="192" y="384"/>
+			<box x="224" y="384"/>
+			<box x="256" y="384"/>
+			<box x="288" y="384"/>
+			<box x="320" y="384"/>
+			<box x="352" y="384"/>
+			<box x="384" y="384"/>
+			<box x="416" y="384"/>
+			<box x="448" y="384"/>
+			<box x="480" y="384"/>
+			<box x="512" y="384"/>
+			<box x="544" y="384"/>
+			<box x="576" y="384"/>
+			<box x="608" y="384"/>
+			<box x="640" y="384"/>
+			<box x="672" y="384"/>
+			<box x="704" y="384"/>
+			<box x="736" y="384"/>
+			<box x="768" y="384"/>
+			<box x="832" y="384"/>
+			<box x="864" y="384"/>
+			<box x="896" y="384"/>
+			<box x="800" y="384"/>
+			<box x="960" y="384"/>
+			<box x="928" y="384"/>
+			<box x="128" y="352"/>
+			<box x="128" y="320"/>
+			<box x="128" y="288"/>
+			<box x="992" y="384"/>
+			<box x="1088" y="384"/>
+			<box x="1120" y="384"/>
+			<box x="1056" y="384"/>
+			<box x="1024" y="384"/>
+			<box x="1152" y="384"/>
+			<box x="1184" y="384"/>
+			<box x="1248" y="384"/>
+			<box x="1216" y="384"/>
+			<box x="1280" y="384"/>
+			<box x="1312" y="384"/>
+			<box x="1344" y="384"/>
+			<box x="1376" y="384"/>
+			<box x="1408" y="384"/>
+			<box x="1440" y="384"/>
+			<box x="1472" y="384"/>
+			<box x="1504" y="384"/>
+			<box x="1536" y="384"/>
+			<box x="1568" y="384"/>
+			<box x="1600" y="384"/>
+			<box x="1632" y="384"/>
+			<box x="1664" y="384"/>
+			<box x="1696" y="384"/>
+			<box x="1760" y="384"/>
+			<box x="1728" y="384"/>
+			<box x="1792" y="384"/>
+			<box x="1824" y="384"/>
+			<box x="1856" y="384"/>
+			<box x="1888" y="384"/>
+			<box x="2048" y="384"/>
+			<box x="1920" y="384"/>
+			<box x="1952" y="384"/>
+			<box x="1984" y="384"/>
+			<box x="2016" y="384"/>
+			<box x="2080" y="384"/>
+			<box x="2112" y="384"/>
+			<box x="2144" y="384"/>
+			<box x="2208" y="384"/>
+			<box x="2176" y="384"/>
+			<box x="2272" y="384"/>
+			<box x="2240" y="384"/>
+			<box x="2272" y="352"/>
+			<box x="2272" y="320"/>
+			<box x="2272" y="288"/>
+			<box x="2272" y="256"/>
+			<box x="2272" y="224"/>
+			<box x="2272" y="192"/>
+			<box x="2272" y="160"/>
+			<box x="2272" y="128"/>
+			<box x="2272" y="96"/>
+			<box x="2272" y="0"/>
+			<box x="2272" y="32"/>
+			<box x="2272" y="64"/>
+			<box x="2272" y="416"/>
+			<box x="2272" y="448"/>
+			<box x="2272" y="480"/>
+			<box x="2272" y="544"/>
+			<box x="2272" y="512"/>
+			<box x="2272" y="576"/>
+			<box x="2272" y="608"/>
+			<box x="2272" y="640"/>
+			<box x="2272" y="672"/>
+			<box x="2272" y="704"/>
+			<box x="2272" y="736"/>
+			<box x="800" y="320"/>
+			<box x="800" y="288"/>
+			<box x="800" y="192"/>
+			<box x="800" y="256"/>
+			<box x="800" y="224"/>
+			<box x="800" y="160"/>
+			<box x="800" y="128"/>
+			<box x="800" y="96"/>
+			<box x="800" y="64"/>
+			<box x="800" y="32"/>
+			<box x="800" y="0"/>
+			<box x="800" y="736"/>
+			<box x="800" y="672"/>
+			<box x="800" y="704"/>
+			<box x="800" y="640"/>
+			<box x="800" y="608"/>
+			<box x="800" y="576"/>
+			<box x="800" y="448"/>
+			<box x="768" y="448"/>
+			<box x="736" y="448"/>
+			<box x="832" y="448"/>
+			<box x="864" y="448"/>
+			<box x="800" y="352"/>
+			<box x="1184" y="320"/>
+			<box x="1216" y="320"/>
+			<box x="1312" y="320"/>
+			<box x="1344" y="320"/>
+			<box x="1248" y="320"/>
+			<box x="1280" y="320"/>
+			<box x="1376" y="320"/>
+			<box x="1408" y="320"/>
+			<box x="1440" y="320"/>
+			<box x="1632" y="416"/>
+			<box x="1632" y="448"/>
+			<box x="1632" y="480"/>
+			<box x="1632" y="512"/>
+			<box x="1632" y="544"/>
+			<box x="1632" y="576"/>
+			<box x="1632" y="608"/>
+			<box x="1632" y="640"/>
+			<box x="1632" y="704"/>
+			<box x="1632" y="672"/>
+			<box x="1632" y="736"/>
+			<box x="1952" y="544"/>
+			<box x="1952" y="576"/>
+			<box x="1952" y="608"/>
+			<box x="1952" y="640"/>
+			<box x="1952" y="672"/>
+			<box x="1952" y="704"/>
+			<box x="1952" y="736"/>
+			<box x="1952" y="352"/>
+			<box x="1952" y="320"/>
+			<box x="1952" y="288"/>
+			<box x="1952" y="256"/>
+			<box x="1952" y="224"/>
+			<box x="1952" y="192"/>
+			<box x="1952" y="160"/>
+			<box x="1952" y="128"/>
+			<box x="1952" y="96"/>
+			<box x="1952" y="64"/>
+			<box x="1952" y="32"/>
+			<box x="1952" y="0"/>
+			<box x="2048" y="320"/>
+			<box x="2080" y="320"/>
+			<box x="2112" y="320"/>
+			<box x="2144" y="320"/>
+			<box x="2176" y="320"/>
+			<box x="1888" y="448"/>
+			<box x="1920" y="448"/>
+			<box x="1856" y="448"/>
+			<box x="1824" y="448"/>
+			<box x="1792" y="448"/>
+			<box x="1984" y="448"/>
+			<box x="1952" y="448"/>
+			<box x="2016" y="448"/>
+			<box x="2048" y="448"/>
+			<box x="2112" y="448"/>
+			<box x="2080" y="448"/>
+			<box x="480" y="448"/>
+			<box x="512" y="448"/>
+			<box x="544" y="448"/>
+			<box x="448" y="448"/>
+			<next x="2208" y="256"/>
+			<cannon type="hazard" x="736" y="416"/>
+			<cannon type="hazard" x="768" y="416"/>
+			<cannon type="hazard" x="800" y="416"/>
+			<cannon type="hazard" x="832" y="416"/>
+			<cannon type="hazard" x="864" y="416"/>
+			<cannon type="hazard" x="896" y="416"/>
+			<cannon type="hazard" x="928" y="416"/>
+			<cannon type="hazard" x="704" y="416"/>
+			<cannon type="hazard" x="672" y="416"/>
+			<cannon type="hazard" x="128" y="416"/>
+			<cannon type="hazard" x="96" y="416"/>
+			<cannon type="hazard" x="64" y="416"/>
+			<cannon type="hazard" x="32" y="416"/>
+			<cannon type="hazard" x="192" y="416"/>
+			<cannon type="hazard" x="160" y="416"/>
+			<cannon type="hazard" x="224" y="416"/>
+			<cannon type="hazard" x="320" y="416"/>
+			<cannon type="hazard" x="256" y="416"/>
+			<cannon type="hazard" x="288" y="416"/>
+			<cannon type="hazard" x="352" y="416"/>
+			<cannon type="hazard" x="384" y="416"/>
+			<cannon type="hazard" x="416" y="416"/>
+			<cannon type="hazard" x="448" y="416"/>
+			<cannon type="hazard" x="512" y="416"/>
+			<cannon type="hazard" x="544" y="416"/>
+			<cannon type="hazard" x="480" y="416"/>
+			<cannon type="hazard" x="576" y="416"/>
+			<cannon type="hazard" x="608" y="416"/>
+			<cannon type="hazard" x="640" y="416"/>
+			<cannon type="hazard" x="960" y="416"/>
+			<cannon type="hazard" x="992" y="416"/>
+			<cannon type="hazard" x="1024" y="416"/>
+			<cannon type="hazard" x="1120" y="416"/>
+			<cannon type="hazard" x="1056" y="416"/>
+			<cannon type="hazard" x="1088" y="416"/>
+			<cannon type="hazard" x="1152" y="416"/>
+			<cannon type="hazard" x="1184" y="416"/>
+			<cannon type="hazard" x="1216" y="416"/>
+			<cannon type="hazard" x="1248" y="416"/>
+			<cannon type="hazard" x="1280" y="416"/>
+			<cannon type="hazard" x="1312" y="416"/>
+			<cannon type="hazard" x="1344" y="416"/>
+			<cannon type="hazard" x="1376" y="416"/>
+			<cannon type="hazard" x="1408" y="416"/>
+			<cannon type="hazard" x="1440" y="416"/>
+			<cannon type="hazard" x="1472" y="416"/>
+			<cannon type="hazard" x="1504" y="416"/>
+			<cannon type="hazard" x="1536" y="416"/>
+			<cannon type="hazard" x="1568" y="416"/>
+			<cannon type="hazard" x="832" y="352"/>
+			<cannon type="hazard" x="864" y="352"/>
+			<cannon type="hazard" x="896" y="352"/>
+			<cannon type="hazard" x="928" y="352"/>
+			<cannon type="hazard" x="960" y="352"/>
+			<cannon type="hazard" x="992" y="352"/>
+			<cannon type="hazard" x="1024" y="352"/>
+			<cannon type="hazard" x="1056" y="352"/>
+			<cannon type="hazard" x="1088" y="352"/>
+			<cannon type="hazard" x="1152" y="352"/>
+			<cannon type="hazard" x="1120" y="352"/>
+			<cannon type="hazard" x="1184" y="352"/>
+			<cannon type="hazard" x="1216" y="352"/>
+			<cannon type="hazard" x="1312" y="352"/>
+			<cannon type="hazard" x="1376" y="352"/>
+			<cannon type="hazard" x="1248" y="352"/>
+			<cannon type="hazard" x="1280" y="352"/>
+			<cannon type="hazard" x="1344" y="352"/>
+			<cannon type="hazard" x="1408" y="352"/>
+			<cannon type="hazard" x="1600" y="352"/>
+			<cannon type="hazard" x="1440" y="352"/>
+			<cannon type="hazard" x="1472" y="352"/>
+			<cannon type="hazard" x="1504" y="352"/>
+			<cannon type="hazard" x="1568" y="352"/>
+			<cannon type="hazard" x="1536" y="352"/>
+			<cannon type="hazard" x="1600" y="416"/>
+			<cannon type="hazard" x="1632" y="352"/>
+			<cannon type="hazard" x="1664" y="352"/>
+			<cannon type="hazard" x="1696" y="352"/>
+			<cannon type="hazard" x="1728" y="352"/>
+			<cannon type="hazard" x="1760" y="352"/>
+			<cannon type="hazard" x="1824" y="352"/>
+			<cannon type="hazard" x="1856" y="352"/>
+			<cannon type="hazard" x="1792" y="352"/>
+			<cannon type="hazard" x="1888" y="352"/>
+			<cannon type="hazard" x="1920" y="352"/>
+			<cannon type="hazard" x="1664" y="416"/>
+			<cannon type="hazard" x="1696" y="416"/>
+			<cannon type="hazard" x="1728" y="416"/>
+			<cannon type="hazard" x="1792" y="416"/>
+			<cannon type="hazard" x="1760" y="416"/>
+			<cannon type="hazard" x="1824" y="416"/>
+			<cannon type="hazard" x="1888" y="416"/>
+			<cannon type="hazard" x="1920" y="416"/>
+			<cannon type="hazard" x="1856" y="416"/>
+			<cannon type="hazard" x="1952" y="416"/>
+			<cannon type="hazard" x="1984" y="416"/>
+			<cannon type="hazard" x="2016" y="416"/>
+			<cannon type="hazard" x="2080" y="416"/>
+			<cannon type="hazard" x="2144" y="416"/>
+			<cannon type="hazard" x="2048" y="416"/>
+			<cannon type="hazard" x="2112" y="416"/>
+			<cannon type="hazard" x="2176" y="416"/>
+			<cannon type="hazard" x="2208" y="416"/>
+			<cannon type="hazard" x="2240" y="416"/>
+			<cannon type="hazard" x="1984" y="352"/>
+			<cannon type="hazard" x="2080" y="352"/>
+			<cannon type="hazard" x="2112" y="352"/>
+			<cannon type="hazard" x="2144" y="352"/>
+			<cannon type="hazard" x="2048" y="352"/>
+			<cannon type="hazard" x="2016" y="352"/>
+			<cannon type="hazard" x="2176" y="352"/>
+			<cannon type="hazard" x="2240" y="352"/>
+			<cannon type="hazard" x="2208" y="352"/>
+			<cannon type="hazard" x="160" y="352"/>
+			<cannon type="hazard" x="288" y="352"/>
+			<cannon type="hazard" x="320" y="352"/>
+			<cannon type="hazard" x="256" y="352"/>
+			<cannon type="hazard" x="352" y="352"/>
+			<cannon type="hazard" x="416" y="352"/>
+			<cannon type="hazard" x="448" y="352"/>
+			<cannon type="hazard" x="480" y="352"/>
+			<cannon type="hazard" x="384" y="352"/>
+			<cannon type="hazard" x="512" y="352"/>
+			<cannon type="hazard" x="192" y="352"/>
+			<cannon type="hazard" x="224" y="352"/>
+			<cannon type="hazard" x="544" y="352"/>
+			<cannon type="hazard" x="576" y="352"/>
+			<cannon type="hazard" x="608" y="352"/>
+			<cannon type="hazard" x="640" y="352"/>
+			<cannon type="hazard" x="672" y="352"/>
+			<cannon type="hazard" x="704" y="352"/>
+			<cannon type="hazard" x="736" y="352"/>
+			<cannon type="hazard" x="768" y="352"/>
+			<cannon type="rotate" x="672" y="160"/>
+			<cannon type="rotate" x="320" y="160"/>
+			<cannon type="rotate" x="192" y="608"/>
+			<cannon type="rotate" x="672" y="640"/>
+			<cannon type="rotate" x="992" y="640"/>
+			<cannon type="rotate" x="992" y="160"/>
+			<cannon type="rotate" x="1440" y="640"/>
+			<cannon type="rotate" x="1664" y="160"/>
+			<cannon type="left" x="1920" y="544"/>
+			<cannon type="right" x="1984" y="544"/>
+		</stage>
+		<stage name="stage1">
+			<box x="0" y="384"/>
+			<box x="32" y="384"/>
+			<box x="64" y="384"/>
+			<box x="96" y="384"/>
+			<box x="128" y="384"/>
+			<box x="160" y="384"/>
+			<box x="0" y="352"/>
+			<box x="0" y="256"/>
+			<box x="0" y="224"/>
+			<box x="0" y="288"/>
+			<box x="0" y="320"/>
+			<box x="0" y="192"/>
+			<box x="0" y="160"/>
+			<box x="0" y="128"/>
+			<box x="0" y="64"/>
+			<box x="0" y="32"/>
+			<box x="0" y="0"/>
+			<box x="0" y="96"/>
+			<box x="0" y="416"/>
+			<box x="0" y="448"/>
+			<box x="0" y="480"/>
+			<box x="0" y="544"/>
+			<box x="0" y="576"/>
+			<box x="0" y="512"/>
+			<box x="0" y="608"/>
+			<box x="0" y="640"/>
+			<box x="0" y="672"/>
+			<box x="0" y="704"/>
+			<box x="0" y="736"/>
+			<box x="192" y="384"/>
+			<box x="224" y="384"/>
+			<box x="256" y="384"/>
+			<box x="288" y="384"/>
+			<box x="320" y="384"/>
+			<box x="352" y="384"/>
+			<box x="384" y="384"/>
+			<box x="416" y="384"/>
+			<box x="448" y="384"/>
+			<box x="480" y="384"/>
+			<box x="512" y="384"/>
+			<box x="544" y="384"/>
+			<box x="576" y="384"/>
+			<box x="608" y="384"/>
+			<box x="640" y="384"/>
+			<box x="672" y="384"/>
+			<box x="704" y="384"/>
+			<box x="736" y="384"/>
+			<box x="768" y="384"/>
+			<box x="832" y="384"/>
+			<box x="864" y="384"/>
+			<box x="896" y="384"/>
+			<box x="800" y="384"/>
+			<box x="960" y="384"/>
+			<box x="928" y="384"/>
+			<box x="128" y="352"/>
+			<box x="128" y="320"/>
+			<box x="128" y="288"/>
+			<box x="992" y="384"/>
+			<box x="1088" y="384"/>
+			<box x="1120" y="384"/>
+			<box x="1056" y="384"/>
+			<box x="1024" y="384"/>
+			<box x="1152" y="384"/>
+			<box x="1184" y="384"/>
+			<box x="1248" y="384"/>
+			<box x="1216" y="384"/>
+			<box x="1280" y="384"/>
+			<box x="1312" y="384"/>
+			<box x="1344" y="384"/>
+			<box x="1376" y="384"/>
+			<box x="1408" y="384"/>
+			<box x="1440" y="384"/>
+			<box x="1472" y="384"/>
+			<box x="1504" y="384"/>
+			<box x="1536" y="384"/>
+			<box x="1568" y="384"/>
+			<box x="1600" y="384"/>
+			<box x="1632" y="384"/>
+			<box x="1664" y="384"/>
+			<box x="1696" y="384"/>
+			<box x="1760" y="384"/>
+			<box x="1728" y="384"/>
+			<box x="1792" y="384"/>
+			<box x="1824" y="384"/>
+			<box x="1856" y="384"/>
+			<box x="1888" y="384"/>
+			<box x="2048" y="384"/>
+			<box x="1920" y="384"/>
+			<box x="1952" y="384"/>
+			<box x="1984" y="384"/>
+			<box x="2016" y="384"/>
+			<box x="2080" y="384"/>
+			<box x="2112" y="384"/>
+			<box x="2144" y="384"/>
+			<box x="2208" y="384"/>
+			<box x="2176" y="384"/>
+			<box x="2272" y="384"/>
+			<box x="2240" y="384"/>
+			<box x="2272" y="352"/>
+			<box x="2272" y="320"/>
+			<box x="2272" y="288"/>
+			<box x="2272" y="256"/>
+			<box x="2272" y="224"/>
+			<box x="2272" y="192"/>
+			<box x="2272" y="160"/>
+			<box x="2272" y="128"/>
+			<box x="2272" y="96"/>
+			<box x="2272" y="0"/>
+			<box x="2272" y="32"/>
+			<box x="2272" y="64"/>
+			<box x="2272" y="416"/>
+			<box x="2272" y="448"/>
+			<box x="2272" y="480"/>
+			<box x="2272" y="544"/>
+			<box x="2272" y="512"/>
+			<box x="2272" y="576"/>
+			<box x="2272" y="608"/>
+			<box x="2272" y="640"/>
+			<box x="2272" y="672"/>
+			<box x="2272" y="704"/>
+			<box x="2272" y="736"/>
+			<box x="800" y="320"/>
+			<box x="800" y="288"/>
+			<box x="800" y="192"/>
+			<box x="800" y="256"/>
+			<box x="800" y="224"/>
+			<box x="800" y="160"/>
+			<box x="800" y="128"/>
+			<box x="800" y="96"/>
+			<box x="800" y="64"/>
+			<box x="800" y="32"/>
+			<box x="800" y="0"/>
+			<box x="800" y="736"/>
+			<box x="800" y="672"/>
+			<box x="800" y="704"/>
+			<box x="800" y="640"/>
+			<box x="800" y="608"/>
+			<box x="800" y="576"/>
+			<box x="800" y="448"/>
+			<box x="768" y="448"/>
+			<box x="736" y="448"/>
+			<box x="832" y="448"/>
+			<box x="864" y="448"/>
+			<box x="800" y="352"/>
+			<box x="1184" y="320"/>
+			<box x="1216" y="320"/>
+			<box x="1312" y="320"/>
+			<box x="1344" y="320"/>
+			<box x="1248" y="320"/>
+			<box x="1280" y="320"/>
+			<box x="1376" y="320"/>
+			<box x="1408" y="320"/>
+			<box x="1440" y="320"/>
+			<box x="1632" y="416"/>
+			<box x="1632" y="448"/>
+			<box x="1632" y="480"/>
+			<box x="1632" y="512"/>
+			<box x="1632" y="544"/>
+			<box x="1632" y="576"/>
+			<box x="1632" y="608"/>
+			<box x="1632" y="640"/>
+			<box x="1632" y="704"/>
+			<box x="1632" y="672"/>
+			<box x="1632" y="736"/>
+			<box x="1952" y="544"/>
+			<box x="1952" y="576"/>
+			<box x="1952" y="608"/>
+			<box x="1952" y="640"/>
+			<box x="1952" y="672"/>
+			<box x="1952" y="704"/>
+			<box x="1952" y="736"/>
+			<box x="1952" y="352"/>
+			<box x="1952" y="320"/>
+			<box x="1952" y="288"/>
+			<box x="1952" y="256"/>
+			<box x="1952" y="224"/>
+			<box x="1952" y="192"/>
+			<box x="1952" y="160"/>
+			<box x="1952" y="128"/>
+			<box x="1952" y="96"/>
+			<box x="1952" y="64"/>
+			<box x="1952" y="32"/>
+			<box x="1952" y="0"/>
+			<box x="2048" y="320"/>
+			<box x="2080" y="320"/>
+			<box x="2112" y="320"/>
+			<box x="2144" y="320"/>
+			<box x="2176" y="320"/>
+			<box x="1888" y="448"/>
+			<box x="1920" y="448"/>
+			<box x="1856" y="448"/>
+			<box x="1824" y="448"/>
+			<box x="1792" y="448"/>
+			<box x="1984" y="448"/>
+			<box x="1952" y="448"/>
+			<box x="2016" y="448"/>
+			<box x="2048" y="448"/>
+			<box x="2112" y="448"/>
+			<box x="2080" y="448"/>
+			<box x="480" y="448"/>
+			<box x="512" y="448"/>
+			<box x="544" y="448"/>
+			<box x="448" y="448"/>
+			<next x="2208" y="256"/>
+			<cannon type="hazard" x="736" y="416"/>
+			<cannon type="hazard" x="768" y="416"/>
+			<cannon type="hazard" x="800" y="416"/>
+			<cannon type="hazard" x="832" y="416"/>
+			<cannon type="hazard" x="864" y="416"/>
+			<cannon type="hazard" x="896" y="416"/>
+			<cannon type="hazard" x="928" y="416"/>
+			<cannon type="hazard" x="704" y="416"/>
+			<cannon type="hazard" x="672" y="416"/>
+			<cannon type="hazard" x="128" y="416"/>
+			<cannon type="hazard" x="96" y="416"/>
+			<cannon type="hazard" x="64" y="416"/>
+			<cannon type="hazard" x="32" y="416"/>
+			<cannon type="hazard" x="192" y="416"/>
+			<cannon type="hazard" x="160" y="416"/>
+			<cannon type="hazard" x="224" y="416"/>
+			<cannon type="hazard" x="320" y="416"/>
+			<cannon type="hazard" x="256" y="416"/>
+			<cannon type="hazard" x="288" y="416"/>
+			<cannon type="hazard" x="352" y="416"/>
+			<cannon type="hazard" x="384" y="416"/>
+			<cannon type="hazard" x="416" y="416"/>
+			<cannon type="hazard" x="448" y="416"/>
+			<cannon type="hazard" x="512" y="416"/>
+			<cannon type="hazard" x="544" y="416"/>
+			<cannon type="hazard" x="480" y="416"/>
+			<cannon type="hazard" x="576" y="416"/>
+			<cannon type="hazard" x="608" y="416"/>
+			<cannon type="hazard" x="640" y="416"/>
+			<cannon type="hazard" x="960" y="416"/>
+			<cannon type="hazard" x="992" y="416"/>
+			<cannon type="hazard" x="1024" y="416"/>
+			<cannon type="hazard" x="1120" y="416"/>
+			<cannon type="hazard" x="1056" y="416"/>
+			<cannon type="hazard" x="1088" y="416"/>
+			<cannon type="hazard" x="1152" y="416"/>
+			<cannon type="hazard" x="1184" y="416"/>
+			<cannon type="hazard" x="1216" y="416"/>
+			<cannon type="hazard" x="1248" y="416"/>
+			<cannon type="hazard" x="1280" y="416"/>
+			<cannon type="hazard" x="1312" y="416"/>
+			<cannon type="hazard" x="1344" y="416"/>
+			<cannon type="hazard" x="1376" y="416"/>
+			<cannon type="hazard" x="1408" y="416"/>
+			<cannon type="hazard" x="1440" y="416"/>
+			<cannon type="hazard" x="1472" y="416"/>
+			<cannon type="hazard" x="1504" y="416"/>
+			<cannon type="hazard" x="1536" y="416"/>
+			<cannon type="hazard" x="1568" y="416"/>
+			<cannon type="hazard" x="832" y="352"/>
+			<cannon type="hazard" x="864" y="352"/>
+			<cannon type="hazard" x="896" y="352"/>
+			<cannon type="hazard" x="928" y="352"/>
+			<cannon type="hazard" x="960" y="352"/>
+			<cannon type="hazard" x="992" y="352"/>
+			<cannon type="hazard" x="1024" y="352"/>
+			<cannon type="hazard" x="1056" y="352"/>
+			<cannon type="hazard" x="1088" y="352"/>
+			<cannon type="hazard" x="1152" y="352"/>
+			<cannon type="hazard" x="1120" y="352"/>
+			<cannon type="hazard" x="1184" y="352"/>
+			<cannon type="hazard" x="1216" y="352"/>
+			<cannon type="hazard" x="1312" y="352"/>
+			<cannon type="hazard" x="1376" y="352"/>
+			<cannon type="hazard" x="1248" y="352"/>
+			<cannon type="hazard" x="1280" y="352"/>
+			<cannon type="hazard" x="1344" y="352"/>
+			<cannon type="hazard" x="1408" y="352"/>
+			<cannon type="hazard" x="1600" y="352"/>
+			<cannon type="hazard" x="1440" y="352"/>
+			<cannon type="hazard" x="1472" y="352"/>
+			<cannon type="hazard" x="1504" y="352"/>
+			<cannon type="hazard" x="1568" y="352"/>
+			<cannon type="hazard" x="1536" y="352"/>
+			<cannon type="hazard" x="1600" y="416"/>
+			<cannon type="hazard" x="1632" y="352"/>
+			<cannon type="hazard" x="1664" y="352"/>
+			<cannon type="hazard" x="1696" y="352"/>
+			<cannon type="hazard" x="1728" y="352"/>
+			<cannon type="hazard" x="1760" y="352"/>
+			<cannon type="hazard" x="1824" y="352"/>
+			<cannon type="hazard" x="1856" y="352"/>
+			<cannon type="hazard" x="1792" y="352"/>
+			<cannon type="hazard" x="1888" y="352"/>
+			<cannon type="hazard" x="1920" y="352"/>
+			<cannon type="hazard" x="1664" y="416"/>
+			<cannon type="hazard" x="1696" y="416"/>
+			<cannon type="hazard" x="1728" y="416"/>
+			<cannon type="hazard" x="1792" y="416"/>
+			<cannon type="hazard" x="1760" y="416"/>
+			<cannon type="hazard" x="1824" y="416"/>
+			<cannon type="hazard" x="1888" y="416"/>
+			<cannon type="hazard" x="1920" y="416"/>
+			<cannon type="hazard" x="1856" y="416"/>
+			<cannon type="hazard" x="1952" y="416"/>
+			<cannon type="hazard" x="1984" y="416"/>
+			<cannon type="hazard" x="2016" y="416"/>
+			<cannon type="hazard" x="2080" y="416"/>
+			<cannon type="hazard" x="2144" y="416"/>
+			<cannon type="hazard" x="2048" y="416"/>
+			<cannon type="hazard" x="2112" y="416"/>
+			<cannon type="hazard" x="2176" y="416"/>
+			<cannon type="hazard" x="2208" y="416"/>
+			<cannon type="hazard" x="2240" y="416"/>
+			<cannon type="hazard" x="1984" y="352"/>
+			<cannon type="hazard" x="2080" y="352"/>
+			<cannon type="hazard" x="2112" y="352"/>
+			<cannon type="hazard" x="2144" y="352"/>
+			<cannon type="hazard" x="2048" y="352"/>
+			<cannon type="hazard" x="2016" y="352"/>
+			<cannon type="hazard" x="2176" y="352"/>
+			<cannon type="hazard" x="2240" y="352"/>
+			<cannon type="hazard" x="2208" y="352"/>
+			<cannon type="hazard" x="160" y="352"/>
+			<cannon type="hazard" x="288" y="352"/>
+			<cannon type="hazard" x="320" y="352"/>
+			<cannon type="hazard" x="256" y="352"/>
+			<cannon type="hazard" x="352" y="352"/>
+			<cannon type="hazard" x="416" y="352"/>
+			<cannon type="hazard" x="448" y="352"/>
+			<cannon type="hazard" x="480" y="352"/>
+			<cannon type="hazard" x="384" y="352"/>
+			<cannon type="hazard" x="512" y="352"/>
+			<cannon type="hazard" x="192" y="352"/>
+			<cannon type="hazard" x="224" y="352"/>
+			<cannon type="hazard" x="544" y="352"/>
+			<cannon type="hazard" x="576" y="352"/>
+			<cannon type="hazard" x="608" y="352"/>
+			<cannon type="hazard" x="640" y="352"/>
+			<cannon type="hazard" x="672" y="352"/>
+			<cannon type="hazard" x="704" y="352"/>
+			<cannon type="hazard" x="736" y="352"/>
+			<cannon type="hazard" x="768" y="352"/>
+			<cannon type="rotate" x="672" y="160"/>
+			<cannon type="rotate" x="320" y="160"/>
+			<cannon type="rotate" x="192" y="608"/>
+			<cannon type="rotate" x="672" y="640"/>
+			<cannon type="rotate" x="992" y="640"/>
+			<cannon type="rotate" x="992" y="160"/>
+			<cannon type="rotate" x="1440" y="640"/>
+			<cannon type="rotate" x="1664" y="160"/>
+			<cannon type="left" x="1920" y="544"/>
+			<cannon type="right" x="1984" y="544"/>
+			<cannon type="up" x="480" y="320"/>
+			<cannon type="fast" x="288" y="672"/>
+			<cannon type="fast" x="1248" y="544"/>
+			<cannon type="fast" x="1408" y="96"/>
+			<cannon type="left" x="2240" y="160"/>
+		</stage>
+		<stage name="stage2">
+			<box x="0" y="384"/>
+			<box x="32" y="384"/>
+			<box x="64" y="384"/>
+			<box x="96" y="384"/>
+			<box x="128" y="384"/>
+			<box x="160" y="384"/>
+			<box x="0" y="352"/>
+			<box x="0" y="256"/>
+			<box x="0" y="224"/>
+			<box x="0" y="288"/>
+			<box x="0" y="320"/>
+			<box x="0" y="192"/>
+			<box x="0" y="160"/>
+			<box x="0" y="128"/>
+			<box x="0" y="64"/>
+			<box x="0" y="32"/>
+			<box x="0" y="0"/>
+			<box x="0" y="96"/>
+			<box x="0" y="416"/>
+			<box x="0" y="448"/>
+			<box x="0" y="480"/>
+			<box x="0" y="544"/>
+			<box x="0" y="576"/>
+			<box x="0" y="512"/>
+			<box x="0" y="608"/>
+			<box x="0" y="640"/>
+			<box x="0" y="672"/>
+			<box x="0" y="704"/>
+			<box x="0" y="736"/>
+			<box x="192" y="384"/>
+			<box x="224" y="384"/>
+			<box x="256" y="384"/>
+			<box x="288" y="384"/>
+			<box x="320" y="384"/>
+			<box x="352" y="384"/>
+			<box x="384" y="384"/>
+			<box x="416" y="384"/>
+			<box x="448" y="384"/>
+			<box x="480" y="384"/>
+			<box x="512" y="384"/>
+			<box x="544" y="384"/>
+			<box x="576" y="384"/>
+			<box x="608" y="384"/>
+			<box x="640" y="384"/>
+			<box x="672" y="384"/>
+			<box x="704" y="384"/>
+			<box x="736" y="384"/>
+			<box x="768" y="384"/>
+			<box x="832" y="384"/>
+			<box x="864" y="384"/>
+			<box x="896" y="384"/>
+			<box x="800" y="384"/>
+			<box x="960" y="384"/>
+			<box x="928" y="384"/>
+			<box x="128" y="352"/>
+			<box x="128" y="320"/>
+			<box x="128" y="288"/>
+			<box x="992" y="384"/>
+			<box x="1088" y="384"/>
+			<box x="1120" y="384"/>
+			<box x="1056" y="384"/>
+			<box x="1024" y="384"/>
+			<box x="1152" y="384"/>
+			<box x="1184" y="384"/>
+			<box x="1248" y="384"/>
+			<box x="1216" y="384"/>
+			<box x="1280" y="384"/>
+			<box x="1312" y="384"/>
+			<box x="1344" y="384"/>
+			<box x="1376" y="384"/>
+			<box x="1408" y="384"/>
+			<box x="1440" y="384"/>
+			<box x="1472" y="384"/>
+			<box x="1504" y="384"/>
+			<box x="1536" y="384"/>
+			<box x="1568" y="384"/>
+			<box x="1600" y="384"/>
+			<box x="1632" y="384"/>
+			<box x="1664" y="384"/>
+			<box x="1696" y="384"/>
+			<box x="1760" y="384"/>
+			<box x="1728" y="384"/>
+			<box x="1792" y="384"/>
+			<box x="1824" y="384"/>
+			<box x="1856" y="384"/>
+			<box x="1888" y="384"/>
+			<box x="2048" y="384"/>
+			<box x="1920" y="384"/>
+			<box x="1952" y="384"/>
+			<box x="1984" y="384"/>
+			<box x="2016" y="384"/>
+			<box x="2080" y="384"/>
+			<box x="2112" y="384"/>
+			<box x="2144" y="384"/>
+			<box x="2208" y="384"/>
+			<box x="2176" y="384"/>
+			<box x="2272" y="384"/>
+			<box x="2240" y="384"/>
+			<box x="2272" y="352"/>
+			<box x="2272" y="320"/>
+			<box x="2272" y="288"/>
+			<box x="2272" y="256"/>
+			<box x="2272" y="224"/>
+			<box x="2272" y="192"/>
+			<box x="2272" y="160"/>
+			<box x="2272" y="128"/>
+			<box x="2272" y="96"/>
+			<box x="2272" y="0"/>
+			<box x="2272" y="32"/>
+			<box x="2272" y="64"/>
+			<box x="2272" y="416"/>
+			<box x="2272" y="448"/>
+			<box x="2272" y="480"/>
+			<box x="2272" y="544"/>
+			<box x="2272" y="512"/>
+			<box x="2272" y="576"/>
+			<box x="2272" y="608"/>
+			<box x="2272" y="640"/>
+			<box x="2272" y="672"/>
+			<box x="2272" y="704"/>
+			<box x="2272" y="736"/>
+			<box x="800" y="320"/>
+			<box x="800" y="288"/>
+			<box x="800" y="192"/>
+			<box x="800" y="256"/>
+			<box x="800" y="224"/>
+			<box x="800" y="160"/>
+			<box x="800" y="128"/>
+			<box x="800" y="96"/>
+			<box x="800" y="64"/>
+			<box x="800" y="32"/>
+			<box x="800" y="0"/>
+			<box x="800" y="736"/>
+			<box x="800" y="672"/>
+			<box x="800" y="704"/>
+			<box x="800" y="640"/>
+			<box x="800" y="608"/>
+			<box x="800" y="576"/>
+			<box x="800" y="448"/>
+			<box x="768" y="448"/>
+			<box x="736" y="448"/>
+			<box x="832" y="448"/>
+			<box x="864" y="448"/>
+			<box x="800" y="352"/>
+			<box x="1184" y="320"/>
+			<box x="1216" y="320"/>
+			<box x="1312" y="320"/>
+			<box x="1344" y="320"/>
+			<box x="1248" y="320"/>
+			<box x="1280" y="320"/>
+			<box x="1376" y="320"/>
+			<box x="1408" y="320"/>
+			<box x="1440" y="320"/>
+			<box x="1632" y="416"/>
+			<box x="1632" y="448"/>
+			<box x="1632" y="480"/>
+			<box x="1632" y="512"/>
+			<box x="1632" y="544"/>
+			<box x="1632" y="576"/>
+			<box x="1632" y="608"/>
+			<box x="1632" y="640"/>
+			<box x="1632" y="704"/>
+			<box x="1632" y="672"/>
+			<box x="1632" y="736"/>
+			<box x="1952" y="544"/>
+			<box x="1952" y="576"/>
+			<box x="1952" y="608"/>
+			<box x="1952" y="640"/>
+			<box x="1952" y="672"/>
+			<box x="1952" y="704"/>
+			<box x="1952" y="736"/>
+			<box x="1952" y="352"/>
+			<box x="1952" y="320"/>
+			<box x="1952" y="288"/>
+			<box x="1952" y="256"/>
+			<box x="1952" y="224"/>
+			<box x="1952" y="192"/>
+			<box x="1952" y="160"/>
+			<box x="1952" y="128"/>
+			<box x="1952" y="96"/>
+			<box x="1952" y="64"/>
+			<box x="1952" y="32"/>
+			<box x="1952" y="0"/>
+			<box x="2048" y="320"/>
+			<box x="2080" y="320"/>
+			<box x="2112" y="320"/>
+			<box x="2144" y="320"/>
+			<box x="2176" y="320"/>
+			<box x="1888" y="448"/>
+			<box x="1920" y="448"/>
+			<box x="1856" y="448"/>
+			<box x="1824" y="448"/>
+			<box x="1792" y="448"/>
+			<box x="1984" y="448"/>
+			<box x="1952" y="448"/>
+			<box x="2016" y="448"/>
+			<box x="2048" y="448"/>
+			<box x="2112" y="448"/>
+			<box x="2080" y="448"/>
+			<box x="480" y="448"/>
+			<box x="512" y="448"/>
+			<box x="544" y="448"/>
+			<box x="448" y="448"/>
+			<next x="2208" y="256"/>
+			<cannon type="hazard" x="736" y="416"/>
+			<cannon type="hazard" x="768" y="416"/>
+			<cannon type="hazard" x="800" y="416"/>
+			<cannon type="hazard" x="832" y="416"/>
+			<cannon type="hazard" x="864" y="416"/>
+			<cannon type="hazard" x="896" y="416"/>
+			<cannon type="hazard" x="928" y="416"/>
+			<cannon type="hazard" x="704" y="416"/>
+			<cannon type="hazard" x="672" y="416"/>
+			<cannon type="hazard" x="128" y="416"/>
+			<cannon type="hazard" x="96" y="416"/>
+			<cannon type="hazard" x="64" y="416"/>
+			<cannon type="hazard" x="32" y="416"/>
+			<cannon type="hazard" x="192" y="416"/>
+			<cannon type="hazard" x="160" y="416"/>
+			<cannon type="hazard" x="224" y="416"/>
+			<cannon type="hazard" x="320" y="416"/>
+			<cannon type="hazard" x="256" y="416"/>
+			<cannon type="hazard" x="288" y="416"/>
+			<cannon type="hazard" x="352" y="416"/>
+			<cannon type="hazard" x="384" y="416"/>
+			<cannon type="hazard" x="416" y="416"/>
+			<cannon type="hazard" x="448" y="416"/>
+			<cannon type="hazard" x="512" y="416"/>
+			<cannon type="hazard" x="544" y="416"/>
+			<cannon type="hazard" x="480" y="416"/>
+			<cannon type="hazard" x="576" y="416"/>
+			<cannon type="hazard" x="608" y="416"/>
+			<cannon type="hazard" x="640" y="416"/>
+			<cannon type="hazard" x="960" y="416"/>
+			<cannon type="hazard" x="992" y="416"/>
+			<cannon type="hazard" x="1024" y="416"/>
+			<cannon type="hazard" x="1120" y="416"/>
+			<cannon type="hazard" x="1056" y="416"/>
+			<cannon type="hazard" x="1088" y="416"/>
+			<cannon type="hazard" x="1152" y="416"/>
+			<cannon type="hazard" x="1184" y="416"/>
+			<cannon type="hazard" x="1216" y="416"/>
+			<cannon type="hazard" x="1248" y="416"/>
+			<cannon type="hazard" x="1280" y="416"/>
+			<cannon type="hazard" x="1312" y="416"/>
+			<cannon type="hazard" x="1344" y="416"/>
+			<cannon type="hazard" x="1376" y="416"/>
+			<cannon type="hazard" x="1408" y="416"/>
+			<cannon type="hazard" x="1440" y="416"/>
+			<cannon type="hazard" x="1472" y="416"/>
+			<cannon type="hazard" x="1504" y="416"/>
+			<cannon type="hazard" x="1536" y="416"/>
+			<cannon type="hazard" x="1568" y="416"/>
+			<cannon type="hazard" x="832" y="352"/>
+			<cannon type="hazard" x="864" y="352"/>
+			<cannon type="hazard" x="896" y="352"/>
+			<cannon type="hazard" x="928" y="352"/>
+			<cannon type="hazard" x="960" y="352"/>
+			<cannon type="hazard" x="992" y="352"/>
+			<cannon type="hazard" x="1024" y="352"/>
+			<cannon type="hazard" x="1056" y="352"/>
+			<cannon type="hazard" x="1088" y="352"/>
+			<cannon type="hazard" x="1152" y="352"/>
+			<cannon type="hazard" x="1120" y="352"/>
+			<cannon type="hazard" x="1184" y="352"/>
+			<cannon type="hazard" x="1216" y="352"/>
+			<cannon type="hazard" x="1312" y="352"/>
+			<cannon type="hazard" x="1376" y="352"/>
+			<cannon type="hazard" x="1248" y="352"/>
+			<cannon type="hazard" x="1280" y="352"/>
+			<cannon type="hazard" x="1344" y="352"/>
+			<cannon type="hazard" x="1408" y="352"/>
+			<cannon type="hazard" x="1600" y="352"/>
+			<cannon type="hazard" x="1440" y="352"/>
+			<cannon type="hazard" x="1472" y="352"/>
+			<cannon type="hazard" x="1504" y="352"/>
+			<cannon type="hazard" x="1568" y="352"/>
+			<cannon type="hazard" x="1536" y="352"/>
+			<cannon type="hazard" x="1600" y="416"/>
+			<cannon type="hazard" x="1632" y="352"/>
+			<cannon type="hazard" x="1664" y="352"/>
+			<cannon type="hazard" x="1696" y="352"/>
+			<cannon type="hazard" x="1728" y="352"/>
+			<cannon type="hazard" x="1760" y="352"/>
+			<cannon type="hazard" x="1824" y="352"/>
+			<cannon type="hazard" x="1856" y="352"/>
+			<cannon type="hazard" x="1792" y="352"/>
+			<cannon type="hazard" x="1888" y="352"/>
+			<cannon type="hazard" x="1920" y="352"/>
+			<cannon type="hazard" x="1664" y="416"/>
+			<cannon type="hazard" x="1696" y="416"/>
+			<cannon type="hazard" x="1728" y="416"/>
+			<cannon type="hazard" x="1792" y="416"/>
+			<cannon type="hazard" x="1760" y="416"/>
+			<cannon type="hazard" x="1824" y="416"/>
+			<cannon type="hazard" x="1888" y="416"/>
+			<cannon type="hazard" x="1920" y="416"/>
+			<cannon type="hazard" x="1856" y="416"/>
+			<cannon type="hazard" x="1952" y="416"/>
+			<cannon type="hazard" x="1984" y="416"/>
+			<cannon type="hazard" x="2016" y="416"/>
+			<cannon type="hazard" x="2080" y="416"/>
+			<cannon type="hazard" x="2144" y="416"/>
+			<cannon type="hazard" x="2048" y="416"/>
+			<cannon type="hazard" x="2112" y="416"/>
+			<cannon type="hazard" x="2176" y="416"/>
+			<cannon type="hazard" x="2208" y="416"/>
+			<cannon type="hazard" x="2240" y="416"/>
+			<cannon type="hazard" x="1984" y="352"/>
+			<cannon type="hazard" x="2080" y="352"/>
+			<cannon type="hazard" x="2112" y="352"/>
+			<cannon type="hazard" x="2144" y="352"/>
+			<cannon type="hazard" x="2048" y="352"/>
+			<cannon type="hazard" x="2016" y="352"/>
+			<cannon type="hazard" x="2176" y="352"/>
+			<cannon type="hazard" x="2240" y="352"/>
+			<cannon type="hazard" x="2208" y="352"/>
+			<cannon type="hazard" x="160" y="352"/>
+			<cannon type="hazard" x="288" y="352"/>
+			<cannon type="hazard" x="320" y="352"/>
+			<cannon type="hazard" x="256" y="352"/>
+			<cannon type="hazard" x="352" y="352"/>
+			<cannon type="hazard" x="416" y="352"/>
+			<cannon type="hazard" x="448" y="352"/>
+			<cannon type="hazard" x="480" y="352"/>
+			<cannon type="hazard" x="384" y="352"/>
+			<cannon type="hazard" x="512" y="352"/>
+			<cannon type="hazard" x="192" y="352"/>
+			<cannon type="hazard" x="224" y="352"/>
+			<cannon type="hazard" x="544" y="352"/>
+			<cannon type="hazard" x="576" y="352"/>
+			<cannon type="hazard" x="608" y="352"/>
+			<cannon type="hazard" x="640" y="352"/>
+			<cannon type="hazard" x="672" y="352"/>
+			<cannon type="hazard" x="704" y="352"/>
+			<cannon type="hazard" x="736" y="352"/>
+			<cannon type="hazard" x="768" y="352"/>
+			<cannon type="rotate" x="672" y="160"/>
+			<cannon type="rotate" x="320" y="160"/>
+			<cannon type="rotate" x="192" y="608"/>
+			<cannon type="rotate" x="672" y="640"/>
+			<cannon type="rotate" x="992" y="640"/>
+			<cannon type="rotate" x="992" y="160"/>
+			<cannon type="rotate" x="1440" y="640"/>
+			<cannon type="rotate" x="1664" y="160"/>
+			<cannon type="left" x="1920" y="544"/>
+			<cannon type="right" x="1984" y="544"/>
+			<cannon type="up" x="480" y="320"/>
+			<cannon type="fast" x="288" y="672"/>
+			<cannon type="fast" x="1248" y="544"/>
+			<cannon type="fast" x="1408" y="96"/>
+			<cannon type="left" x="2240" y="160"/>
+			<cannon type="left" x="768" y="32"/>
+			<cannon type="right" x="832" y="32"/>
+			<cannon type="right" x="832" y="576"/>
+			<cannon type="left" x="768" y="576"/>
+		</stage>
+		<stage name="stage3">
+			<box x="0" y="384"/>
+			<box x="32" y="384"/>
+			<box x="64" y="384"/>
+			<box x="96" y="384"/>
+			<box x="128" y="384"/>
+			<box x="160" y="384"/>
+			<box x="0" y="352"/>
+			<box x="0" y="256"/>
+			<box x="0" y="224"/>
+			<box x="0" y="288"/>
+			<box x="0" y="320"/>
+			<box x="0" y="192"/>
+			<box x="0" y="160"/>
+			<box x="0" y="128"/>
+			<box x="0" y="64"/>
+			<box x="0" y="32"/>
+			<box x="0" y="0"/>
+			<box x="0" y="96"/>
+			<box x="0" y="416"/>
+			<box x="0" y="448"/>
+			<box x="0" y="480"/>
+			<box x="0" y="544"/>
+			<box x="0" y="576"/>
+			<box x="0" y="512"/>
+			<box x="0" y="608"/>
+			<box x="0" y="640"/>
+			<box x="0" y="672"/>
+			<box x="0" y="704"/>
+			<box x="0" y="736"/>
+			<box x="192" y="384"/>
+			<box x="224" y="384"/>
+			<box x="256" y="384"/>
+			<box x="288" y="384"/>
+			<box x="320" y="384"/>
+			<box x="352" y="384"/>
+			<box x="384" y="384"/>
+			<box x="416" y="384"/>
+			<box x="448" y="384"/>
+			<box x="480" y="384"/>
+			<box x="512" y="384"/>
+			<box x="544" y="384"/>
+			<box x="576" y="384"/>
+			<box x="608" y="384"/>
+			<box x="640" y="384"/>
+			<box x="672" y="384"/>
+			<box x="704" y="384"/>
+			<box x="736" y="384"/>
+			<box x="768" y="384"/>
+			<box x="832" y="384"/>
+			<box x="864" y="384"/>
+			<box x="896" y="384"/>
+			<box x="800" y="384"/>
+			<box x="960" y="384"/>
+			<box x="928" y="384"/>
+			<box x="128" y="352"/>
+			<box x="128" y="320"/>
+			<box x="128" y="288"/>
+			<box x="992" y="384"/>
+			<box x="1088" y="384"/>
+			<box x="1120" y="384"/>
+			<box x="1056" y="384"/>
+			<box x="1024" y="384"/>
+			<box x="1152" y="384"/>
+			<box x="1184" y="384"/>
+			<box x="1248" y="384"/>
+			<box x="1216" y="384"/>
+			<box x="1280" y="384"/>
+			<box x="1312" y="384"/>
+			<box x="1344" y="384"/>
+			<box x="1376" y="384"/>
+			<box x="1408" y="384"/>
+			<box x="1440" y="384"/>
+			<box x="1472" y="384"/>
+			<box x="1504" y="384"/>
+			<box x="1536" y="384"/>
+			<box x="1568" y="384"/>
+			<box x="1600" y="384"/>
+			<box x="1632" y="384"/>
+			<box x="1664" y="384"/>
+			<box x="1696" y="384"/>
+			<box x="1760" y="384"/>
+			<box x="1728" y="384"/>
+			<box x="1792" y="384"/>
+			<box x="1824" y="384"/>
+			<box x="1856" y="384"/>
+			<box x="1888" y="384"/>
+			<box x="2048" y="384"/>
+			<box x="1920" y="384"/>
+			<box x="1952" y="384"/>
+			<box x="1984" y="384"/>
+			<box x="2016" y="384"/>
+			<box x="2080" y="384"/>
+			<box x="2112" y="384"/>
+			<box x="2144" y="384"/>
+			<box x="2208" y="384"/>
+			<box x="2176" y="384"/>
+			<box x="2272" y="384"/>
+			<box x="2240" y="384"/>
+			<box x="2272" y="352"/>
+			<box x="2272" y="320"/>
+			<box x="2272" y="288"/>
+			<box x="2272" y="256"/>
+			<box x="2272" y="224"/>
+			<box x="2272" y="192"/>
+			<box x="2272" y="160"/>
+			<box x="2272" y="128"/>
+			<box x="2272" y="96"/>
+			<box x="2272" y="0"/>
+			<box x="2272" y="32"/>
+			<box x="2272" y="64"/>
+			<box x="2272" y="416"/>
+			<box x="2272" y="448"/>
+			<box x="2272" y="480"/>
+			<box x="2272" y="544"/>
+			<box x="2272" y="512"/>
+			<box x="2272" y="576"/>
+			<box x="2272" y="608"/>
+			<box x="2272" y="640"/>
+			<box x="2272" y="672"/>
+			<box x="2272" y="704"/>
+			<box x="2272" y="736"/>
+			<box x="800" y="320"/>
+			<box x="800" y="288"/>
+			<box x="800" y="192"/>
+			<box x="800" y="256"/>
+			<box x="800" y="224"/>
+			<box x="800" y="160"/>
+			<box x="800" y="128"/>
+			<box x="800" y="96"/>
+			<box x="800" y="64"/>
+			<box x="800" y="32"/>
+			<box x="800" y="0"/>
+			<box x="800" y="736"/>
+			<box x="800" y="672"/>
+			<box x="800" y="704"/>
+			<box x="800" y="640"/>
+			<box x="800" y="608"/>
+			<box x="800" y="576"/>
+			<box x="800" y="448"/>
+			<box x="768" y="448"/>
+			<box x="736" y="448"/>
+			<box x="832" y="448"/>
+			<box x="864" y="448"/>
+			<box x="800" y="352"/>
+			<box x="1184" y="320"/>
+			<box x="1216" y="320"/>
+			<box x="1312" y="320"/>
+			<box x="1344" y="320"/>
+			<box x="1248" y="320"/>
+			<box x="1280" y="320"/>
+			<box x="1376" y="320"/>
+			<box x="1408" y="320"/>
+			<box x="1440" y="320"/>
+			<box x="1632" y="416"/>
+			<box x="1632" y="448"/>
+			<box x="1632" y="480"/>
+			<box x="1632" y="512"/>
+			<box x="1632" y="544"/>
+			<box x="1632" y="576"/>
+			<box x="1632" y="608"/>
+			<box x="1632" y="640"/>
+			<box x="1632" y="704"/>
+			<box x="1632" y="672"/>
+			<box x="1632" y="736"/>
+			<box x="1952" y="544"/>
+			<box x="1952" y="576"/>
+			<box x="1952" y="608"/>
+			<box x="1952" y="640"/>
+			<box x="1952" y="672"/>
+			<box x="1952" y="704"/>
+			<box x="1952" y="736"/>
+			<box x="1952" y="352"/>
+			<box x="1952" y="320"/>
+			<box x="1952" y="288"/>
+			<box x="1952" y="256"/>
+			<box x="1952" y="224"/>
+			<box x="1952" y="192"/>
+			<box x="1952" y="160"/>
+			<box x="1952" y="128"/>
+			<box x="1952" y="96"/>
+			<box x="1952" y="64"/>
+			<box x="1952" y="32"/>
+			<box x="1952" y="0"/>
+			<box x="2048" y="320"/>
+			<box x="2080" y="320"/>
+			<box x="2112" y="320"/>
+			<box x="2144" y="320"/>
+			<box x="2176" y="320"/>
+			<box x="1888" y="448"/>
+			<box x="1920" y="448"/>
+			<box x="1856" y="448"/>
+			<box x="1824" y="448"/>
+			<box x="1792" y="448"/>
+			<box x="1984" y="448"/>
+			<box x="1952" y="448"/>
+			<box x="2016" y="448"/>
+			<box x="2048" y="448"/>
+			<box x="2112" y="448"/>
+			<box x="2080" y="448"/>
+			<box x="480" y="448"/>
+			<box x="512" y="448"/>
+			<box x="544" y="448"/>
+			<box x="448" y="448"/>
+			<next x="2208" y="256"/>
+			<cannon type="hazard" x="736" y="416"/>
+			<cannon type="hazard" x="768" y="416"/>
+			<cannon type="hazard" x="800" y="416"/>
+			<cannon type="hazard" x="832" y="416"/>
+			<cannon type="hazard" x="864" y="416"/>
+			<cannon type="hazard" x="896" y="416"/>
+			<cannon type="hazard" x="928" y="416"/>
+			<cannon type="hazard" x="704" y="416"/>
+			<cannon type="hazard" x="672" y="416"/>
+			<cannon type="hazard" x="128" y="416"/>
+			<cannon type="hazard" x="96" y="416"/>
+			<cannon type="hazard" x="64" y="416"/>
+			<cannon type="hazard" x="32" y="416"/>
+			<cannon type="hazard" x="192" y="416"/>
+			<cannon type="hazard" x="160" y="416"/>
+			<cannon type="hazard" x="224" y="416"/>
+			<cannon type="hazard" x="320" y="416"/>
+			<cannon type="hazard" x="256" y="416"/>
+			<cannon type="hazard" x="288" y="416"/>
+			<cannon type="hazard" x="352" y="416"/>
+			<cannon type="hazard" x="384" y="416"/>
+			<cannon type="hazard" x="416" y="416"/>
+			<cannon type="hazard" x="448" y="416"/>
+			<cannon type="hazard" x="512" y="416"/>
+			<cannon type="hazard" x="544" y="416"/>
+			<cannon type="hazard" x="480" y="416"/>
+			<cannon type="hazard" x="576" y="416"/>
+			<cannon type="hazard" x="608" y="416"/>
+			<cannon type="hazard" x="640" y="416"/>
+			<cannon type="hazard" x="960" y="416"/>
+			<cannon type="hazard" x="992" y="416"/>
+			<cannon type="hazard" x="1024" y="416"/>
+			<cannon type="hazard" x="1120" y="416"/>
+			<cannon type="hazard" x="1056" y="416"/>
+			<cannon type="hazard" x="1088" y="416"/>
+			<cannon type="hazard" x="1152" y="416"/>
+			<cannon type="hazard" x="1184" y="416"/>
+			<cannon type="hazard" x="1216" y="416"/>
+			<cannon type="hazard" x="1248" y="416"/>
+			<cannon type="hazard" x="1280" y="416"/>
+			<cannon type="hazard" x="1312" y="416"/>
+			<cannon type="hazard" x="1344" y="416"/>
+			<cannon type="hazard" x="1376" y="416"/>
+			<cannon type="hazard" x="1408" y="416"/>
+			<cannon type="hazard" x="1440" y="416"/>
+			<cannon type="hazard" x="1472" y="416"/>
+			<cannon type="hazard" x="1504" y="416"/>
+			<cannon type="hazard" x="1536" y="416"/>
+			<cannon type="hazard" x="1568" y="416"/>
+			<cannon type="hazard" x="832" y="352"/>
+			<cannon type="hazard" x="864" y="352"/>
+			<cannon type="hazard" x="896" y="352"/>
+			<cannon type="hazard" x="928" y="352"/>
+			<cannon type="hazard" x="960" y="352"/>
+			<cannon type="hazard" x="992" y="352"/>
+			<cannon type="hazard" x="1024" y="352"/>
+			<cannon type="hazard" x="1056" y="352"/>
+			<cannon type="hazard" x="1088" y="352"/>
+			<cannon type="hazard" x="1152" y="352"/>
+			<cannon type="hazard" x="1120" y="352"/>
+			<cannon type="hazard" x="1184" y="352"/>
+			<cannon type="hazard" x="1216" y="352"/>
+			<cannon type="hazard" x="1312" y="352"/>
+			<cannon type="hazard" x="1376" y="352"/>
+			<cannon type="hazard" x="1248" y="352"/>
+			<cannon type="hazard" x="1280" y="352"/>
+			<cannon type="hazard" x="1344" y="352"/>
+			<cannon type="hazard" x="1408" y="352"/>
+			<cannon type="hazard" x="1600" y="352"/>
+			<cannon type="hazard" x="1440" y="352"/>
+			<cannon type="hazard" x="1472" y="352"/>
+			<cannon type="hazard" x="1504" y="352"/>
+			<cannon type="hazard" x="1568" y="352"/>
+			<cannon type="hazard" x="1536" y="352"/>
+			<cannon type="hazard" x="1600" y="416"/>
+			<cannon type="hazard" x="1632" y="352"/>
+			<cannon type="hazard" x="1664" y="352"/>
+			<cannon type="hazard" x="1696" y="352"/>
+			<cannon type="hazard" x="1728" y="352"/>
+			<cannon type="hazard" x="1760" y="352"/>
+			<cannon type="hazard" x="1824" y="352"/>
+			<cannon type="hazard" x="1856" y="352"/>
+			<cannon type="hazard" x="1792" y="352"/>
+			<cannon type="hazard" x="1888" y="352"/>
+			<cannon type="hazard" x="1920" y="352"/>
+			<cannon type="hazard" x="1664" y="416"/>
+			<cannon type="hazard" x="1696" y="416"/>
+			<cannon type="hazard" x="1728" y="416"/>
+			<cannon type="hazard" x="1792" y="416"/>
+			<cannon type="hazard" x="1760" y="416"/>
+			<cannon type="hazard" x="1824" y="416"/>
+			<cannon type="hazard" x="1888" y="416"/>
+			<cannon type="hazard" x="1920" y="416"/>
+			<cannon type="hazard" x="1856" y="416"/>
+			<cannon type="hazard" x="1952" y="416"/>
+			<cannon type="hazard" x="1984" y="416"/>
+			<cannon type="hazard" x="2016" y="416"/>
+			<cannon type="hazard" x="2080" y="416"/>
+			<cannon type="hazard" x="2144" y="416"/>
+			<cannon type="hazard" x="2048" y="416"/>
+			<cannon type="hazard" x="2112" y="416"/>
+			<cannon type="hazard" x="2176" y="416"/>
+			<cannon type="hazard" x="2208" y="416"/>
+			<cannon type="hazard" x="2240" y="416"/>
+			<cannon type="hazard" x="1984" y="352"/>
+			<cannon type="hazard" x="2080" y="352"/>
+			<cannon type="hazard" x="2112" y="352"/>
+			<cannon type="hazard" x="2144" y="352"/>
+			<cannon type="hazard" x="2048" y="352"/>
+			<cannon type="hazard" x="2016" y="352"/>
+			<cannon type="hazard" x="2176" y="352"/>
+			<cannon type="hazard" x="2240" y="352"/>
+			<cannon type="hazard" x="2208" y="352"/>
+			<cannon type="hazard" x="160" y="352"/>
+			<cannon type="hazard" x="288" y="352"/>
+			<cannon type="hazard" x="320" y="352"/>
+			<cannon type="hazard" x="256" y="352"/>
+			<cannon type="hazard" x="352" y="352"/>
+			<cannon type="hazard" x="416" y="352"/>
+			<cannon type="hazard" x="448" y="352"/>
+			<cannon type="hazard" x="480" y="352"/>
+			<cannon type="hazard" x="384" y="352"/>
+			<cannon type="hazard" x="512" y="352"/>
+			<cannon type="hazard" x="192" y="352"/>
+			<cannon type="hazard" x="224" y="352"/>
+			<cannon type="hazard" x="544" y="352"/>
+			<cannon type="hazard" x="576" y="352"/>
+			<cannon type="hazard" x="608" y="352"/>
+			<cannon type="hazard" x="640" y="352"/>
+			<cannon type="hazard" x="672" y="352"/>
+			<cannon type="hazard" x="704" y="352"/>
+			<cannon type="hazard" x="736" y="352"/>
+			<cannon type="hazard" x="768" y="352"/>
+			<cannon type="rotate" x="672" y="160"/>
+			<cannon type="rotate" x="320" y="160"/>
+			<cannon type="rotate" x="192" y="608"/>
+			<cannon type="rotate" x="672" y="640"/>
+			<cannon type="rotate" x="992" y="640"/>
+			<cannon type="rotate" x="992" y="160"/>
+			<cannon type="rotate" x="1440" y="640"/>
+			<cannon type="rotate" x="1664" y="160"/>
+			<cannon type="left" x="1920" y="544"/>
+			<cannon type="right" x="1984" y="544"/>
+			<cannon type="up" x="480" y="320"/>
+			<cannon type="fast" x="288" y="672"/>
+			<cannon type="fast" x="1248" y="544"/>
+			<cannon type="fast" x="1408" y="96"/>
+			<cannon type="left" x="2240" y="160"/>
+			<cannon type="left" x="768" y="32"/>
+			<cannon type="right" x="832" y="32"/>
+			<cannon type="right" x="832" y="576"/>
+			<cannon type="left" x="768" y="576"/>
+			<cannon type="fast" x="1152" y="96"/>
+			<cannon type="fast" x="1696" y="640"/>
+			<cannon type="fast" x="2208" y="640"/>
+			<cannon type="normal" x="2016" y="256"/>
+		</stage>
+		<stage name="stage4">
+			<box x="0" y="384"/>
+			<box x="32" y="384"/>
+			<box x="64" y="384"/>
+			<box x="96" y="384"/>
+			<box x="128" y="384"/>
+			<box x="160" y="384"/>
+			<box x="0" y="352"/>
+			<box x="0" y="256"/>
+			<box x="0" y="224"/>
+			<box x="0" y="288"/>
+			<box x="0" y="320"/>
+			<box x="0" y="192"/>
+			<box x="0" y="160"/>
+			<box x="0" y="128"/>
+			<box x="0" y="64"/>
+			<box x="0" y="32"/>
+			<box x="0" y="0"/>
+			<box x="0" y="96"/>
+			<box x="0" y="416"/>
+			<box x="0" y="448"/>
+			<box x="0" y="480"/>
+			<box x="0" y="544"/>
+			<box x="0" y="576"/>
+			<box x="0" y="512"/>
+			<box x="0" y="608"/>
+			<box x="0" y="640"/>
+			<box x="0" y="672"/>
+			<box x="0" y="704"/>
+			<box x="0" y="736"/>
+			<box x="192" y="384"/>
+			<box x="224" y="384"/>
+			<box x="256" y="384"/>
+			<box x="288" y="384"/>
+			<box x="320" y="384"/>
+			<box x="352" y="384"/>
+			<box x="384" y="384"/>
+			<box x="416" y="384"/>
+			<box x="448" y="384"/>
+			<box x="480" y="384"/>
+			<box x="512" y="384"/>
+			<box x="544" y="384"/>
+			<box x="576" y="384"/>
+			<box x="608" y="384"/>
+			<box x="640" y="384"/>
+			<box x="672" y="384"/>
+			<box x="704" y="384"/>
+			<box x="736" y="384"/>
+			<box x="768" y="384"/>
+			<box x="832" y="384"/>
+			<box x="864" y="384"/>
+			<box x="896" y="384"/>
+			<box x="800" y="384"/>
+			<box x="960" y="384"/>
+			<box x="928" y="384"/>
+			<box x="128" y="352"/>
+			<box x="128" y="320"/>
+			<box x="128" y="288"/>
+			<box x="992" y="384"/>
+			<box x="1088" y="384"/>
+			<box x="1120" y="384"/>
+			<box x="1056" y="384"/>
+			<box x="1024" y="384"/>
+			<box x="1152" y="384"/>
+			<box x="1184" y="384"/>
+			<box x="1248" y="384"/>
+			<box x="1216" y="384"/>
+			<box x="1280" y="384"/>
+			<box x="1312" y="384"/>
+			<box x="1344" y="384"/>
+			<box x="1376" y="384"/>
+			<box x="1408" y="384"/>
+			<box x="1440" y="384"/>
+			<box x="1472" y="384"/>
+			<box x="1504" y="384"/>
+			<box x="1536" y="384"/>
+			<box x="1568" y="384"/>
+			<box x="1600" y="384"/>
+			<box x="1632" y="384"/>
+			<box x="1664" y="384"/>
+			<box x="1696" y="384"/>
+			<box x="1760" y="384"/>
+			<box x="1728" y="384"/>
+			<box x="1792" y="384"/>
+			<box x="1824" y="384"/>
+			<box x="1856" y="384"/>
+			<box x="1888" y="384"/>
+			<box x="2048" y="384"/>
+			<box x="1920" y="384"/>
+			<box x="1952" y="384"/>
+			<box x="1984" y="384"/>
+			<box x="2016" y="384"/>
+			<box x="2080" y="384"/>
+			<box x="2112" y="384"/>
+			<box x="2144" y="384"/>
+			<box x="2208" y="384"/>
+			<box x="2176" y="384"/>
+			<box x="2272" y="384"/>
+			<box x="2240" y="384"/>
+			<box x="2272" y="352"/>
+			<box x="2272" y="320"/>
+			<box x="2272" y="288"/>
+			<box x="2272" y="256"/>
+			<box x="2272" y="224"/>
+			<box x="2272" y="192"/>
+			<box x="2272" y="160"/>
+			<box x="2272" y="128"/>
+			<box x="2272" y="96"/>
+			<box x="2272" y="0"/>
+			<box x="2272" y="32"/>
+			<box x="2272" y="64"/>
+			<box x="2272" y="416"/>
+			<box x="2272" y="448"/>
+			<box x="2272" y="480"/>
+			<box x="2272" y="544"/>
+			<box x="2272" y="512"/>
+			<box x="2272" y="576"/>
+			<box x="2272" y="608"/>
+			<box x="2272" y="640"/>
+			<box x="2272" y="672"/>
+			<box x="2272" y="704"/>
+			<box x="2272" y="736"/>
+			<box x="800" y="320"/>
+			<box x="800" y="288"/>
+			<box x="800" y="192"/>
+			<box x="800" y="256"/>
+			<box x="800" y="224"/>
+			<box x="800" y="160"/>
+			<box x="800" y="128"/>
+			<box x="800" y="96"/>
+			<box x="800" y="64"/>
+			<box x="800" y="32"/>
+			<box x="800" y="0"/>
+			<box x="800" y="736"/>
+			<box x="800" y="672"/>
+			<box x="800" y="704"/>
+			<box x="800" y="640"/>
+			<box x="800" y="608"/>
+			<box x="800" y="576"/>
+			<box x="800" y="448"/>
+			<box x="768" y="448"/>
+			<box x="736" y="448"/>
+			<box x="832" y="448"/>
+			<box x="864" y="448"/>
+			<box x="800" y="352"/>
+			<box x="1184" y="320"/>
+			<box x="1216" y="320"/>
+			<box x="1312" y="320"/>
+			<box x="1344" y="320"/>
+			<box x="1248" y="320"/>
+			<box x="1280" y="320"/>
+			<box x="1376" y="320"/>
+			<box x="1408" y="320"/>
+			<box x="1440" y="320"/>
+			<box x="1632" y="416"/>
+			<box x="1632" y="448"/>
+			<box x="1632" y="480"/>
+			<box x="1632" y="512"/>
+			<box x="1632" y="544"/>
+			<box x="1632" y="576"/>
+			<box x="1632" y="608"/>
+			<box x="1632" y="640"/>
+			<box x="1632" y="704"/>
+			<box x="1632" y="672"/>
+			<box x="1632" y="736"/>
+			<box x="1952" y="544"/>
+			<box x="1952" y="576"/>
+			<box x="1952" y="608"/>
+			<box x="1952" y="640"/>
+			<box x="1952" y="672"/>
+			<box x="1952" y="704"/>
+			<box x="1952" y="736"/>
+			<box x="1952" y="352"/>
+			<box x="1952" y="320"/>
+			<box x="1952" y="288"/>
+			<box x="1952" y="256"/>
+			<box x="1952" y="224"/>
+			<box x="1952" y="192"/>
+			<box x="1952" y="160"/>
+			<box x="1952" y="128"/>
+			<box x="1952" y="96"/>
+			<box x="1952" y="64"/>
+			<box x="1952" y="32"/>
+			<box x="1952" y="0"/>
+			<box x="2048" y="320"/>
+			<box x="2080" y="320"/>
+			<box x="2112" y="320"/>
+			<box x="2144" y="320"/>
+			<box x="2176" y="320"/>
+			<box x="1888" y="448"/>
+			<box x="1920" y="448"/>
+			<box x="1856" y="448"/>
+			<box x="1824" y="448"/>
+			<box x="1792" y="448"/>
+			<box x="1984" y="448"/>
+			<box x="1952" y="448"/>
+			<box x="2016" y="448"/>
+			<box x="2048" y="448"/>
+			<box x="2112" y="448"/>
+			<box x="2080" y="448"/>
+			<box x="480" y="448"/>
+			<box x="512" y="448"/>
+			<box x="544" y="448"/>
+			<box x="448" y="448"/>
+			<next x="2208" y="256"/>
+			<cannon type="hazard" x="736" y="416"/>
+			<cannon type="hazard" x="768" y="416"/>
+			<cannon type="hazard" x="800" y="416"/>
+			<cannon type="hazard" x="832" y="416"/>
+			<cannon type="hazard" x="864" y="416"/>
+			<cannon type="hazard" x="896" y="416"/>
+			<cannon type="hazard" x="928" y="416"/>
+			<cannon type="hazard" x="704" y="416"/>
+			<cannon type="hazard" x="672" y="416"/>
+			<cannon type="hazard" x="128" y="416"/>
+			<cannon type="hazard" x="96" y="416"/>
+			<cannon type="hazard" x="64" y="416"/>
+			<cannon type="hazard" x="32" y="416"/>
+			<cannon type="hazard" x="192" y="416"/>
+			<cannon type="hazard" x="160" y="416"/>
+			<cannon type="hazard" x="224" y="416"/>
+			<cannon type="hazard" x="320" y="416"/>
+			<cannon type="hazard" x="256" y="416"/>
+			<cannon type="hazard" x="288" y="416"/>
+			<cannon type="hazard" x="352" y="416"/>
+			<cannon type="hazard" x="384" y="416"/>
+			<cannon type="hazard" x="416" y="416"/>
+			<cannon type="hazard" x="448" y="416"/>
+			<cannon type="hazard" x="512" y="416"/>
+			<cannon type="hazard" x="544" y="416"/>
+			<cannon type="hazard" x="480" y="416"/>
+			<cannon type="hazard" x="576" y="416"/>
+			<cannon type="hazard" x="608" y="416"/>
+			<cannon type="hazard" x="640" y="416"/>
+			<cannon type="hazard" x="960" y="416"/>
+			<cannon type="hazard" x="992" y="416"/>
+			<cannon type="hazard" x="1024" y="416"/>
+			<cannon type="hazard" x="1120" y="416"/>
+			<cannon type="hazard" x="1056" y="416"/>
+			<cannon type="hazard" x="1088" y="416"/>
+			<cannon type="hazard" x="1152" y="416"/>
+			<cannon type="hazard" x="1184" y="416"/>
+			<cannon type="hazard" x="1216" y="416"/>
+			<cannon type="hazard" x="1248" y="416"/>
+			<cannon type="hazard" x="1280" y="416"/>
+			<cannon type="hazard" x="1312" y="416"/>
+			<cannon type="hazard" x="1344" y="416"/>
+			<cannon type="hazard" x="1376" y="416"/>
+			<cannon type="hazard" x="1408" y="416"/>
+			<cannon type="hazard" x="1440" y="416"/>
+			<cannon type="hazard" x="1472" y="416"/>
+			<cannon type="hazard" x="1504" y="416"/>
+			<cannon type="hazard" x="1536" y="416"/>
+			<cannon type="hazard" x="1568" y="416"/>
+			<cannon type="hazard" x="832" y="352"/>
+			<cannon type="hazard" x="864" y="352"/>
+			<cannon type="hazard" x="896" y="352"/>
+			<cannon type="hazard" x="928" y="352"/>
+			<cannon type="hazard" x="960" y="352"/>
+			<cannon type="hazard" x="992" y="352"/>
+			<cannon type="hazard" x="1024" y="352"/>
+			<cannon type="hazard" x="1056" y="352"/>
+			<cannon type="hazard" x="1088" y="352"/>
+			<cannon type="hazard" x="1152" y="352"/>
+			<cannon type="hazard" x="1120" y="352"/>
+			<cannon type="hazard" x="1184" y="352"/>
+			<cannon type="hazard" x="1216" y="352"/>
+			<cannon type="hazard" x="1312" y="352"/>
+			<cannon type="hazard" x="1376" y="352"/>
+			<cannon type="hazard" x="1248" y="352"/>
+			<cannon type="hazard" x="1280" y="352"/>
+			<cannon type="hazard" x="1344" y="352"/>
+			<cannon type="hazard" x="1408" y="352"/>
+			<cannon type="hazard" x="1600" y="352"/>
+			<cannon type="hazard" x="1440" y="352"/>
+			<cannon type="hazard" x="1472" y="352"/>
+			<cannon type="hazard" x="1504" y="352"/>
+			<cannon type="hazard" x="1568" y="352"/>
+			<cannon type="hazard" x="1536" y="352"/>
+			<cannon type="hazard" x="1600" y="416"/>
+			<cannon type="hazard" x="1632" y="352"/>
+			<cannon type="hazard" x="1664" y="352"/>
+			<cannon type="hazard" x="1696" y="352"/>
+			<cannon type="hazard" x="1728" y="352"/>
+			<cannon type="hazard" x="1760" y="352"/>
+			<cannon type="hazard" x="1824" y="352"/>
+			<cannon type="hazard" x="1856" y="352"/>
+			<cannon type="hazard" x="1792" y="352"/>
+			<cannon type="hazard" x="1888" y="352"/>
+			<cannon type="hazard" x="1920" y="352"/>
+			<cannon type="hazard" x="1664" y="416"/>
+			<cannon type="hazard" x="1696" y="416"/>
+			<cannon type="hazard" x="1728" y="416"/>
+			<cannon type="hazard" x="1792" y="416"/>
+			<cannon type="hazard" x="1760" y="416"/>
+			<cannon type="hazard" x="1824" y="416"/>
+			<cannon type="hazard" x="1888" y="416"/>
+			<cannon type="hazard" x="1920" y="416"/>
+			<cannon type="hazard" x="1856" y="416"/>
+			<cannon type="hazard" x="1952" y="416"/>
+			<cannon type="hazard" x="1984" y="416"/>
+			<cannon type="hazard" x="2016" y="416"/>
+			<cannon type="hazard" x="2080" y="416"/>
+			<cannon type="hazard" x="2144" y="416"/>
+			<cannon type="hazard" x="2048" y="416"/>
+			<cannon type="hazard" x="2112" y="416"/>
+			<cannon type="hazard" x="2176" y="416"/>
+			<cannon type="hazard" x="2208" y="416"/>
+			<cannon type="hazard" x="2240" y="416"/>
+			<cannon type="hazard" x="1984" y="352"/>
+			<cannon type="hazard" x="2080" y="352"/>
+			<cannon type="hazard" x="2112" y="352"/>
+			<cannon type="hazard" x="2144" y="352"/>
+			<cannon type="hazard" x="2048" y="352"/>
+			<cannon type="hazard" x="2016" y="352"/>
+			<cannon type="hazard" x="2176" y="352"/>
+			<cannon type="hazard" x="2240" y="352"/>
+			<cannon type="hazard" x="2208" y="352"/>
+			<cannon type="hazard" x="160" y="352"/>
+			<cannon type="hazard" x="288" y="352"/>
+			<cannon type="hazard" x="320" y="352"/>
+			<cannon type="hazard" x="256" y="352"/>
+			<cannon type="hazard" x="352" y="352"/>
+			<cannon type="hazard" x="416" y="352"/>
+			<cannon type="hazard" x="448" y="352"/>
+			<cannon type="hazard" x="480" y="352"/>
+			<cannon type="hazard" x="384" y="352"/>
+			<cannon type="hazard" x="512" y="352"/>
+			<cannon type="hazard" x="192" y="352"/>
+			<cannon type="hazard" x="224" y="352"/>
+			<cannon type="hazard" x="544" y="352"/>
+			<cannon type="hazard" x="576" y="352"/>
+			<cannon type="hazard" x="608" y="352"/>
+			<cannon type="hazard" x="640" y="352"/>
+			<cannon type="hazard" x="672" y="352"/>
+			<cannon type="hazard" x="704" y="352"/>
+			<cannon type="hazard" x="736" y="352"/>
+			<cannon type="hazard" x="768" y="352"/>
+			<cannon type="rotate" x="672" y="160"/>
+			<cannon type="rotate" x="320" y="160"/>
+			<cannon type="rotate" x="192" y="608"/>
+			<cannon type="rotate" x="672" y="640"/>
+			<cannon type="rotate" x="992" y="640"/>
+			<cannon type="rotate" x="992" y="160"/>
+			<cannon type="rotate" x="1440" y="640"/>
+			<cannon type="rotate" x="1664" y="160"/>
+			<cannon type="left" x="1920" y="544"/>
+			<cannon type="right" x="1984" y="544"/>
+			<cannon type="up" x="480" y="320"/>
+			<cannon type="fast" x="288" y="672"/>
+			<cannon type="fast" x="1248" y="544"/>
+			<cannon type="fast" x="1408" y="96"/>
+			<cannon type="left" x="2240" y="160"/>
+			<cannon type="left" x="768" y="32"/>
+			<cannon type="right" x="832" y="32"/>
+			<cannon type="right" x="832" y="576"/>
+			<cannon type="left" x="768" y="576"/>
+			<cannon type="fast" x="1152" y="96"/>
+			<cannon type="fast" x="1696" y="640"/>
+			<cannon type="fast" x="2208" y="640"/>
+			<cannon type="normal" x="2016" y="256"/>
+			<cannon type="left" x="2240" y="128"/>
+			<cannon type="left" x="2240" y="96"/>
+		</stage>
+		<stage name="stage5">
+			<box x="0" y="384"/>
+			<box x="32" y="384"/>
+			<box x="64" y="384"/>
+			<box x="96" y="384"/>
+			<box x="128" y="384"/>
+			<box x="160" y="384"/>
+			<box x="0" y="352"/>
+			<box x="0" y="256"/>
+			<box x="0" y="224"/>
+			<box x="0" y="288"/>
+			<box x="0" y="320"/>
+			<box x="0" y="192"/>
+			<box x="0" y="160"/>
+			<box x="0" y="128"/>
+			<box x="0" y="64"/>
+			<box x="0" y="32"/>
+			<box x="0" y="0"/>
+			<box x="0" y="96"/>
+			<box x="0" y="416"/>
+			<box x="0" y="448"/>
+			<box x="0" y="480"/>
+			<box x="0" y="544"/>
+			<box x="0" y="576"/>
+			<box x="0" y="512"/>
+			<box x="0" y="608"/>
+			<box x="0" y="640"/>
+			<box x="0" y="672"/>
+			<box x="0" y="704"/>
+			<box x="0" y="736"/>
+			<box x="192" y="384"/>
+			<box x="224" y="384"/>
+			<box x="256" y="384"/>
+			<box x="288" y="384"/>
+			<box x="320" y="384"/>
+			<box x="352" y="384"/>
+			<box x="384" y="384"/>
+			<box x="416" y="384"/>
+			<box x="448" y="384"/>
+			<box x="480" y="384"/>
+			<box x="512" y="384"/>
+			<box x="544" y="384"/>
+			<box x="576" y="384"/>
+			<box x="608" y="384"/>
+			<box x="640" y="384"/>
+			<box x="672" y="384"/>
+			<box x="704" y="384"/>
+			<box x="736" y="384"/>
+			<box x="768" y="384"/>
+			<box x="832" y="384"/>
+			<box x="864" y="384"/>
+			<box x="896" y="384"/>
+			<box x="800" y="384"/>
+			<box x="960" y="384"/>
+			<box x="928" y="384"/>
+			<box x="128" y="352"/>
+			<box x="128" y="320"/>
+			<box x="128" y="288"/>
+			<box x="992" y="384"/>
+			<box x="1088" y="384"/>
+			<box x="1120" y="384"/>
+			<box x="1056" y="384"/>
+			<box x="1024" y="384"/>
+			<box x="1152" y="384"/>
+			<box x="1184" y="384"/>
+			<box x="1248" y="384"/>
+			<box x="1216" y="384"/>
+			<box x="1280" y="384"/>
+			<box x="1312" y="384"/>
+			<box x="1344" y="384"/>
+			<box x="1376" y="384"/>
+			<box x="1408" y="384"/>
+			<box x="1440" y="384"/>
+			<box x="1472" y="384"/>
+			<box x="1504" y="384"/>
+			<box x="1536" y="384"/>
+			<box x="1568" y="384"/>
+			<box x="1600" y="384"/>
+			<box x="1632" y="384"/>
+			<box x="1664" y="384"/>
+			<box x="1696" y="384"/>
+			<box x="1760" y="384"/>
+			<box x="1728" y="384"/>
+			<box x="1792" y="384"/>
+			<box x="1824" y="384"/>
+			<box x="1856" y="384"/>
+			<box x="1888" y="384"/>
+			<box x="2048" y="384"/>
+			<box x="1920" y="384"/>
+			<box x="1952" y="384"/>
+			<box x="1984" y="384"/>
+			<box x="2016" y="384"/>
+			<box x="2080" y="384"/>
+			<box x="2112" y="384"/>
+			<box x="2144" y="384"/>
+			<box x="2208" y="384"/>
+			<box x="2176" y="384"/>
+			<box x="2272" y="384"/>
+			<box x="2240" y="384"/>
+			<box x="2272" y="352"/>
+			<box x="2272" y="320"/>
+			<box x="2272" y="288"/>
+			<box x="2272" y="256"/>
+			<box x="2272" y="224"/>
+			<box x="2272" y="192"/>
+			<box x="2272" y="160"/>
+			<box x="2272" y="128"/>
+			<box x="2272" y="96"/>
+			<box x="2272" y="0"/>
+			<box x="2272" y="32"/>
+			<box x="2272" y="64"/>
+			<box x="2272" y="416"/>
+			<box x="2272" y="448"/>
+			<box x="2272" y="480"/>
+			<box x="2272" y="544"/>
+			<box x="2272" y="512"/>
+			<box x="2272" y="576"/>
+			<box x="2272" y="608"/>
+			<box x="2272" y="640"/>
+			<box x="2272" y="672"/>
+			<box x="2272" y="704"/>
+			<box x="2272" y="736"/>
+			<box x="800" y="320"/>
+			<box x="800" y="288"/>
+			<box x="800" y="192"/>
+			<box x="800" y="256"/>
+			<box x="800" y="224"/>
+			<box x="800" y="160"/>
+			<box x="800" y="128"/>
+			<box x="800" y="96"/>
+			<box x="800" y="64"/>
+			<box x="800" y="32"/>
+			<box x="800" y="0"/>
+			<box x="800" y="736"/>
+			<box x="800" y="672"/>
+			<box x="800" y="704"/>
+			<box x="800" y="640"/>
+			<box x="800" y="608"/>
+			<box x="800" y="576"/>
+			<box x="800" y="448"/>
+			<box x="768" y="448"/>
+			<box x="736" y="448"/>
+			<box x="832" y="448"/>
+			<box x="864" y="448"/>
+			<box x="800" y="352"/>
+			<box x="1184" y="320"/>
+			<box x="1216" y="320"/>
+			<box x="1312" y="320"/>
+			<box x="1344" y="320"/>
+			<box x="1248" y="320"/>
+			<box x="1280" y="320"/>
+			<box x="1376" y="320"/>
+			<box x="1408" y="320"/>
+			<box x="1440" y="320"/>
+			<box x="1632" y="416"/>
+			<box x="1632" y="448"/>
+			<box x="1632" y="480"/>
+			<box x="1632" y="512"/>
+			<box x="1632" y="544"/>
+			<box x="1632" y="576"/>
+			<box x="1632" y="608"/>
+			<box x="1632" y="640"/>
+			<box x="1632" y="704"/>
+			<box x="1632" y="672"/>
+			<box x="1632" y="736"/>
+			<box x="1952" y="544"/>
+			<box x="1952" y="576"/>
+			<box x="1952" y="608"/>
+			<box x="1952" y="640"/>
+			<box x="1952" y="672"/>
+			<box x="1952" y="704"/>
+			<box x="1952" y="736"/>
+			<box x="1952" y="352"/>
+			<box x="1952" y="320"/>
+			<box x="1952" y="288"/>
+			<box x="1952" y="256"/>
+			<box x="1952" y="224"/>
+			<box x="1952" y="192"/>
+			<box x="1952" y="160"/>
+			<box x="1952" y="128"/>
+			<box x="1952" y="96"/>
+			<box x="1952" y="64"/>
+			<box x="1952" y="32"/>
+			<box x="1952" y="0"/>
+			<box x="2048" y="320"/>
+			<box x="2080" y="320"/>
+			<box x="2112" y="320"/>
+			<box x="2144" y="320"/>
+			<box x="2176" y="320"/>
+			<box x="1888" y="448"/>
+			<box x="1920" y="448"/>
+			<box x="1856" y="448"/>
+			<box x="1824" y="448"/>
+			<box x="1792" y="448"/>
+			<box x="1984" y="448"/>
+			<box x="1952" y="448"/>
+			<box x="2016" y="448"/>
+			<box x="2048" y="448"/>
+			<box x="2112" y="448"/>
+			<box x="2080" y="448"/>
+			<box x="480" y="448"/>
+			<box x="512" y="448"/>
+			<box x="544" y="448"/>
+			<box x="448" y="448"/>
+			<box x="1728" y="320"/>
+			<box x="1760" y="320"/>
+			<box x="1344" y="448"/>
+			<box x="1312" y="448"/>
+			<next x="2208" y="256"/>
+			<cannon type="hazard" x="736" y="416"/>
+			<cannon type="hazard" x="768" y="416"/>
+			<cannon type="hazard" x="800" y="416"/>
+			<cannon type="hazard" x="832" y="416"/>
+			<cannon type="hazard" x="864" y="416"/>
+			<cannon type="hazard" x="896" y="416"/>
+			<cannon type="hazard" x="928" y="416"/>
+			<cannon type="hazard" x="704" y="416"/>
+			<cannon type="hazard" x="672" y="416"/>
+			<cannon type="hazard" x="128" y="416"/>
+			<cannon type="hazard" x="96" y="416"/>
+			<cannon type="hazard" x="64" y="416"/>
+			<cannon type="hazard" x="32" y="416"/>
+			<cannon type="hazard" x="192" y="416"/>
+			<cannon type="hazard" x="160" y="416"/>
+			<cannon type="hazard" x="224" y="416"/>
+			<cannon type="hazard" x="320" y="416"/>
+			<cannon type="hazard" x="256" y="416"/>
+			<cannon type="hazard" x="288" y="416"/>
+			<cannon type="hazard" x="352" y="416"/>
+			<cannon type="hazard" x="384" y="416"/>
+			<cannon type="hazard" x="416" y="416"/>
+			<cannon type="hazard" x="448" y="416"/>
+			<cannon type="hazard" x="512" y="416"/>
+			<cannon type="hazard" x="544" y="416"/>
+			<cannon type="hazard" x="480" y="416"/>
+			<cannon type="hazard" x="576" y="416"/>
+			<cannon type="hazard" x="608" y="416"/>
+			<cannon type="hazard" x="640" y="416"/>
+			<cannon type="hazard" x="960" y="416"/>
+			<cannon type="hazard" x="992" y="416"/>
+			<cannon type="hazard" x="1024" y="416"/>
+			<cannon type="hazard" x="1120" y="416"/>
+			<cannon type="hazard" x="1056" y="416"/>
+			<cannon type="hazard" x="1088" y="416"/>
+			<cannon type="hazard" x="1152" y="416"/>
+			<cannon type="hazard" x="1184" y="416"/>
+			<cannon type="hazard" x="1216" y="416"/>
+			<cannon type="hazard" x="1248" y="416"/>
+			<cannon type="hazard" x="1280" y="416"/>
+			<cannon type="hazard" x="1312" y="416"/>
+			<cannon type="hazard" x="1344" y="416"/>
+			<cannon type="hazard" x="1376" y="416"/>
+			<cannon type="hazard" x="1408" y="416"/>
+			<cannon type="hazard" x="1440" y="416"/>
+			<cannon type="hazard" x="1472" y="416"/>
+			<cannon type="hazard" x="1504" y="416"/>
+			<cannon type="hazard" x="1536" y="416"/>
+			<cannon type="hazard" x="1568" y="416"/>
+			<cannon type="hazard" x="832" y="352"/>
+			<cannon type="hazard" x="864" y="352"/>
+			<cannon type="hazard" x="896" y="352"/>
+			<cannon type="hazard" x="928" y="352"/>
+			<cannon type="hazard" x="960" y="352"/>
+			<cannon type="hazard" x="992" y="352"/>
+			<cannon type="hazard" x="1024" y="352"/>
+			<cannon type="hazard" x="1056" y="352"/>
+			<cannon type="hazard" x="1088" y="352"/>
+			<cannon type="hazard" x="1152" y="352"/>
+			<cannon type="hazard" x="1120" y="352"/>
+			<cannon type="hazard" x="1184" y="352"/>
+			<cannon type="hazard" x="1216" y="352"/>
+			<cannon type="hazard" x="1312" y="352"/>
+			<cannon type="hazard" x="1376" y="352"/>
+			<cannon type="hazard" x="1248" y="352"/>
+			<cannon type="hazard" x="1280" y="352"/>
+			<cannon type="hazard" x="1344" y="352"/>
+			<cannon type="hazard" x="1408" y="352"/>
+			<cannon type="hazard" x="1600" y="352"/>
+			<cannon type="hazard" x="1440" y="352"/>
+			<cannon type="hazard" x="1472" y="352"/>
+			<cannon type="hazard" x="1504" y="352"/>
+			<cannon type="hazard" x="1568" y="352"/>
+			<cannon type="hazard" x="1536" y="352"/>
+			<cannon type="hazard" x="1600" y="416"/>
+			<cannon type="hazard" x="1632" y="352"/>
+			<cannon type="hazard" x="1664" y="352"/>
+			<cannon type="hazard" x="1696" y="352"/>
+			<cannon type="hazard" x="1728" y="352"/>
+			<cannon type="hazard" x="1760" y="352"/>
+			<cannon type="hazard" x="1824" y="352"/>
+			<cannon type="hazard" x="1856" y="352"/>
+			<cannon type="hazard" x="1792" y="352"/>
+			<cannon type="hazard" x="1888" y="352"/>
+			<cannon type="hazard" x="1920" y="352"/>
+			<cannon type="hazard" x="1664" y="416"/>
+			<cannon type="hazard" x="1696" y="416"/>
+			<cannon type="hazard" x="1728" y="416"/>
+			<cannon type="hazard" x="1792" y="416"/>
+			<cannon type="hazard" x="1760" y="416"/>
+			<cannon type="hazard" x="1824" y="416"/>
+			<cannon type="hazard" x="1888" y="416"/>
+			<cannon type="hazard" x="1920" y="416"/>
+			<cannon type="hazard" x="1856" y="416"/>
+			<cannon type="hazard" x="1952" y="416"/>
+			<cannon type="hazard" x="1984" y="416"/>
+			<cannon type="hazard" x="2016" y="416"/>
+			<cannon type="hazard" x="2080" y="416"/>
+			<cannon type="hazard" x="2144" y="416"/>
+			<cannon type="hazard" x="2048" y="416"/>
+			<cannon type="hazard" x="2112" y="416"/>
+			<cannon type="hazard" x="2176" y="416"/>
+			<cannon type="hazard" x="2208" y="416"/>
+			<cannon type="hazard" x="2240" y="416"/>
+			<cannon type="hazard" x="1984" y="352"/>
+			<cannon type="hazard" x="2080" y="352"/>
+			<cannon type="hazard" x="2112" y="352"/>
+			<cannon type="hazard" x="2144" y="352"/>
+			<cannon type="hazard" x="2048" y="352"/>
+			<cannon type="hazard" x="2016" y="352"/>
+			<cannon type="hazard" x="2176" y="352"/>
+			<cannon type="hazard" x="2240" y="352"/>
+			<cannon type="hazard" x="2208" y="352"/>
+			<cannon type="hazard" x="160" y="352"/>
+			<cannon type="hazard" x="288" y="352"/>
+			<cannon type="hazard" x="320" y="352"/>
+			<cannon type="hazard" x="256" y="352"/>
+			<cannon type="hazard" x="352" y="352"/>
+			<cannon type="hazard" x="416" y="352"/>
+			<cannon type="hazard" x="448" y="352"/>
+			<cannon type="hazard" x="480" y="352"/>
+			<cannon type="hazard" x="384" y="352"/>
+			<cannon type="hazard" x="512" y="352"/>
+			<cannon type="hazard" x="192" y="352"/>
+			<cannon type="hazard" x="224" y="352"/>
+			<cannon type="hazard" x="544" y="352"/>
+			<cannon type="hazard" x="576" y="352"/>
+			<cannon type="hazard" x="608" y="352"/>
+			<cannon type="hazard" x="640" y="352"/>
+			<cannon type="hazard" x="672" y="352"/>
+			<cannon type="hazard" x="704" y="352"/>
+			<cannon type="hazard" x="736" y="352"/>
+			<cannon type="hazard" x="768" y="352"/>
+			<cannon type="rotate" x="672" y="160"/>
+			<cannon type="rotate" x="320" y="160"/>
+			<cannon type="rotate" x="192" y="608"/>
+			<cannon type="rotate" x="672" y="640"/>
+			<cannon type="rotate" x="992" y="640"/>
+			<cannon type="rotate" x="992" y="160"/>
+			<cannon type="rotate" x="1440" y="640"/>
+			<cannon type="rotate" x="1664" y="160"/>
+			<cannon type="left" x="1920" y="544"/>
+			<cannon type="right" x="1984" y="544"/>
+			<cannon type="up" x="480" y="320"/>
+			<cannon type="fast" x="288" y="672"/>
+			<cannon type="fast" x="1248" y="544"/>
+			<cannon type="fast" x="1408" y="96"/>
+			<cannon type="left" x="2240" y="160"/>
+			<cannon type="left" x="768" y="32"/>
+			<cannon type="right" x="832" y="32"/>
+			<cannon type="right" x="832" y="576"/>
+			<cannon type="left" x="768" y="576"/>
+			<cannon type="fast" x="1152" y="96"/>
+			<cannon type="fast" x="1696" y="640"/>
+			<cannon type="fast" x="2208" y="640"/>
+			<cannon type="normal" x="2016" y="256"/>
+			<cannon type="left" x="2240" y="128"/>
+			<cannon type="left" x="2240" y="96"/>
+			<cannon type="right" x="160" y="288"/>
+			<cannon type="fast" x="1888" y="128"/>
+			<cannon type="left" x="1920" y="64"/>
+			<cannon type="left" x="1920" y="576"/>
+			<cannon type="right" x="1984" y="576"/>
+		</stage>
+		<stage name="stage6">
+			<box x="0" y="384"/>
+			<box x="32" y="384"/>
+			<box x="64" y="384"/>
+			<box x="96" y="384"/>
+			<box x="128" y="384"/>
+			<box x="160" y="384"/>
+			<box x="0" y="352"/>
+			<box x="0" y="256"/>
+			<box x="0" y="224"/>
+			<box x="0" y="288"/>
+			<box x="0" y="320"/>
+			<box x="0" y="192"/>
+			<box x="0" y="160"/>
+			<box x="0" y="128"/>
+			<box x="0" y="64"/>
+			<box x="0" y="32"/>
+			<box x="0" y="0"/>
+			<box x="0" y="96"/>
+			<box x="0" y="416"/>
+			<box x="0" y="448"/>
+			<box x="0" y="480"/>
+			<box x="0" y="544"/>
+			<box x="0" y="576"/>
+			<box x="0" y="512"/>
+			<box x="0" y="608"/>
+			<box x="0" y="640"/>
+			<box x="0" y="672"/>
+			<box x="0" y="704"/>
+			<box x="0" y="736"/>
+			<box x="192" y="384"/>
+			<box x="224" y="384"/>
+			<box x="256" y="384"/>
+			<box x="288" y="384"/>
+			<box x="320" y="384"/>
+			<box x="352" y="384"/>
+			<box x="384" y="384"/>
+			<box x="416" y="384"/>
+			<box x="448" y="384"/>
+			<box x="480" y="384"/>
+			<box x="512" y="384"/>
+			<box x="544" y="384"/>
+			<box x="576" y="384"/>
+			<box x="608" y="384"/>
+			<box x="640" y="384"/>
+			<box x="672" y="384"/>
+			<box x="704" y="384"/>
+			<box x="736" y="384"/>
+			<box x="768" y="384"/>
+			<box x="832" y="384"/>
+			<box x="864" y="384"/>
+			<box x="896" y="384"/>
+			<box x="800" y="384"/>
+			<box x="960" y="384"/>
+			<box x="928" y="384"/>
+			<box x="128" y="352"/>
+			<box x="128" y="320"/>
+			<box x="128" y="288"/>
+			<box x="992" y="384"/>
+			<box x="1088" y="384"/>
+			<box x="1120" y="384"/>
+			<box x="1056" y="384"/>
+			<box x="1024" y="384"/>
+			<box x="1152" y="384"/>
+			<box x="1184" y="384"/>
+			<box x="1248" y="384"/>
+			<box x="1216" y="384"/>
+			<box x="1280" y="384"/>
+			<box x="1312" y="384"/>
+			<box x="1344" y="384"/>
+			<box x="1376" y="384"/>
+			<box x="1408" y="384"/>
+			<box x="1440" y="384"/>
+			<box x="1472" y="384"/>
+			<box x="1504" y="384"/>
+			<box x="1536" y="384"/>
+			<box x="1568" y="384"/>
+			<box x="1600" y="384"/>
+			<box x="1632" y="384"/>
+			<box x="1664" y="384"/>
+			<box x="1696" y="384"/>
+			<box x="1760" y="384"/>
+			<box x="1728" y="384"/>
+			<box x="1792" y="384"/>
+			<box x="1824" y="384"/>
+			<box x="1856" y="384"/>
+			<box x="1888" y="384"/>
+			<box x="2048" y="384"/>
+			<box x="1920" y="384"/>
+			<box x="1952" y="384"/>
+			<box x="1984" y="384"/>
+			<box x="2016" y="384"/>
+			<box x="2080" y="384"/>
+			<box x="2112" y="384"/>
+			<box x="2144" y="384"/>
+			<box x="2208" y="384"/>
+			<box x="2176" y="384"/>
+			<box x="2272" y="384"/>
+			<box x="2240" y="384"/>
+			<box x="2272" y="352"/>
+			<box x="2272" y="320"/>
+			<box x="2272" y="288"/>
+			<box x="2272" y="256"/>
+			<box x="2272" y="224"/>
+			<box x="2272" y="192"/>
+			<box x="2272" y="160"/>
+			<box x="2272" y="128"/>
+			<box x="2272" y="96"/>
+			<box x="2272" y="0"/>
+			<box x="2272" y="32"/>
+			<box x="2272" y="64"/>
+			<box x="2272" y="416"/>
+			<box x="2272" y="448"/>
+			<box x="2272" y="480"/>
+			<box x="2272" y="544"/>
+			<box x="2272" y="512"/>
+			<box x="2272" y="576"/>
+			<box x="2272" y="608"/>
+			<box x="2272" y="640"/>
+			<box x="2272" y="672"/>
+			<box x="2272" y="704"/>
+			<box x="2272" y="736"/>
+			<box x="800" y="320"/>
+			<box x="800" y="288"/>
+			<box x="800" y="192"/>
+			<box x="800" y="256"/>
+			<box x="800" y="224"/>
+			<box x="800" y="160"/>
+			<box x="800" y="128"/>
+			<box x="800" y="96"/>
+			<box x="800" y="64"/>
+			<box x="800" y="32"/>
+			<box x="800" y="0"/>
+			<box x="800" y="736"/>
+			<box x="800" y="672"/>
+			<box x="800" y="704"/>
+			<box x="800" y="640"/>
+			<box x="800" y="608"/>
+			<box x="800" y="576"/>
+			<box x="800" y="448"/>
+			<box x="768" y="448"/>
+			<box x="736" y="448"/>
+			<box x="832" y="448"/>
+			<box x="864" y="448"/>
+			<box x="800" y="352"/>
+			<box x="1184" y="320"/>
+			<box x="1216" y="320"/>
+			<box x="1312" y="320"/>
+			<box x="1344" y="320"/>
+			<box x="1248" y="320"/>
+			<box x="1280" y="320"/>
+			<box x="1376" y="320"/>
+			<box x="1408" y="320"/>
+			<box x="1440" y="320"/>
+			<box x="1632" y="416"/>
+			<box x="1632" y="448"/>
+			<box x="1632" y="480"/>
+			<box x="1632" y="512"/>
+			<box x="1632" y="544"/>
+			<box x="1632" y="576"/>
+			<box x="1632" y="608"/>
+			<box x="1632" y="640"/>
+			<box x="1632" y="704"/>
+			<box x="1632" y="672"/>
+			<box x="1632" y="736"/>
+			<box x="1952" y="544"/>
+			<box x="1952" y="576"/>
+			<box x="1952" y="608"/>
+			<box x="1952" y="640"/>
+			<box x="1952" y="672"/>
+			<box x="1952" y="704"/>
+			<box x="1952" y="736"/>
+			<box x="1952" y="352"/>
+			<box x="1952" y="320"/>
+			<box x="1952" y="288"/>
+			<box x="1952" y="256"/>
+			<box x="1952" y="224"/>
+			<box x="1952" y="192"/>
+			<box x="1952" y="160"/>
+			<box x="1952" y="128"/>
+			<box x="1952" y="96"/>
+			<box x="1952" y="64"/>
+			<box x="1952" y="32"/>
+			<box x="1952" y="0"/>
+			<box x="2048" y="320"/>
+			<box x="2080" y="320"/>
+			<box x="2112" y="320"/>
+			<box x="2144" y="320"/>
+			<box x="2176" y="320"/>
+			<box x="1888" y="448"/>
+			<box x="1920" y="448"/>
+			<box x="1856" y="448"/>
+			<box x="1824" y="448"/>
+			<box x="1792" y="448"/>
+			<box x="1984" y="448"/>
+			<box x="1952" y="448"/>
+			<box x="2016" y="448"/>
+			<box x="2048" y="448"/>
+			<box x="2112" y="448"/>
+			<box x="2080" y="448"/>
+			<box x="480" y="448"/>
+			<box x="512" y="448"/>
+			<box x="544" y="448"/>
+			<box x="448" y="448"/>
+			<box x="1728" y="320"/>
+			<box x="1760" y="320"/>
+			<box x="1344" y="448"/>
+			<box x="1312" y="448"/>
+			<next x="2208" y="256"/>
+			<cannon type="hazard" x="736" y="416"/>
+			<cannon type="hazard" x="768" y="416"/>
+			<cannon type="hazard" x="800" y="416"/>
+			<cannon type="hazard" x="832" y="416"/>
+			<cannon type="hazard" x="864" y="416"/>
+			<cannon type="hazard" x="896" y="416"/>
+			<cannon type="hazard" x="928" y="416"/>
+			<cannon type="hazard" x="704" y="416"/>
+			<cannon type="hazard" x="672" y="416"/>
+			<cannon type="hazard" x="128" y="416"/>
+			<cannon type="hazard" x="96" y="416"/>
+			<cannon type="hazard" x="64" y="416"/>
+			<cannon type="hazard" x="32" y="416"/>
+			<cannon type="hazard" x="192" y="416"/>
+			<cannon type="hazard" x="160" y="416"/>
+			<cannon type="hazard" x="224" y="416"/>
+			<cannon type="hazard" x="320" y="416"/>
+			<cannon type="hazard" x="256" y="416"/>
+			<cannon type="hazard" x="288" y="416"/>
+			<cannon type="hazard" x="352" y="416"/>
+			<cannon type="hazard" x="384" y="416"/>
+			<cannon type="hazard" x="416" y="416"/>
+			<cannon type="hazard" x="448" y="416"/>
+			<cannon type="hazard" x="512" y="416"/>
+			<cannon type="hazard" x="544" y="416"/>
+			<cannon type="hazard" x="480" y="416"/>
+			<cannon type="hazard" x="576" y="416"/>
+			<cannon type="hazard" x="608" y="416"/>
+			<cannon type="hazard" x="640" y="416"/>
+			<cannon type="hazard" x="960" y="416"/>
+			<cannon type="hazard" x="992" y="416"/>
+			<cannon type="hazard" x="1024" y="416"/>
+			<cannon type="hazard" x="1120" y="416"/>
+			<cannon type="hazard" x="1056" y="416"/>
+			<cannon type="hazard" x="1088" y="416"/>
+			<cannon type="hazard" x="1152" y="416"/>
+			<cannon type="hazard" x="1184" y="416"/>
+			<cannon type="hazard" x="1216" y="416"/>
+			<cannon type="hazard" x="1248" y="416"/>
+			<cannon type="hazard" x="1280" y="416"/>
+			<cannon type="hazard" x="1312" y="416"/>
+			<cannon type="hazard" x="1344" y="416"/>
+			<cannon type="hazard" x="1376" y="416"/>
+			<cannon type="hazard" x="1408" y="416"/>
+			<cannon type="hazard" x="1440" y="416"/>
+			<cannon type="hazard" x="1472" y="416"/>
+			<cannon type="hazard" x="1504" y="416"/>
+			<cannon type="hazard" x="1536" y="416"/>
+			<cannon type="hazard" x="1568" y="416"/>
+			<cannon type="hazard" x="832" y="352"/>
+			<cannon type="hazard" x="864" y="352"/>
+			<cannon type="hazard" x="896" y="352"/>
+			<cannon type="hazard" x="928" y="352"/>
+			<cannon type="hazard" x="960" y="352"/>
+			<cannon type="hazard" x="992" y="352"/>
+			<cannon type="hazard" x="1024" y="352"/>
+			<cannon type="hazard" x="1056" y="352"/>
+			<cannon type="hazard" x="1088" y="352"/>
+			<cannon type="hazard" x="1152" y="352"/>
+			<cannon type="hazard" x="1120" y="352"/>
+			<cannon type="hazard" x="1184" y="352"/>
+			<cannon type="hazard" x="1216" y="352"/>
+			<cannon type="hazard" x="1312" y="352"/>
+			<cannon type="hazard" x="1376" y="352"/>
+			<cannon type="hazard" x="1248" y="352"/>
+			<cannon type="hazard" x="1280" y="352"/>
+			<cannon type="hazard" x="1344" y="352"/>
+			<cannon type="hazard" x="1408" y="352"/>
+			<cannon type="hazard" x="1600" y="352"/>
+			<cannon type="hazard" x="1440" y="352"/>
+			<cannon type="hazard" x="1472" y="352"/>
+			<cannon type="hazard" x="1504" y="352"/>
+			<cannon type="hazard" x="1568" y="352"/>
+			<cannon type="hazard" x="1536" y="352"/>
+			<cannon type="hazard" x="1600" y="416"/>
+			<cannon type="hazard" x="1632" y="352"/>
+			<cannon type="hazard" x="1664" y="352"/>
+			<cannon type="hazard" x="1696" y="352"/>
+			<cannon type="hazard" x="1728" y="352"/>
+			<cannon type="hazard" x="1760" y="352"/>
+			<cannon type="hazard" x="1824" y="352"/>
+			<cannon type="hazard" x="1856" y="352"/>
+			<cannon type="hazard" x="1792" y="352"/>
+			<cannon type="hazard" x="1888" y="352"/>
+			<cannon type="hazard" x="1920" y="352"/>
+			<cannon type="hazard" x="1664" y="416"/>
+			<cannon type="hazard" x="1696" y="416"/>
+			<cannon type="hazard" x="1728" y="416"/>
+			<cannon type="hazard" x="1792" y="416"/>
+			<cannon type="hazard" x="1760" y="416"/>
+			<cannon type="hazard" x="1824" y="416"/>
+			<cannon type="hazard" x="1888" y="416"/>
+			<cannon type="hazard" x="1920" y="416"/>
+			<cannon type="hazard" x="1856" y="416"/>
+			<cannon type="hazard" x="1952" y="416"/>
+			<cannon type="hazard" x="1984" y="416"/>
+			<cannon type="hazard" x="2016" y="416"/>
+			<cannon type="hazard" x="2080" y="416"/>
+			<cannon type="hazard" x="2144" y="416"/>
+			<cannon type="hazard" x="2048" y="416"/>
+			<cannon type="hazard" x="2112" y="416"/>
+			<cannon type="hazard" x="2176" y="416"/>
+			<cannon type="hazard" x="2208" y="416"/>
+			<cannon type="hazard" x="2240" y="416"/>
+			<cannon type="hazard" x="1984" y="352"/>
+			<cannon type="hazard" x="2080" y="352"/>
+			<cannon type="hazard" x="2112" y="352"/>
+			<cannon type="hazard" x="2144" y="352"/>
+			<cannon type="hazard" x="2048" y="352"/>
+			<cannon type="hazard" x="2016" y="352"/>
+			<cannon type="hazard" x="2176" y="352"/>
+			<cannon type="hazard" x="2240" y="352"/>
+			<cannon type="hazard" x="2208" y="352"/>
+			<cannon type="hazard" x="160" y="352"/>
+			<cannon type="hazard" x="288" y="352"/>
+			<cannon type="hazard" x="320" y="352"/>
+			<cannon type="hazard" x="256" y="352"/>
+			<cannon type="hazard" x="352" y="352"/>
+			<cannon type="hazard" x="416" y="352"/>
+			<cannon type="hazard" x="448" y="352"/>
+			<cannon type="hazard" x="480" y="352"/>
+			<cannon type="hazard" x="384" y="352"/>
+			<cannon type="hazard" x="512" y="352"/>
+			<cannon type="hazard" x="192" y="352"/>
+			<cannon type="hazard" x="224" y="352"/>
+			<cannon type="hazard" x="544" y="352"/>
+			<cannon type="hazard" x="576" y="352"/>
+			<cannon type="hazard" x="608" y="352"/>
+			<cannon type="hazard" x="640" y="352"/>
+			<cannon type="hazard" x="672" y="352"/>
+			<cannon type="hazard" x="704" y="352"/>
+			<cannon type="hazard" x="736" y="352"/>
+			<cannon type="hazard" x="768" y="352"/>
+			<cannon type="rotate" x="672" y="160"/>
+			<cannon type="rotate" x="320" y="160"/>
+			<cannon type="rotate" x="192" y="608"/>
+			<cannon type="rotate" x="672" y="640"/>
+			<cannon type="rotate" x="992" y="640"/>
+			<cannon type="rotate" x="992" y="160"/>
+			<cannon type="rotate" x="1440" y="640"/>
+			<cannon type="rotate" x="1664" y="160"/>
+			<cannon type="left" x="1920" y="544"/>
+			<cannon type="right" x="1984" y="544"/>
+			<cannon type="up" x="480" y="320"/>
+			<cannon type="fast" x="288" y="672"/>
+			<cannon type="fast" x="1248" y="544"/>
+			<cannon type="fast" x="1408" y="96"/>
+			<cannon type="left" x="2240" y="160"/>
+			<cannon type="left" x="768" y="32"/>
+			<cannon type="right" x="832" y="32"/>
+			<cannon type="right" x="832" y="576"/>
+			<cannon type="left" x="768" y="576"/>
+			<cannon type="fast" x="1152" y="96"/>
+			<cannon type="fast" x="1696" y="640"/>
+			<cannon type="fast" x="2208" y="640"/>
+			<cannon type="normal" x="2016" y="256"/>
+			<cannon type="left" x="2240" y="128"/>
+			<cannon type="left" x="2240" y="96"/>
+			<cannon type="right" x="160" y="288"/>
+			<cannon type="fast" x="1888" y="128"/>
+			<cannon type="left" x="1920" y="64"/>
+			<cannon type="left" x="1920" y="576"/>
+			<cannon type="right" x="1984" y="576"/>
+			<cannon type="hazard" x="1184" y="288"/>
+			<cannon type="hazard" x="1440" y="288"/>
+			<cannon type="rotate" x="1216" y="704"/>
+			<cannon type="rotate" x="1312" y="96"/>
+			<cannon type="right" x="1984" y="64"/>
+		</stage>
+		<stage name="stage7">
+			<box x="0" y="384"/>
+			<box x="32" y="384"/>
+			<box x="64" y="384"/>
+			<box x="96" y="384"/>
+			<box x="128" y="384"/>
+			<box x="160" y="384"/>
+			<box x="0" y="352"/>
+			<box x="0" y="256"/>
+			<box x="0" y="224"/>
+			<box x="0" y="288"/>
+			<box x="0" y="320"/>
+			<box x="0" y="192"/>
+			<box x="0" y="160"/>
+			<box x="0" y="128"/>
+			<box x="0" y="64"/>
+			<box x="0" y="32"/>
+			<box x="0" y="0"/>
+			<box x="0" y="96"/>
+			<box x="0" y="416"/>
+			<box x="0" y="448"/>
+			<box x="0" y="480"/>
+			<box x="0" y="544"/>
+			<box x="0" y="576"/>
+			<box x="0" y="512"/>
+			<box x="0" y="608"/>
+			<box x="0" y="640"/>
+			<box x="0" y="672"/>
+			<box x="0" y="704"/>
+			<box x="0" y="736"/>
+			<box x="192" y="384"/>
+			<box x="224" y="384"/>
+			<box x="256" y="384"/>
+			<box x="288" y="384"/>
+			<box x="320" y="384"/>
+			<box x="352" y="384"/>
+			<box x="384" y="384"/>
+			<box x="416" y="384"/>
+			<box x="448" y="384"/>
+			<box x="480" y="384"/>
+			<box x="512" y="384"/>
+			<box x="544" y="384"/>
+			<box x="576" y="384"/>
+			<box x="608" y="384"/>
+			<box x="640" y="384"/>
+			<box x="672" y="384"/>
+			<box x="704" y="384"/>
+			<box x="736" y="384"/>
+			<box x="768" y="384"/>
+			<box x="832" y="384"/>
+			<box x="864" y="384"/>
+			<box x="896" y="384"/>
+			<box x="800" y="384"/>
+			<box x="960" y="384"/>
+			<box x="928" y="384"/>
+			<box x="128" y="352"/>
+			<box x="128" y="320"/>
+			<box x="128" y="288"/>
+			<box x="992" y="384"/>
+			<box x="1088" y="384"/>
+			<box x="1120" y="384"/>
+			<box x="1056" y="384"/>
+			<box x="1024" y="384"/>
+			<box x="1152" y="384"/>
+			<box x="1184" y="384"/>
+			<box x="1248" y="384"/>
+			<box x="1216" y="384"/>
+			<box x="1280" y="384"/>
+			<box x="1312" y="384"/>
+			<box x="1344" y="384"/>
+			<box x="1376" y="384"/>
+			<box x="1408" y="384"/>
+			<box x="1440" y="384"/>
+			<box x="1472" y="384"/>
+			<box x="1504" y="384"/>
+			<box x="1536" y="384"/>
+			<box x="1568" y="384"/>
+			<box x="1600" y="384"/>
+			<box x="1632" y="384"/>
+			<box x="1664" y="384"/>
+			<box x="1696" y="384"/>
+			<box x="1760" y="384"/>
+			<box x="1728" y="384"/>
+			<box x="1792" y="384"/>
+			<box x="1824" y="384"/>
+			<box x="1856" y="384"/>
+			<box x="1888" y="384"/>
+			<box x="2048" y="384"/>
+			<box x="1920" y="384"/>
+			<box x="1952" y="384"/>
+			<box x="1984" y="384"/>
+			<box x="2016" y="384"/>
+			<box x="2080" y="384"/>
+			<box x="2112" y="384"/>
+			<box x="2144" y="384"/>
+			<box x="2208" y="384"/>
+			<box x="2176" y="384"/>
+			<box x="2272" y="384"/>
+			<box x="2240" y="384"/>
+			<box x="2272" y="352"/>
+			<box x="2272" y="320"/>
+			<box x="2272" y="288"/>
+			<box x="2272" y="256"/>
+			<box x="2272" y="224"/>
+			<box x="2272" y="192"/>
+			<box x="2272" y="160"/>
+			<box x="2272" y="128"/>
+			<box x="2272" y="96"/>
+			<box x="2272" y="0"/>
+			<box x="2272" y="32"/>
+			<box x="2272" y="64"/>
+			<box x="2272" y="416"/>
+			<box x="2272" y="448"/>
+			<box x="2272" y="480"/>
+			<box x="2272" y="544"/>
+			<box x="2272" y="512"/>
+			<box x="2272" y="576"/>
+			<box x="2272" y="608"/>
+			<box x="2272" y="640"/>
+			<box x="2272" y="672"/>
+			<box x="2272" y="704"/>
+			<box x="2272" y="736"/>
+			<box x="800" y="320"/>
+			<box x="800" y="288"/>
+			<box x="800" y="192"/>
+			<box x="800" y="256"/>
+			<box x="800" y="224"/>
+			<box x="800" y="160"/>
+			<box x="800" y="128"/>
+			<box x="800" y="96"/>
+			<box x="800" y="64"/>
+			<box x="800" y="32"/>
+			<box x="800" y="0"/>
+			<box x="800" y="736"/>
+			<box x="800" y="672"/>
+			<box x="800" y="704"/>
+			<box x="800" y="640"/>
+			<box x="800" y="608"/>
+			<box x="800" y="576"/>
+			<box x="800" y="448"/>
+			<box x="768" y="448"/>
+			<box x="736" y="448"/>
+			<box x="832" y="448"/>
+			<box x="864" y="448"/>
+			<box x="800" y="352"/>
+			<box x="1184" y="320"/>
+			<box x="1216" y="320"/>
+			<box x="1312" y="320"/>
+			<box x="1344" y="320"/>
+			<box x="1248" y="320"/>
+			<box x="1280" y="320"/>
+			<box x="1376" y="320"/>
+			<box x="1408" y="320"/>
+			<box x="1440" y="320"/>
+			<box x="1632" y="416"/>
+			<box x="1632" y="448"/>
+			<box x="1632" y="480"/>
+			<box x="1632" y="512"/>
+			<box x="1632" y="544"/>
+			<box x="1632" y="576"/>
+			<box x="1632" y="608"/>
+			<box x="1632" y="640"/>
+			<box x="1632" y="704"/>
+			<box x="1632" y="672"/>
+			<box x="1632" y="736"/>
+			<box x="1952" y="544"/>
+			<box x="1952" y="576"/>
+			<box x="1952" y="608"/>
+			<box x="1952" y="640"/>
+			<box x="1952" y="672"/>
+			<box x="1952" y="704"/>
+			<box x="1952" y="736"/>
+			<box x="1952" y="352"/>
+			<box x="1952" y="320"/>
+			<box x="1952" y="288"/>
+			<box x="1952" y="256"/>
+			<box x="1952" y="224"/>
+			<box x="1952" y="192"/>
+			<box x="1952" y="160"/>
+			<box x="1952" y="128"/>
+			<box x="1952" y="96"/>
+			<box x="1952" y="64"/>
+			<box x="1952" y="32"/>
+			<box x="1952" y="0"/>
+			<box x="2048" y="320"/>
+			<box x="2080" y="320"/>
+			<box x="2112" y="320"/>
+			<box x="2144" y="320"/>
+			<box x="2176" y="320"/>
+			<box x="1888" y="448"/>
+			<box x="1920" y="448"/>
+			<box x="1856" y="448"/>
+			<box x="1824" y="448"/>
+			<box x="1792" y="448"/>
+			<box x="1984" y="448"/>
+			<box x="1952" y="448"/>
+			<box x="2016" y="448"/>
+			<box x="2048" y="448"/>
+			<box x="2112" y="448"/>
+			<box x="2080" y="448"/>
+			<box x="480" y="448"/>
+			<box x="512" y="448"/>
+			<box x="544" y="448"/>
+			<box x="448" y="448"/>
+			<box x="1728" y="320"/>
+			<box x="1760" y="320"/>
+			<box x="1344" y="448"/>
+			<box x="1312" y="448"/>
+			<next x="2208" y="256"/>
+			<cannon type="hazard" x="736" y="416"/>
+			<cannon type="hazard" x="768" y="416"/>
+			<cannon type="hazard" x="800" y="416"/>
+			<cannon type="hazard" x="832" y="416"/>
+			<cannon type="hazard" x="864" y="416"/>
+			<cannon type="hazard" x="896" y="416"/>
+			<cannon type="hazard" x="928" y="416"/>
+			<cannon type="hazard" x="704" y="416"/>
+			<cannon type="hazard" x="672" y="416"/>
+			<cannon type="hazard" x="128" y="416"/>
+			<cannon type="hazard" x="96" y="416"/>
+			<cannon type="hazard" x="64" y="416"/>
+			<cannon type="hazard" x="32" y="416"/>
+			<cannon type="hazard" x="192" y="416"/>
+			<cannon type="hazard" x="160" y="416"/>
+			<cannon type="hazard" x="224" y="416"/>
+			<cannon type="hazard" x="320" y="416"/>
+			<cannon type="hazard" x="256" y="416"/>
+			<cannon type="hazard" x="288" y="416"/>
+			<cannon type="hazard" x="352" y="416"/>
+			<cannon type="hazard" x="384" y="416"/>
+			<cannon type="hazard" x="416" y="416"/>
+			<cannon type="hazard" x="448" y="416"/>
+			<cannon type="hazard" x="512" y="416"/>
+			<cannon type="hazard" x="544" y="416"/>
+			<cannon type="hazard" x="480" y="416"/>
+			<cannon type="hazard" x="576" y="416"/>
+			<cannon type="hazard" x="608" y="416"/>
+			<cannon type="hazard" x="640" y="416"/>
+			<cannon type="hazard" x="960" y="416"/>
+			<cannon type="hazard" x="992" y="416"/>
+			<cannon type="hazard" x="1024" y="416"/>
+			<cannon type="hazard" x="1120" y="416"/>
+			<cannon type="hazard" x="1056" y="416"/>
+			<cannon type="hazard" x="1088" y="416"/>
+			<cannon type="hazard" x="1152" y="416"/>
+			<cannon type="hazard" x="1184" y="416"/>
+			<cannon type="hazard" x="1216" y="416"/>
+			<cannon type="hazard" x="1248" y="416"/>
+			<cannon type="hazard" x="1280" y="416"/>
+			<cannon type="hazard" x="1312" y="416"/>
+			<cannon type="hazard" x="1344" y="416"/>
+			<cannon type="hazard" x="1376" y="416"/>
+			<cannon type="hazard" x="1408" y="416"/>
+			<cannon type="hazard" x="1440" y="416"/>
+			<cannon type="hazard" x="1472" y="416"/>
+			<cannon type="hazard" x="1504" y="416"/>
+			<cannon type="hazard" x="1536" y="416"/>
+			<cannon type="hazard" x="1568" y="416"/>
+			<cannon type="hazard" x="832" y="352"/>
+			<cannon type="hazard" x="864" y="352"/>
+			<cannon type="hazard" x="896" y="352"/>
+			<cannon type="hazard" x="928" y="352"/>
+			<cannon type="hazard" x="960" y="352"/>
+			<cannon type="hazard" x="992" y="352"/>
+			<cannon type="hazard" x="1024" y="352"/>
+			<cannon type="hazard" x="1056" y="352"/>
+			<cannon type="hazard" x="1088" y="352"/>
+			<cannon type="hazard" x="1152" y="352"/>
+			<cannon type="hazard" x="1120" y="352"/>
+			<cannon type="hazard" x="1184" y="352"/>
+			<cannon type="hazard" x="1216" y="352"/>
+			<cannon type="hazard" x="1312" y="352"/>
+			<cannon type="hazard" x="1376" y="352"/>
+			<cannon type="hazard" x="1248" y="352"/>
+			<cannon type="hazard" x="1280" y="352"/>
+			<cannon type="hazard" x="1344" y="352"/>
+			<cannon type="hazard" x="1408" y="352"/>
+			<cannon type="hazard" x="1600" y="352"/>
+			<cannon type="hazard" x="1440" y="352"/>
+			<cannon type="hazard" x="1472" y="352"/>
+			<cannon type="hazard" x="1504" y="352"/>
+			<cannon type="hazard" x="1568" y="352"/>
+			<cannon type="hazard" x="1536" y="352"/>
+			<cannon type="hazard" x="1600" y="416"/>
+			<cannon type="hazard" x="1632" y="352"/>
+			<cannon type="hazard" x="1664" y="352"/>
+			<cannon type="hazard" x="1696" y="352"/>
+			<cannon type="hazard" x="1728" y="352"/>
+			<cannon type="hazard" x="1760" y="352"/>
+			<cannon type="hazard" x="1824" y="352"/>
+			<cannon type="hazard" x="1856" y="352"/>
+			<cannon type="hazard" x="1792" y="352"/>
+			<cannon type="hazard" x="1888" y="352"/>
+			<cannon type="hazard" x="1920" y="352"/>
+			<cannon type="hazard" x="1664" y="416"/>
+			<cannon type="hazard" x="1696" y="416"/>
+			<cannon type="hazard" x="1728" y="416"/>
+			<cannon type="hazard" x="1792" y="416"/>
+			<cannon type="hazard" x="1760" y="416"/>
+			<cannon type="hazard" x="1824" y="416"/>
+			<cannon type="hazard" x="1888" y="416"/>
+			<cannon type="hazard" x="1920" y="416"/>
+			<cannon type="hazard" x="1856" y="416"/>
+			<cannon type="hazard" x="1952" y="416"/>
+			<cannon type="hazard" x="1984" y="416"/>
+			<cannon type="hazard" x="2016" y="416"/>
+			<cannon type="hazard" x="2080" y="416"/>
+			<cannon type="hazard" x="2144" y="416"/>
+			<cannon type="hazard" x="2048" y="416"/>
+			<cannon type="hazard" x="2112" y="416"/>
+			<cannon type="hazard" x="2176" y="416"/>
+			<cannon type="hazard" x="2208" y="416"/>
+			<cannon type="hazard" x="2240" y="416"/>
+			<cannon type="hazard" x="1984" y="352"/>
+			<cannon type="hazard" x="2080" y="352"/>
+			<cannon type="hazard" x="2112" y="352"/>
+			<cannon type="hazard" x="2144" y="352"/>
+			<cannon type="hazard" x="2048" y="352"/>
+			<cannon type="hazard" x="2016" y="352"/>
+			<cannon type="hazard" x="2176" y="352"/>
+			<cannon type="hazard" x="2240" y="352"/>
+			<cannon type="hazard" x="2208" y="352"/>
+			<cannon type="hazard" x="160" y="352"/>
+			<cannon type="hazard" x="288" y="352"/>
+			<cannon type="hazard" x="320" y="352"/>
+			<cannon type="hazard" x="256" y="352"/>
+			<cannon type="hazard" x="352" y="352"/>
+			<cannon type="hazard" x="416" y="352"/>
+			<cannon type="hazard" x="448" y="352"/>
+			<cannon type="hazard" x="480" y="352"/>
+			<cannon type="hazard" x="384" y="352"/>
+			<cannon type="hazard" x="512" y="352"/>
+			<cannon type="hazard" x="192" y="352"/>
+			<cannon type="hazard" x="224" y="352"/>
+			<cannon type="hazard" x="544" y="352"/>
+			<cannon type="hazard" x="576" y="352"/>
+			<cannon type="hazard" x="608" y="352"/>
+			<cannon type="hazard" x="640" y="352"/>
+			<cannon type="hazard" x="672" y="352"/>
+			<cannon type="hazard" x="704" y="352"/>
+			<cannon type="hazard" x="736" y="352"/>
+			<cannon type="hazard" x="768" y="352"/>
+			<cannon type="rotate" x="672" y="160"/>
+			<cannon type="rotate" x="320" y="160"/>
+			<cannon type="rotate" x="192" y="608"/>
+			<cannon type="rotate" x="672" y="640"/>
+			<cannon type="rotate" x="992" y="640"/>
+			<cannon type="rotate" x="992" y="160"/>
+			<cannon type="rotate" x="1440" y="640"/>
+			<cannon type="rotate" x="1664" y="160"/>
+			<cannon type="left" x="1920" y="544"/>
+			<cannon type="right" x="1984" y="544"/>
+			<cannon type="up" x="480" y="320"/>
+			<cannon type="fast" x="288" y="672"/>
+			<cannon type="fast" x="1248" y="544"/>
+			<cannon type="fast" x="1408" y="96"/>
+			<cannon type="left" x="2240" y="160"/>
+			<cannon type="left" x="768" y="32"/>
+			<cannon type="right" x="832" y="32"/>
+			<cannon type="right" x="832" y="576"/>
+			<cannon type="left" x="768" y="576"/>
+			<cannon type="fast" x="1152" y="96"/>
+			<cannon type="fast" x="1696" y="640"/>
+			<cannon type="fast" x="2208" y="640"/>
+			<cannon type="normal" x="2016" y="256"/>
+			<cannon type="left" x="2240" y="128"/>
+			<cannon type="left" x="2240" y="96"/>
+			<cannon type="right" x="160" y="288"/>
+			<cannon type="fast" x="1888" y="128"/>
+			<cannon type="left" x="1920" y="64"/>
+			<cannon type="left" x="1920" y="576"/>
+			<cannon type="right" x="1984" y="576"/>
+			<cannon type="hazard" x="1184" y="288"/>
+			<cannon type="hazard" x="1440" y="288"/>
+			<cannon type="rotate" x="1216" y="704"/>
+			<cannon type="rotate" x="1312" y="96"/>
+			<cannon type="right" x="1984" y="64"/>
+			<cannon type="right" x="1664" y="608"/>
+			<cannon type="left" x="2240" y="608"/>
+			<cannon type="down" x="640" y="448"/>
+			<cannon type="down" x="960" y="448"/>
+		</stage>
 	</stages>
 </level>

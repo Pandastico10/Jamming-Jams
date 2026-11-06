@@ -2,6 +2,7 @@ import funkin.backend.utils.ShaderResizeFix; // script by
 import openfl.system.Capabilities; // script by care
 import JamUtils;
 
+//ONLY STATIC VAR IN THE ENTIRE GAME IM SOBBINGGGG
 static var JamUtils = new JamUtils();
 
 function update(elapsed){
@@ -14,14 +15,23 @@ function new() {
     FlxG.save.data.performance ??= false;
     FlxG.save.data.shaders ??= true;
     FlxG.save.data.bg ??= true;
-    FlxG.save.data.canDie ??= true;
+    FlxG.save.data.canDie ??= false;
     FlxG.save.data.playerAbility ??= "none";
     FlxG.save.data.freeplayUnlocked ??= false;
     FlxG.save.data.editorUnlocked ??= false;
+    FlxG.save.data.sawOpening ??= false;
     //legit no idea what i wanted to do with this
     //i membered
     FlxG.save.data.bgs ??= 'square';
-    FlxG.save.data.rooms ??= 'room1';
+    FlxG.save.data.rooms ??= 'cabin';
+
+    FlxG.save.data.beatlevel1 ??= false;
+    FlxG.save.data.beatlevel2 ??= false;
+    FlxG.save.data.beatlevel3 ??= false;
+    FlxG.save.data.beatlevel4 ??= false;
+    FlxG.save.data.beatlevel5 ??= false;
+
+    FlxG.save.data.sawEnding ??= false;
     FlxG.save.flush();
     windowShit(1024, 768); // script by care
 }

@@ -14,6 +14,8 @@ import platformer.Player;
 import platformer.Cannon;
 import Xml;
 
+//this was the first thing i coded for this mod when i knew next to nothing please dont kill me i swear i could do better now
+
 // is making every single variable public bad??
 // idk
 // probably but hey i can script events easier like this
@@ -66,22 +68,14 @@ public var topMenuSpr:UITopMenu;
 
 // rest
 public var gridToggle:Bool = false;
+public var godmode:Bool = false;
 public var gridSize:Int = 32;
 public var curStage:Int = 0;
 
 function create() {
 	loadLevelInfo();
-
-	// trace("LEVEL: " + level);
-	// trace("MUSIC: " + music);
-	// trace("BPM: " + bpm);
-	// trace("PlayerX: " + playerX);
-	// trace("PlayerY: " + playerY);
-	// trace("MaxJumpAmm: " + maxJumpAmm);
-	// trace("Stages: " + stages);
-	// trace("Boxes: " + stageBoxes);
 	loadStage(curStage);
-	player = new Player(playerX, playerY);
+	player = new Player(playerX, playerY, maxJumpAmm);
 	topMenu = [
 		{
 			label: "File",
@@ -203,6 +197,12 @@ function create() {
 					label: "Test Level",
 					keybind: [FlxKey.CONTROL, FlxKey.TWO],
 					onSelect: startTest,
+				},
+				{
+					label: "Toggle Godmode",
+					keybind: [FlxKey.CONTROL, FlxKey.THREE],
+					onSelect: godmodeToggle,
+					icon: godmode ? 1 : 0
 				}
 			]
 		},
@@ -338,7 +338,7 @@ function update(elapsed:Float) {
 		sprites.y = mouseY;
 	}
 
-	if (FlxG.mouse.justPressed) {
+	if (FlxG.mouse.justPressed && !topMenuSpr.hovered) {
 		switch (curSelected) {
 			case 0:
 				var existing:FlxSprite = null;
@@ -567,8 +567,14 @@ function startTest() {
 	player.test();
 	text("Test started");
 }
+function godmodeToggle() {
+	godmode = !godmode;
+	text("Godmode toggled");
+}
 
 function death() {
+	if(godmode)
+		return;
 	player.x = playerX;
 	player.y = playerY;
 	text("you died");

@@ -41,12 +41,12 @@ class Flashlight {
         flash1 = new FlxSprite().loadGraphic(Paths.image("game/flash1"));
         flash1.setGraphicSize(Std.int(FlxG.width * 7.5), Std.int(FlxG.height * 6));
         flash1.updateHitbox();
-        flash1.alpha = 0.8;
+        flash1.alpha = 0.9;
 
         flash0 = new FlxSprite().loadGraphic(Paths.image("game/flash0"));
         flash0.setGraphicSize(Std.int(FlxG.width * 7.5), Std.int(FlxG.height * 6));
         flash0.updateHitbox();
-        flash0.alpha = 0.8;
+        flash0.alpha = 0.9;
 
         flashSprites.add(flash0);
         flashSprites.add(flash1);

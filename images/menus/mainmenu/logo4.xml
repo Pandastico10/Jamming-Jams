@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="logo4.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="idle0000" x="1126" y="0" width="1125" height="444" frameX="1" frameY="1" frameWidth="1122" frameHeight="441"/>
+	<SubTexture name="idle0001" x="0" y="444" width="1125" height="444" frameX="1" frameY="2" frameWidth="1122" frameHeight="441"/>
+	<SubTexture name="idle0002" x="0" y="0" width="1126" height="444" frameX="2" frameY="2" frameWidth="1122" frameHeight="441"/>
+	<SubTexture name="idle0003" x="1126" y="444" width="1125" height="443" frameX="1" frameY="1" frameWidth="1122" frameHeight="441"/>
+</TextureAtlas>

@@ -1,0 +1,18 @@
+[
+    {
+        "text": "(You're here again.)",
+        "waitForInput": true
+    },
+    {
+        "text": "(Although it feels like you nevel left)"
+    },
+    {
+        "text": "(The TV is still there.)"
+    },
+    {
+        "text": "(You pick up a controller lying near the TV.)"
+    },
+    {
+        "text": "(You press the power button and...)"
+    }
+]

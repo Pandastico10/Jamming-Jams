@@ -3,17 +3,14 @@ import openfl.display.BlendMode;
 import flixel.addons.display.FlxBackdrop;
 import platformer.DeathCounter;
 import Xml;
-import FunkinSignal;
 
 var levelName:FlxText;
 var levelInfo:FlxText;
 var Highscore:FlxText;
-var menuItems:Array<String>;
 var curSelected:Int = 0;
 
 // trans bool yayyyyy
-var trans:Bool = false;
-var pauseMusic:FlxSound;
+var trans:Bool = true;
 var options:Array<String> = ["Resume", "Restart", "Options", "Exit"];
 var texts:Array<FlxText> = [];
 var curSelected:Int = 0;
@@ -22,6 +19,7 @@ var blend = new FlxSprite();
 var pauseTarget:FlxSound;
 var pauseTargetVolume:Float = 0.8;
 var pauseTargetWasPlaying:Bool = false;
+var pauseMusic:FlxSound;
 
 function create() {
 	camera = new FlxCamera();
@@ -40,13 +38,25 @@ function create() {
 		FlxTween.cancelTweensOf(pauseTarget);
 
 		if (pauseTargetWasPlaying) {
-			FlxTween.tween(pauseTarget, {volume: 0}, 0.5, {
+			FlxTween.tween(pauseTarget, {volume: 0}, 0.25, {
 				onComplete: function(_) {
 					pauseTarget.pause();
+					trans = false;
 				}
 			});
 		}
 	}
+	new FlxTimer().start(0.25, function(_) {
+		trans = false;
+	});
+
+	if (data.died)
+		options.shift();
+
+	pauseMusic = FlxG.sound.load(Assets.getMusic(Paths.music("Sakura-read")), 0, true);
+	pauseMusic.persist = false;
+	pauseMusic.group = FlxG.sound.defaultMusicGroup;
+	pauseMusic.play(false, FlxG.random.int(0, Std.int(pauseMusic.length / 2)));
 	blend.makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
 	add(blend);
 	blend.cameras = [camera];
@@ -78,17 +88,15 @@ function create() {
 	var level = xml.get("name");
 	var artist = xml.get("artist");
 	var bpm = Std.parseInt(xml.get("bpm"));
-	var deaths = DeathCounter.loadBestDeaths(data.level);
-	var time = DeathCounter.loadBestTime(data.level);
 
 	levelName = new FlxText(0, 0, FlxG.width, level);
 	JamUtils.setupText(levelName, 60, 'center', "outline.ttf");
 	levelName.screenCenter();
 	levelName.y -= 62.5 * 2;
 	levelName.cameras = [camera];
-    levelName.alpha = 0;
-    FlxTween.tween(levelName, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
-    texts.push(levelName);
+	levelName.alpha = 0;
+	FlxTween.tween(levelName, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
+	texts.push(levelName);
 	add(levelName);
 
 	levelInfo = new FlxText(0, 0, FlxG.width, 'by: ' + artist + ' (' + bpm + ' bpm)');
@@ -96,15 +104,17 @@ function create() {
 	levelInfo.screenCenter();
 	levelInfo.y -= 62.5;
 	levelInfo.cameras = [camera];
-    levelInfo.alpha = 0;
-    FlxTween.tween(levelInfo, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
-    texts.push(levelInfo);
+	levelInfo.alpha = 0;
+	FlxTween.tween(levelInfo, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
+	texts.push(levelInfo);
 	add(levelInfo);
 
 	changeSelect(0);
 }
 
 function update(elapsed:Float) {
+	if (pauseMusic != null && pauseMusic.volume < 0.75)
+		pauseMusic.volume += 0.03 * elapsed;
 	if ((FlxG.keys.justPressed.DOWN || FlxG.keys.justPressed.RIGHT) && !trans)
 		changeSelect(1);
 	if ((FlxG.keys.justPressed.UP || FlxG.keys.justPressed.LEFT) && !trans)
@@ -113,6 +123,7 @@ function update(elapsed:Float) {
 		switch (options[curSelected]) {
 			case "Resume":
 				trans = true;
+				CoolUtil.playMenuSFX(1, 1);
 
 				if (pauseTarget != null && pauseTargetWasPlaying) {
 					FlxTween.cancelTweensOf(pauseTarget);
@@ -134,13 +145,32 @@ function update(elapsed:Float) {
 			case "Options":
 				trans = true;
 				if (data.hasAI) {
-					FlxG.switchState(new OptionsMenu((_) -> FlxG.switchState(new ModState("OfficeState", data.level))));
+					FlxG.switchState(new OptionsMenu((_) -> FlxG.switchState(new ModState("OfficeState", {
+						level: data.level,
+						isStoryMode: data.isStoryMode,
+						stage: data.stage,
+						deaths: data.deaths,
+						time: data.time,
+						comingBack: true
+					}))));
 				} else {
-					FlxG.switchState(new OptionsMenu((_) -> FlxG.switchState(new ModState("PlatformerState", data.level))));
+					FlxG.switchState(new OptionsMenu((_) -> FlxG.switchState(new ModState("PlatformerState", {
+						level: data.level,
+						isStoryMode: data.isStoryMode,
+						stage: data.stage,
+						deaths: data.deaths,
+						time: data.time,
+						stage: data.stage,
+						comingBack: true
+					}))));
 				}
 			case "Exit":
 				trans = true;
-				FlxG.switchState(new MainMenuState());
+				if (data.isStoryMode) {
+					FlxG.switchState(new ModState("JamStorymode"));
+				} else {
+					FlxG.switchState(new ModState("JamFreeplay"));
+				}
 		}
 	}
 }
@@ -148,7 +178,13 @@ function update(elapsed:Float) {
 function changeSelect(cur:Int) {
 	curSelected = FlxMath.wrap(curSelected + cur, 0, texts.length - 3);
 	CoolUtil.playMenuSFX(0, 1);
-	for (i in 0...texts.length-2) {
+	for (i in 0...texts.length - 2) {
 		texts[i].color = i == curSelected ? FlxColor.YELLOW : FlxColor.WHITE;
+	}
+}
+
+function destroy() {
+	if (pauseMusic != null) {
+		FlxG.sound.destroySound(pauseMusic);
 	}
 }

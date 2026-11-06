@@ -20,6 +20,8 @@ class Player extends FlxSprite {
 	public var ability:String = FlxG.save.data.playerAbility;
 	public var trail:FlxTrail;
 	public var abilityIndicator:FlxSprite;
+	public var coyoteTime:Float = 0.12;
+	public var coyoteTimer:Float = 0;
 
 	public var jumpSfx:FlxSound = new FlxSound();
 	public var boostSfx:FlxSound = new FlxSound();
@@ -275,44 +277,49 @@ class Player extends FlxSprite {
 			return;
 		}
 
-		if (controls.getPressed("player_up")) {
-			jumpTimer += elapsed;
-
-			if (jumpTimer < 0.025)
-				velocity.y = gravityFlipped ? jumpStrength : -jumpStrength;
-		}
-
-		if (controls.getJustPressed("player_up") && isGrounded())
-			jumpSfx.play();
-
-		if (controls.getJustReleased("player_up") && jumpTimer < maxJumpTime) {
-			velocity.y += 200;
-			jumpTimer = maxJumpTime;
-		}
-
-		if (controls.getJustPressed("player_up") && !isGrounded() && jumpAmm > 0) {
-			jumpSfx.pitch += 0.1;
-			jumpSfx.play();
-
-			velocity.y = gravityFlipped ? jumpStrength : -jumpStrength;
-			jumpAmm--;
-			jumpTimer = 0;
-
-			FlxTween.cancelTweensOf(this);
-			angle = 0;
-
-			FlxTween.tween(this, {angle: -360}, 0.5, {
-				ease: FlxEase.cubeOut
-			});
-		}
-
+		//if touching the ground reset everything
 		if (isGrounded()) {
+			coyoteTimer = coyoteTime;
 			jumpAmm = maxJumpAmm;
 			dashAvailable = true;
 			angle = 0;
 			jumpSfx.pitch = 1;
 			jumpTimer = 0;
 			canFlip = true;
+		} else {
+			//if not then advance coyoteTimer
+			coyoteTimer = Math.max(0, coyoteTimer - elapsed);
+		}
+
+		if (controls.getJustPressed("player_up")) {
+			if (isGrounded() || coyoteTimer > 0) {
+				velocity.y = gravityFlipped ? jumpStrength : -jumpStrength;
+				coyoteTimer = 0;
+				jumpTimer = 0;
+				jumpSfx.play();
+			} else if (jumpAmm > 0) {
+				velocity.y = gravityFlipped ? jumpStrength : -jumpStrength;
+				jumpAmm--;
+				jumpTimer = 0;
+
+				jumpSfx.pitch += 0.1;
+				jumpSfx.play();
+
+				FlxTween.cancelTweensOf(this);
+				angle = 0;
+
+				FlxTween.tween(this, {angle: -360}, 0.5, {
+					ease: FlxEase.cubeOut
+				});
+			}
+		}
+
+		if (controls.getPressed("player_up"))
+			jumpTimer += elapsed;
+
+		if (controls.getJustReleased("player_up") && jumpTimer < maxJumpTime) {
+			velocity.y += 200;
+			jumpTimer = maxJumpTime;
 		}
 
 		if (controls.getJustPressed("player_down") && !isGrounded()) {

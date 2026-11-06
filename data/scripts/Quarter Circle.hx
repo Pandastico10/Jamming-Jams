@@ -1,6 +1,10 @@
 import flixel.util.FlxSpriteUtil;
 
-function create() {}
+function create() {
+	if (FlxG.save.data.playerAbility == 'none')
+		player.ability = 'none';
+}
+
 function update(elapsed:Float) {}
 
 function measureHit(curMeasure:Int) {
@@ -53,12 +57,31 @@ function stepHit(curStep:Int) {
 }
 
 function nextStage() {
-	if (curStage == 3)
-		CoolUtil.playMusic(Paths.music('qc2'), true, 0.8, true, 130);
-	else if (curStage == 5)
-		CoolUtil.playMusic(Paths.music('qc3'), true, 0.8, true, 130);
-	else if (curStage == 7)
-		CoolUtil.playMusic(Paths.music('qc4'), true, 0.8, true, 130);
-	else if (curStage == 9)
-		CoolUtil.playMusic(Paths.music('qc5'), true, 0.8, true, 130);
+	if (comingBack) {
+		if (curStage <= 3)
+			CoolUtil.playMusic(Paths.music('qc2'), true, 0.8, true, 130);
+		else if (curStage <= 5)
+			CoolUtil.playMusic(Paths.music('qc3'), true, 0.8, true, 130);
+		else if (curStage <= 7)
+			CoolUtil.playMusic(Paths.music('qc4'), true, 0.8, true, 130);
+		else if (curStage >= 9)
+			CoolUtil.playMusic(Paths.music('qc5'), true, 0.8, true, 130);
+	} else {
+		if (curStage == 3)
+			CoolUtil.playMusic(Paths.music('qc2'), true, 0.8, true, 130);
+		else if (curStage == 5)
+			CoolUtil.playMusic(Paths.music('qc3'), true, 0.8, true, 130);
+		else if (curStage == 7)
+			CoolUtil.playMusic(Paths.music('qc4'), true, 0.8, true, 130);
+		else if (curStage == 9)
+			CoolUtil.playMusic(Paths.music('qc5'), true, 0.8, true, 130);
+	}
+}
+
+function levelComplete() {
+	if (data.isStoryMode) {
+		FlxG.save.data.beatlevel1 = true;
+		FlxG.save.data.freeplayUnlocked = true;
+		FlxG.save.flush();
+	}
 }

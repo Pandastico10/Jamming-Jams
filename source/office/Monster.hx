@@ -1,3 +1,5 @@
+//HUUUUGE PROPS TO THE FNAF2 IN CODENAME ENGINE CREATER HALF OF THIS SHIT IS STOLEN FROM THAT ANIMATRONIC MANGER IM SORRY LMAO
+
 class Monster {
 	public var type:String;
 	public var aiLevel:Int;
@@ -9,13 +11,15 @@ class Monster {
 	public var lBehind:Bool = false;
 	public var fOn:Bool = false;
 
-	public var gotcha:Bool = false;
+	public var leftGotcha:Bool = false;
+	public var rightGotcha:Bool = false;
+	public var backGotcha:Bool = false;
 
 	public var moveTimer:Float = 0;
 	public var movementInterval:Float;
 
 	public var attackTimer:Float = 0;
-	public var attackTime:Float = 10;
+	public var attackTime:Float = 15;
 	public var attackReady:Bool = false;
 	public var lookedBehindDuringAttack:Bool = false;
 
@@ -44,7 +48,7 @@ class Monster {
 		}
 
 		if (type == "left" || type == "right") {
-			movementSound = FlxG.sound.load(Paths.music(type + "0"), 0.8);
+			movementSound = FlxG.sound.load(Paths.sound(type + "0"), 0.8);
 			scareSound = FlxG.sound.load(Paths.sound("scare"), 0.8);
 			blockSound = FlxG.sound.load(Paths.sound("sfxBlock"), 0.8);
 		} else if (type == "back") {
@@ -59,7 +63,7 @@ class Monster {
 	}
 
 	public function advance():Bool {
-		//if at stage 5 do not advance
+		// if at stage 5 do not advance
 		if (type == "back" && curStage >= 5)
 			return false;
 
@@ -68,7 +72,7 @@ class Monster {
 
 		curStage++;
 
-		//if at stage 4 stage +1 then begin attack
+		// if at stage 4 stage +1 then begin attack
 		if (type == "back" && curStage >= 5)
 			beginAttack();
 
@@ -91,7 +95,7 @@ class Monster {
 	}
 
 	public function rollVariation() {
-		if (aiLevel <= 10)
+		if (aiLevel < 10)
 			return;
 
 		if (type == "back") {
@@ -248,7 +252,14 @@ class Monster {
 		attackTimer += elapsed;
 
 		if (attackTimer >= attackTime) {
-			gotcha = true;
+			switch (type) {
+				case "left":
+					leftGotcha = true;
+				case "right":
+					rightGotcha = true;
+				case "back":
+					backGotcha = true;
+			};
 			trace(type + " caught you!");
 		}
 	}

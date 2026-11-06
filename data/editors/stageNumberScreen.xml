@@ -23,8 +23,6 @@
         applyInfo(
             Std.parseInt(stageNumbers.label.text)
         );
-
-        trace("SAVED NUMBER OF STAGES");
     }
     </exec>
 

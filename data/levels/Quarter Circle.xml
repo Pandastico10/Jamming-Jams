@@ -1,5 +1,5 @@
 <!DOCTYPE jam-level>
-<level levelWidth="0" bpm="130" music="qc1" name="Quarter Circle" artist="Sandbag40">
+<level music="qc1" levelWidth="0" name="Quarter Circle" artist="Sandbag40" bpm="130" nextLvl="Lady's Locker Room">
 	<player maxJumpAmount="1" x="128" y="64"/>
 	<stages>
 		<stage name="stage0">
@@ -2155,8 +2155,8 @@
 			<cannon type="door" x="800" y="0"/>
 			<cannon type="fast" x="288" y="352"/>
 			<cannon type="fast" x="736" y="192"/>
-			<cannon type="fast" x="128" y="256"/>
 			<cannon type="door" x="448" y="160"/>
+			<cannon type="fast" x="128" y="224"/>
 		</stage>
 		<stage name="stage9">
 			<box x="0" y="736"/>
@@ -2419,7 +2419,6 @@
 			<cannon type="door" x="800" y="0"/>
 			<cannon type="fast" x="288" y="352"/>
 			<cannon type="fast" x="736" y="192"/>
-			<cannon type="fast" x="128" y="256"/>
 			<cannon type="door" x="448" y="160"/>
 			<cannon type="hazard" x="768" y="448"/>
 			<cannon type="hazard" x="768" y="416"/>
@@ -2428,6 +2427,7 @@
 			<cannon type="hazard" x="896" y="512"/>
 			<cannon type="hazard" x="64" y="352"/>
 			<cannon type="hazard" x="192" y="352"/>
+			<cannon type="fast" x="128" y="224"/>
 		</stage>
 		<stage name="stage10">
 			<box x="0" y="736"/>
@@ -2690,7 +2690,6 @@
 			<cannon type="door" x="800" y="0"/>
 			<cannon type="fast" x="288" y="352"/>
 			<cannon type="fast" x="736" y="192"/>
-			<cannon type="fast" x="128" y="256"/>
 			<cannon type="door" x="448" y="160"/>
 			<cannon type="hazard" x="768" y="448"/>
 			<cannon type="hazard" x="768" y="416"/>
@@ -2701,6 +2700,7 @@
 			<cannon type="hazard" x="192" y="352"/>
 			<cannon type="down" x="320" y="224"/>
 			<cannon type="down" x="576" y="416"/>
+			<cannon type="fast" x="128" y="224"/>
 		</stage>
 		<stage name="stage11">
 			<box x="0" y="736"/>
@@ -2963,7 +2963,6 @@
 			<cannon type="door" x="800" y="0"/>
 			<cannon type="fast" x="288" y="352"/>
 			<cannon type="fast" x="736" y="192"/>
-			<cannon type="fast" x="128" y="256"/>
 			<cannon type="door" x="448" y="160"/>
 			<cannon type="hazard" x="768" y="448"/>
 			<cannon type="hazard" x="768" y="416"/>
@@ -2974,13 +2973,12 @@
 			<cannon type="hazard" x="192" y="352"/>
 			<cannon type="down" x="320" y="224"/>
 			<cannon type="down" x="576" y="416"/>
-			<cannon type="hazard" x="480" y="32"/>
-			<cannon type="hazard" x="672" y="32"/>
 			<cannon type="hazard" x="384" y="608"/>
 			<cannon type="hazard" x="384" y="640"/>
 			<cannon type="hazard" x="416" y="640"/>
 			<cannon type="hazard" x="352" y="640"/>
 			<cannon type="normal" x="960" y="512"/>
+			<cannon type="fast" x="128" y="224"/>
 		</stage>
 	</stages>
 </level>

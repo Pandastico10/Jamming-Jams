@@ -52,9 +52,16 @@ class FunkinTypeText extends FlxText {
 	public var isPaused:Bool = false;
 
 	public var waitForInput:Bool = false;
+
 	private var waiting_for_next:Bool = false;
+	private var waiting_for_completion:Bool = false;
 
 	public function continueDialogue() {
+		if (waiting_for_completion) {
+			waiting_for_completion = false;
+			complete();
+			return;
+		}
 		if (!waitForInput)
 			return;
 		if (call != null && call != "")
@@ -165,7 +172,7 @@ class FunkinTypeText extends FlxText {
 		this.final_text = new_text;
 
 		this.text = this.display_text = "";
-
+		waiting_for_completion = false;
 		if (new_delay != null)
 			this.delay = new_delay;
 
@@ -334,7 +341,7 @@ class FunkinTypeText extends FlxText {
 			isTyping = false;
 
 			if (!can_shift_list) {
-				complete();
+				waiting_for_completion = true;
 			} else if (!waitForInput) {
 				waiting_for_next = true;
 			}

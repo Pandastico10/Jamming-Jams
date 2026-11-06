@@ -1,14 +1,17 @@
-import flixel.util.FlxSpriteUtil;
 // mostly used for bg stuff only and specific events
+import flixel.util.FlxSpriteUtil;
 
-function create() {}
+function create() {
+    if (FlxG.save.data.playerAbility == 'none')
+	player.ability = 'time';
+}
+
 function update(elapsed:Float) {}
-function nextStage(curStage:Int) {}
 
 function measureHit(curMeasure:Int) {
 	if (active) {
         level.backgroundTop.alpha = 1;
-		FlxSpriteUtil.fadeOut(level.backgroundTop, 1.5);
+			FlxSpriteUtil.fadeOut(level.backgroundTop, 0.4);
 		level.shootCannon("normal", player);
 		level.shootCannon("fast", player);
 		level.shootCannon("door", player);
@@ -17,12 +20,13 @@ function measureHit(curMeasure:Int) {
 
 function beatHit(curBeat:Int) {
 	if (active) {
-        if (curBeat % 2 != 0)
-				return;
+		if (curBeat % 2 != 0)
+			return;
 		level.shootCannon("down", player);
 		level.shootCannon("left", player);
 		level.shootCannon("right", player);
 		level.shootCannon("up", player);
+		camGame.zoom += 0.02;
 	}
 }
 
@@ -32,5 +36,11 @@ function stepHit(curStep:Int) {
 	}
 }
 
-function death() {}
 function nextStage() {}
+
+function levelComplete() {
+	if (data.isStoryMode) {
+		FlxG.save.data.beatlevel2 = true;
+		FlxG.save.flush();
+	}
+}

@@ -10,6 +10,9 @@ import platformer.DeathCounter;
 import flixel.effects.FlxFlicker;
 import Xml;
 
+//BY FARRRR THE MOST TIME CONSUMING PART OF THE ENTIRE PROJECT
+//looking back at it there's defo another way of storing data like this in things other than arrys
+//so thats probably why the levels loads so slow despite not having much
 class Level {
 	public var level:String = "level0";
 	public var music:String = "field";
@@ -21,6 +24,7 @@ class Level {
 	public var rightAi:Int = 0;
 	public var backAi:Int = 0;
 	public var upAi:Int = 0;
+	public var startInGame:Bool = false;
 
 	public var playerX:Int = 0;
 	public var playerY:Int = 64;
@@ -48,6 +52,9 @@ class Level {
 	public var gridSize:Int = 32;
 
 	public var time:Float = 0;
+
+	var shadertime:Float = 0;
+
 	public var camGame:FlxCamera;
 
 	var wideLevel:Bool = false;
@@ -61,9 +68,10 @@ class Level {
 	public var backgroundShader = new CustomShader(FlxG.save.data.bgs);
 	public var sfxDeath:FlxSound;
 
-	public function new(levelFile:String = "current", ?camera:FlxCamera) {
+	public function new(levelFile:String = "current", ?camera:FlxCamera, ?selectedStage:Int = 0) {
 		camGame = camera != null ? camera : FlxG.camera;
 
+		//i read somewhere in the discord that doing this was stupid so i apologize
 		cannons = new FlxGroup();
 		particles = new FlxGroup();
 		boxes = new FlxGroup();
@@ -72,13 +80,16 @@ class Level {
 		hudElements = new FlxGroup();
 
 		createBackground();
-		createHud();
 		createParticles();
 		loadLevelInfo(levelFile);
 
+		curStage = selectedStage == null ? 0 : selectedStage;
+
 		wideLevel = levelWidth > 768;
 
-		loadStage(curStage);
+		createHud();
+		loadStage(0);
+
 		sfxDeath = FlxG.sound.load(Paths.sound("sfxDeath"), 1, false);
 	}
 
@@ -97,11 +108,21 @@ class Level {
 		FlxG.collide(boxes, player);
 		updateCannons(player);
 		time += elapsed;
-		backgroundShader.iTime = time;
+		shadertime += elapsed;
+		backgroundShader.iTime = shadertime;
 		// hud elements
 		deathCounter.text = "Deaths: " + deaths;
 		stageCounter.text = "Stage " + (curStage + 1) + "/" + stages.length;
 		timeCounter.text = CoolUtil.timeToStr(time * 1000);
+	}
+
+	function recieveData(?recievedDeaths:Int = 0, ?recievedTime:Float = 0) {
+		if (recievedDeaths == null)
+			recievedDeaths = 0;
+		if (recievedTime == null)
+			recievedTime = 0;
+		deaths = recievedDeaths;
+		time = recievedTime;
 	}
 
 	function updateCannons(player:FlxObject) {
@@ -141,7 +162,7 @@ class Level {
 
 		for (data in stageEvents[curStage]) {
 			var event = new FlxSprite(data.x, data.y);
-			event.makeGraphic(gridSize, gridSize, 0xFF00FF00);
+			event.loadGraphic(Paths.image("game/next"));
 			event.immovable = true;
 			event.alpha = 0.5;
 			event.cameras = [camGame];
@@ -289,6 +310,7 @@ class Level {
 		backAi = Std.parseInt(xml.get("backAi") ?? "0");
 		upAi = Std.parseInt(xml.get("upAi") ?? "0");
 		levelWidth = Std.parseInt(xml.get("levelWidth") ?? "0");
+		startInGame = xml.get("startInGame") == "true";
 
 		stages = [];
 		stageBoxes = [];

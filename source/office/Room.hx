@@ -11,6 +11,8 @@ class Room {
 	inline function get_controls():Controls
 		return PlayerSettings.solo.controls;
 
+	public var doorr:FlxSprite;
+	public var doorl:FlxSprite;
 	public var left:FlxSprite;
 	public var middle:FlxSprite;
 	public var middle2:FlxSprite;
@@ -18,6 +20,10 @@ class Room {
 	public var right:FlxSprite;
 	public var top:FlxSprite;
 	public var bottom:FlxSprite;
+
+	public var leftMon:FlxSprite;
+	public var rightMon:FlxSprite;
+	public var backMon:FlxSprite;
 
 	public var sprites:FlxGroup;
 	public var gameon:Bool = false;
@@ -47,6 +53,14 @@ class Room {
 	var smooth:Float = 0.05;
 	var time:Float = 0;
 
+	var doorrClosed:Int;
+	var doorrOpen:Int;
+
+	var doorlClosed:Int;
+	var doorlOpen:Int;
+	var rightDoorTimer:Float = 0;
+	var leftDoorTimer:Float = 0;
+
 	public function new(?camera:FlxCamera) {
 		camOffice = camera != null ? camera : FlxG.camera;
 		sprites = new FlxGroup();
@@ -56,16 +70,37 @@ class Room {
 	function createSprites() {
 		FlxG.mouse.visible = true;
 
+		doorl = new FlxSprite().loadGraphic(Paths.image("rooms/" + room + "/door"));
+		doorr = new FlxSprite().loadGraphic(Paths.image("rooms/" + room + "/door"));
+
 		left = new FlxSprite().loadGraphic(Paths.image("rooms/" + room + "/left"));
 		middle = new FlxSprite().loadGraphic(Paths.image('game/static2'));
 		middle2 = new FlxSprite().loadGraphic(Paths.image("rooms/" + room + "/front"));
 		back = new FlxSprite().loadGraphic(Paths.image("rooms/" + room + "/back"));
 		right = new FlxSprite().loadGraphic(Paths.image("rooms/" + room + "/right"));
+		
+		leftMon = new FlxSprite().loadGraphic(Paths.image("game/leftMonnormal"));
+		rightMon = new FlxSprite().loadGraphic(Paths.image("game/rightMonnormal"));
+		backMon = new FlxSprite().loadGraphic(Paths.image("game/backMonnormal"));
 		// add a way to customize this later per room option
 		top = new FlxSprite().makeGraphic(512, 512, FlxColor.BLACK);
-		bottom = new FlxSprite().makeGraphic(512, 512, 0xFF87472b);
+		if (room == 'frick') {
+			bottom = new FlxSprite().makeGraphic(512, 512, 0xFF353535);
+		} else {
+			bottom = new FlxSprite().makeGraphic(512, 512, 0xFF87472b);
+		}
 
-		var cube = [middle, left, back, right, top, bottom, middle2];
+		var doorcube = [doorr, doorl, leftMon, rightMon, backMon];
+		var cube = [middle, left, back, right, top, bottom, middle2,];
+
+		for (spr in doorcube) {
+			spr.scale.set(6, 6);
+			spr.cameras = [camOffice];
+			spr.setPosition(0, 100);
+			spr.screenCenter();
+		}
+		backMon.shader = shaderBack;
+		sprites.add(backMon);
 
 		for (spr in cube) {
 			spr.scale.set(6, 6);
@@ -94,8 +129,26 @@ class Room {
 		if (FlxG.save.data.shaders) {
 			middle.shader = tvstatic;
 		}
+		//at some point i said fuck it and just ditched for loops thats funny as fuck
+
+		rightMon.shader = shaderRight;
+		sprites.add(rightMon);
+		leftMon.shader = shaderLeft;
+		
+		sprites.add(leftMon);
+
 		middle2.shader = shaderMid;
 		sprites.add(middle2);
+		doorr.shader = shaderRight;
+		doorrClosed = doorr.x;
+		doorr.x += 1200;
+		doorrOpen = doorr.x;
+		sprites.add(doorr);
+		doorl.shader = shaderLeft;
+		doorlClosed = doorl.x;
+		doorl.x -= 1200;
+		doorlOpen = doorl.x;
+		sprites.add(doorl);
 	}
 
 	public function update(elapsed:Float) {
@@ -144,6 +197,31 @@ class Room {
 		for (shader in cubeShaders) {
 			shader.data.yaw.value = [currentOffsetX + offsetExtra];
 			shader.data.pitch.value = [currentOffsetY];
+		}
+	}
+
+	public function updateDoors(doorR:Bool, doorL:Bool) {
+		doorr.x = CoolUtil.fpsLerp(doorr.x, doorR ? doorrClosed : doorrOpen, 0.142);
+		doorl.x = CoolUtil.fpsLerp(doorl.x, doorL ? doorlClosed : doorlOpen, 0.142);
+
+		if (doorR) {
+			rightDoorTimer = 0;
+			doorr.visible = true;
+		} else {
+			rightDoorTimer += FlxG.elapsed;
+
+			if (rightDoorTimer >= 0.50)
+				doorr.visible = false;
+		}
+
+		if (doorL) {
+			leftDoorTimer = 0;
+			doorl.visible = true;
+		} else {
+			leftDoorTimer += FlxG.elapsed;
+
+			if (leftDoorTimer >= 0.50)
+				doorl.visible = false;
 		}
 	}
 }

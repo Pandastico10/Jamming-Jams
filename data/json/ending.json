@@ -1,0 +1,249 @@
+[
+    {
+        "text": "SAKURA CORE.",
+        "waitForInput": true
+    },
+    {
+        "text": "LOG 01 - RETURN FROM TIMELINE."
+    },
+    {
+        "text": "..."
+    },
+    {
+        "text": "*machine powering down*",
+        "sound_pitch": 1
+    },
+    {
+        "text": "..."
+    },
+    {
+        "text": "Ugh..."
+    },
+    {
+        "text": "Finally! You're awake!",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Maya...? What are you doing here?'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Waiting for you, obviously.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "You've been in that machine for quite a while.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'How long is quite a while?'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Long enough for me to finish three separate projects, get bored, and start another one.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'...So, not that long.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "HEY! Those projects take time!",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Heh. I'm kidding.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Anyway, how are you feeling?",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Like I got hit by a truck. Then dragged behind it for a couple of miles.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "That's... actually pretty concerning.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Nah, I'll live. I've dealt with worse.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Well, that's good!",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "So! How did the mission go?",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Oh, you know. Went into a creepy cabin, got hypnotized by a TV, nearly got killed a bunch of times...'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Wait, what?",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Yeah. Turns out the thing was some kind of test. It kept throwing increasingly dangerous stuff at me.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "A test? By the anomaly itself?",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Pretty much. It even knew my name.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "That's... not something I'd expect from a television.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'You should've seen the thing. It wouldn't shut up.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Well, at least you made it back in one piece.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'And I got the thing I was sent there for.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Oh? You found it?",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Yeah. It was a skull mask. Pretty weird-looking, too.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "A skull mask? Huh. I wonder what it's made of...",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "..."
+    },
+    {
+        "text": "*machine powering on*",
+        "sound_pitch": 1,
+        "call": "sound"
+    },
+    {
+        "text": "Uh...",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Is that supposed to happen?'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "A skull mask lies inside the machine.",
+        "sound_pitch": 1
+    },
+    {
+        "text": "'...Wait.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Is that...?",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'That's the mask. The one I brought back.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "But how?!",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "It shouldn't have been able to transfer anything between timelines!",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Well, apparently it did.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "..."
+    },
+    {
+        "text": "Okay. That's... actually really interesting.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Please don't say you're excited about this.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Jack, do you realize what this means?",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "Something from your assigned timeline has appeared in a completely different machine.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "We might have just discovered a way to transfer physical objects across timelines!",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'...And here I was thinking I'd finally get a quiet day.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Oh, come on! This is huge!",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Sure, sure. Just don't blow anything up while I'm gone.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "I ONLY DID THAT ONCE!",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Mhm. Anyway, where's the mask going?'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "I'll have it moved to the research department. They can take a closer look at it.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Sounds good. I'm gonna go get some sleep.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "You should. You've earned it.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "Oh, and Jack?",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'Yeah?'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "Welcome back.",
+        "sound_pitch": 1.2
+    },
+    {
+        "text": "'...Thanks, Maya.'",
+        "sound_pitch": 0.8
+    },
+    {
+        "text": "LOG 01 END.",
+        "sound_pitch": 1
+    }
+]

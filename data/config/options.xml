@@ -18,20 +18,26 @@
 	</choice>
 	<choice id="rooms" name="Room skin" desc="Choose the skin for the room">
 		<value name="Cabin" value="cabin" />
+		<value name="Frickbears" value="frick" />
 	</choice>
 	<menu name="Debug options" desc="Options used in development">
 		<checkbox id="canDie" name="GODMODE on" desc="If you can die during gameplay"/>
 		<checkbox id="freeplayUnlocked" name="Freeplay unlocked" desc="If freeplay is unlocked in the menu"/>
 		<checkbox id="editorUnlocked" name="Editor unlocked" desc="If Editor is unlocked in the menu"/>
-		<choice id="playerAbility" name="Player ability" desc="Change the player ability">
+		<choice id="playerAbility" name="Player ability" desc="Override the player ability">
 			<value name="None" value="none" desc="You dont need any abilities"/>
 			<value name="Dash" value="dash" desc="Dash in the direction you move"/>
 			<value name="Slow time" value="time" desc="Slow down time by half while holding down ability"/>
-			<value name="Inmunity" value="immunity" desc="Ignore a death every 30 secs"/>
+			<value name="Immunity" value="immunity" desc="Ignore a death every 30 secs"/>
 			<value name="+1 Jump" value="jump" desc="Gives you an extra jump"/>
 			<value name="Speedy" value="speed" desc="Makes your speed x1.25"/>
 			<value name="Gravity" value="gravity" desc="Change gravity at will"/>
 		</choice>
+		<checkbox id="beatlevel1" name="beat lvl 1" desc="beat this lvl"/>
+		<checkbox id="beatlevel2" name="beat lvl 2" desc="beat this lvl"/>
+		<checkbox id="beatlevel3" name="beat lvl 3" desc="beat this lvl"/>
+		<checkbox id="beatlevel4" name="beat lvl 4" desc="beat this lvl"/>
+		<checkbox id="beatlevel5" name="beat lvl 5" desc="beat this lvl"/>
 	</menu>
 
 </menu>

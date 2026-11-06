@@ -1,12 +1,15 @@
 import office.Monster;
 
+//calling em monsters so scott doesnt sue
 class Manager {
 	public var monsters:Array<Monster> = [];
 
 	public var flashTimer:Float = 0;
-	public var flashInterval:Float = 1.5;
+	public var flashInterval:Float = 1;
 
-	public var gotcha:Bool = false;
+	public var leftGotcha:Bool = false;
+	public var rightGotcha:Bool = false;
+	public var backGotcha:Bool = false;
 
 	public var lDoor:Bool = false;
 	public var rDoor:Bool = false;
@@ -48,7 +51,7 @@ class Manager {
 	}
 
 	public function update(elapsed:Float) {
-		if (gotcha)
+		if (leftGotcha || rightGotcha || backGotcha)
 			return;
 
 		if (fOn && lBehind) {
@@ -78,8 +81,16 @@ class Manager {
 		for (mon in monsters) {
 			mon.update(elapsed);
 
-			if (mon.gotcha) {
-				gotcha = true;
+			if (mon.leftGotcha) {
+				leftGotcha = true;
+				return;
+			}
+			if (mon.rightGotcha) {
+				rightGotcha = true;
+				return;
+			}
+			if (mon.backGotcha) {
+				backGotcha = true;
 				return;
 			}
 
@@ -96,7 +107,8 @@ class Manager {
 
 			mon.moveTimer -= mon.movementInterval;
 
-			if (!mon.tryMove())
+			//back mon will always move on interval
+			if (!mon.tryMove() && mon.type != "back")
 				continue;
 
 			if (mon.advance()) {
@@ -113,6 +125,33 @@ class Manager {
 
 				if (mon.attackReady)
 					trace(mon.type + " entered the attack phase!");
+			}
+		}
+	}
+
+	public function triggerMons(leftMon:FlxSprite, rightMon:FlxSprite, backMon:FlxSprite) {
+		leftMon.visible = false;
+		rightMon.visible = false;
+		backMon.visible = false;
+
+		for (mon in monsters) {
+			switch (mon.type) {
+				case "left":
+					leftMon.visible = mon.attackReady;
+					if (mon.attackReady)
+						leftMon.loadGraphic(Paths.image("game/leftMon" + mon.variation));
+
+				case "right":
+					rightMon.visible = mon.attackReady;
+					if (mon.attackReady)
+						rightMon.loadGraphic(Paths.image("game/rightMon" + mon.variation));
+
+				case "back":
+					backMon.visible = mon.curStage > 0 || mon.attackReady;
+					var scale = mon.curStage * 0.8;
+					backMon.scale.set(scale, scale);
+					if (mon.attackReady)
+						backMon.loadGraphic(Paths.image("game/backMon" + mon.variation));
 			}
 		}
 	}

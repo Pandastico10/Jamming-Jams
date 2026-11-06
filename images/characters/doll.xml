@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="doll.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="idle00000" x="0" y="0" width="462" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+	<SubTexture name="idle00001" x="1383" y="768" width="461" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+	<SubTexture name="idle00002" x="462" y="0" width="462" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+	<SubTexture name="idle00003" x="0" y="768" width="461" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+	<SubTexture name="idle10000" x="924" y="0" width="462" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+	<SubTexture name="idle10001" x="922" y="768" width="461" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+	<SubTexture name="idle10002" x="461" y="768" width="461" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+	<SubTexture name="idle10003" x="1847" y="0" width="461" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+	<SubTexture name="idle20000" x="461" y="1536" width="461" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+	<SubTexture name="idle20001" x="1847" y="768" width="461" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+	<SubTexture name="idle20002" x="1386" y="0" width="461" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+	<SubTexture name="idle20003" x="0" y="1536" width="461" height="768" frameX="-88" frameY="-47" frameWidth="626" frameHeight="813"/>
+</TextureAtlas>

@@ -21,9 +21,14 @@ public var vignette = new FlxSprite();
 public var flash1 = new FlxSprite();
 public var flash0 = new FlxSprite();
 public var flashbang = new FlxSprite();
+public var flashbang1 = new FlxSprite();
 public var drone = new FlxSound();
 public var flashOnsfx = new FlxSound();
 public var flashOffsfx = new FlxSound();
+public var doorOpenSfx = new FlxSound();
+public var doorCloseSfx = new FlxSound();
+public var leftDoorTimer:Float = 0;
+public var rightDoorTimer:Float = 0;
 public var leftDoor:Bool = false;
 public var rightDoor:Bool = false;
 public var leftFlash:Bool = false;
@@ -32,6 +37,9 @@ public var moving:Bool = false;
 public var gameon:Bool = false;
 public var active:Bool = true;
 public var isOffice:Bool = true;
+public var canSwitch:Bool = true;
+var jumpscareSprite:FlxSprite;
+var jumpscareActive:Bool = false;
 public var curStage:Int = 0;
 public var camOffice:FlxCamera = new FlxCamera();
 public var camGame:FlxCamera = new FlxCamera();
@@ -39,13 +47,41 @@ public var camHUD:FlxCamera = new FlxCamera();
 var scanline = new CustomShader("scanline");
 var glow = new CustomShader("RTX");
 var changingStage:Bool = false;
+public var comingBack:Bool = false;
 
+typing.onStart.add(() -> {
+	// do this when dialogue starts
+	if (isOffice)
+		room.gameon = true;
+	blend.makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
+	blend.alpha = 0;
+	blend.cameras = [camHUD];
+	insert(0, blend);
+	FlxTween.tween(blend, {alpha: 0.75}, 2, {ease: FlxEase.cubeOut});
+});
+typing.onComplete.add(() -> {
+	// do this when dialogue finishes typing
+	if (isOffice) {
+		room.gameon = false;
+		drone.play();
+	}
+	active = true;
+	player.test();
+	FlxTween.tween(blend, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
+	FlxTween.tween(typing, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
+	if (level.startInGame && data.isStoryMode)
+		FlxG.sound.music.resume();
+});
+typing.onProgress.add(() -> {
+	typing.screenCenter(); // re-centers the text to the screen on every new character typed.
+});
 function create() {
+	comingBack = data.comingBack;
 	persistentUpdate = false;
 	persistentDraw = true;
 
 	FlxG.cameras.add(camOffice, false);
-	camOffice.bgColor = 0xFF353535;
+	camOffice.bgColor = 0xFF000000;
 	camOffice.zoom = 0.35;
 
 	FlxG.cameras.add(camGame, true);
@@ -63,8 +99,7 @@ function create() {
 	room = new Room(camOffice);
 	add(room.sprites);
 
-	level = new Level(data, camGame);
-	curStage = level.curStage;
+	level = new Level(data.level, camGame, data.stage);
 
 	add(level.backgroundSprites);
 	add(level.particles);
@@ -72,6 +107,9 @@ function create() {
 	add(level.emitter);
 	add(level.boxes);
 	add(level.eventBoxes);
+
+	curStage = data.stage;
+	level.recieveData(data.deaths, data.time);
 
 	flashbang.makeGraphic(FlxG.width, FlxG.height, 0x7EFFFFFF);
 	add(flashbang);
@@ -83,6 +121,9 @@ function create() {
 
 	player = new Player(level.playerX, level.playerY, level.maxJumpAmm);
 	player.cameras = [camGame];
+	if (!FlxG.save.data.performance)
+		add(player.trail);
+	add(player.abilityIndicator);
 	add(player);
 	player.test();
 
@@ -125,13 +166,58 @@ function create() {
 		}
 	}
 
-	CoolUtil.playMusic(Paths.music(level.music), true, 0.8, true, level.bpm);
-
+	CoolUtil.playMusic(Paths.music(level.music), true, 0.65, true, level.bpm);
 	FlxG.sound.music.pause();
 
 	drone = FlxG.sound.load(Paths.music("drone"), 1, true);
 	flashOnsfx = FlxG.sound.load(Paths.sound("sfxFlashlightOn"), 1);
 	flashOffsfx = FlxG.sound.load(Paths.sound("sfxFlashlightOff"), 1);
+
+	doorOpenSfx = FlxG.sound.load(Paths.sound("doorOpen"), 0.7);
+	doorCloseSfx = FlxG.sound.load(Paths.sound("doorClose"), 0.7);
+
+	// really only for lv3 thats really funny
+	if (level.startInGame && data.isStoryMode) {
+		gameon = true;
+		room.gameon = true;
+		player.playable = true;
+		canSwitch = false;
+
+		camGame.alpha = 1;
+
+		level.background.visible = true;
+		level.backgroundOverlay.visible = true;
+		level.backgroundOverlay.alpha = 0.975;
+
+		blend2.alpha = 1;
+		vignette.alpha = 0;
+
+		flashlight.flash0.alpha = 0;
+		flashlight.flash1.alpha = 0;
+	}
+}
+
+function postCreate() {
+	if (script != null)
+		script.call("nextStage");
+	//aapply ability again cuz immunity gets broken if its not done at the start
+	player.applyAbility();
+	if (data.isStoryMode && Assets.exists(Paths.json("json/" + data.level))) {
+		// trace("dialogue start");
+		active = false;
+		// stop everything if dialogue exists aka this script
+		player.test();
+		// start dialogue + setup
+		JamUtils.startDialogue(typing, "json/" + data.level);
+		add(typing);
+		JamUtils.setupText(typing, 48, 'center', 'Outline.ttf');
+		typing.cameras = [camHUD];
+		typing.sounds = [FlxG.sound.load(Paths.sound("talkSounds/talk"))];
+	}
+	if (!data.isStoryMode) {
+		FlxG.sound.music.pause();
+		drone.play();
+	}
 }
 
 function update(elapsed:Float) {
@@ -153,37 +239,93 @@ function update(elapsed:Float) {
 			openSubState(new ModSubState("pauseSubstate", {
 				hasAI: isOffice,
 				level: level.level,
+				isStoryMode: data.isStoryMode,
 				gameon: gameon,
-				drone: drone
+				drone: drone,
+				deaths: level.deaths,
+				time: level.time,
+				stage: curStage
 			}));
 			return;
 		}
 	}
 
 	room.update(elapsed);
+	manager.triggerMons(room.leftMon, room.rightMon, room.backMon);
 	if (active) {
+		level.godmode = FlxG.save.data.canDie;
+
+		if (player.slowdown) {
+			camGame.zoom = CoolUtil.fpsLerp(camGame.zoom, 1.075, 0.1);
+		} else {
+			camGame.zoom = CoolUtil.fpsLerp(camGame.zoom, 1, 0.1);
+		}
 		level.update(player, elapsed);
 		curStage = level.curStage;
-		if (mouse.x > -548 && mouse.x < -59 && mouse.y > -64 && mouse.y < 846) {
-			leftDoor = FlxG.mouse.pressedRight;
-			leftFlash = FlxG.mouse.pressed && !flashlight.isRecharging;
+		leftDoor = false;
+		rightDoor = false;
+
+		leftFlash = false;
+		rightFlash = false;
+
+		var overLeftDoor = mouse.x > -548 && mouse.x < -59 && mouse.y > -64 && mouse.y < 846;
+		var overRightDoor = mouse.x > 1097 && mouse.x < 1514 && mouse.y > 52 && mouse.y < 1006;
+
+		if (FlxG.mouse.justPressedRight && !gameon && !room.lookingBehind && (overLeftDoor || overRightDoor)) {
+			doorCloseSfx.pan = overLeftDoor ? -0.50 : 0.50;
+			doorCloseSfx.play();
+			// trace("door closed");
 		}
-		if (mouse.x > 1097 && mouse.x < 1514 && mouse.y > 52 && mouse.y < 1006) {
-			rightDoor = FlxG.mouse.pressedRight;
-			rightFlash = FlxG.mouse.pressed && !flashlight.isRecharging;
+		if (FlxG.mouse.justReleasedRight && !gameon && !room.lookingBehind && (overLeftDoor || overRightDoor)) {
+			doorOpenSfx.pan = overLeftDoor ? -0.50 : 0.50;
+			doorOpenSfx.play();
 		}
+
+		if (FlxG.mouse.pressedRight && overLeftDoor && !room.lookingBehind) {
+			leftDoorTimer += elapsed;
+			leftDoor = leftDoorTimer >= 0.50;
+		} else {
+			leftDoorTimer = 0;
+		}
+
+		if (FlxG.mouse.pressedRight && overRightDoor && !room.lookingBehind) {
+			rightDoorTimer += elapsed;
+			rightDoor = rightDoorTimer >= 0.50;
+		} else {
+			rightDoorTimer = 0;
+		}
+
+		leftFlash = overLeftDoor && FlxG.mouse.pressed && !flashlight.isRecharging;
+		rightFlash = overRightDoor && FlxG.mouse.pressed && !flashlight.isRecharging;
+
+		room.updateDoors(FlxG.mouse.pressedRight && overRightDoor, FlxG.mouse.pressedRight && overLeftDoor);
 		var flashOn = FlxG.mouse.pressed && !gameon;
 		flashlight.update(elapsed, flashOn, mouse.x, mouse.y);
-		manager.updateDefenses(leftDoor, rightDoor, room.lookingBehind, flashlight.isOn, leftFlash, rightFlash);
-		manager.update(elapsed, room.lookingBehind);
-		if (manager.gotcha)
-			trace("you died!");
+		if (canSwitch) {
+			manager.updateDefenses(leftDoor, rightDoor, room.lookingBehind, flashlight.isOn, leftFlash, rightFlash);
+			manager.update(elapsed, room.lookingBehind);
+		}
+		if (!FlxG.save.data.canDie) {
+			if (manager.leftGotcha) {
+				jumpscare("game/leftMonnormal");
+				return;
+			}
+			if (manager.rightGotcha) {
+				jumpscare("game/rightMonnormal");
+				return;
+			}
+			if (manager.backGotcha) {
+				jumpscare("game/backMonnormal");
+				return;
+			}
+		}
 		FlxG.overlap(level.eventBoxes, player, nextStage);
 		if (FlxG.mouse.justPressed && !gameon && !flashlight.isRecharging)
 			flashOnsfx.play();
 		if (FlxG.mouse.justReleased && !gameon && !flashlight.isRecharging)
 			flashOffsfx.play();
-		if (controls.getJustPressed("cabin_game") && !room.lookingBehind && !moving)
+
+		if (controls.getJustPressed("cabin_game") && canSwitch && !room.lookingBehind && !moving)
 			gameOn();
 	} else {
 		if (controls.ACCEPT) {
@@ -195,7 +337,7 @@ function update(elapsed:Float) {
 	}
 }
 
-function gameOn() {
+public function gameOn() {
 	moving = true;
 	gameon = !gameon;
 
@@ -241,8 +383,8 @@ function gameOn() {
 
 	FlxTween.tween(blend2, {alpha: gameon ? 1 : 0}, gameon ? 0.5 : 0.1);
 	FlxTween.tween(vignette, {alpha: gameon ? 0 : 1}, gameon ? 0.5 : 0.1);
-	FlxTween.tween(flashlight.flash0, {alpha: gameon ? 0 : 0.75}, gameon ? 0.5 : 0.1);
-	FlxTween.tween(flashlight.flash1, {alpha: gameon ? 0 : 0.75}, gameon ? 0.5 : 0.1);
+	FlxTween.tween(flashlight.flash0, {alpha: gameon ? 0 : 0.9}, gameon ? 0.5 : 0.1);
+	FlxTween.tween(flashlight.flash1, {alpha: gameon ? 0 : 0.9}, gameon ? 0.5 : 0.1);
 
 	FlxTween.cancelTweensOf(drone);
 
@@ -267,6 +409,53 @@ function gameOn() {
 	}
 }
 
+public function jumpscare(imagePath:String) {
+	active = false;
+	FlxG.sound.music.pause();
+	drone.pause();
+	camOffice.shake();
+
+	jumpscareSprite = new FlxSprite().loadGraphic(Paths.image(imagePath));
+	jumpscareSprite.scale.set(6, 6);
+	jumpscareSprite.scrollFactor.set(0, 0);
+	jumpscareSprite.cameras = [camHUD];
+
+	jumpscareSprite.x = (FlxG.width - jumpscareSprite.width) / 2;
+	jumpscareSprite.y = FlxG.height;
+
+	add(jumpscareSprite);
+
+	flashbang1.makeGraphic(FlxG.width, FlxG.height, 0xFFFF0000);
+	add(flashbang1);
+	flashbang1.alpha = 0;
+	flashbang1.scrollFactor.set(0, 0);
+	flashbang1.cameras = [camHUD];
+
+	FlxG.sound.play(Paths.sound("jumpscare"));
+
+	FlxTween.tween(jumpscareSprite, {
+		y: (FlxG.height - jumpscareSprite.height) / 2
+	}, 0.35, {
+		ease: FlxEase.quadOut
+	});
+	new FlxTimer().start(0.50, function(_) {
+		flashbang1.alpha = 1;
+		FlxTween.color(flashbang1, 0.25, FlxColor.RED, FlxColor.BLACK);
+		FlxG.sound.play(Paths.sound("sfxDeath"));
+	});
+
+	new FlxTimer().start(0.75, function(_) {
+		openSubState(new ModSubState("pauseSubstate", {
+			hasAI: isOffice,
+			level: level.level,
+			isStoryMode: data.isStoryMode,
+			gameon: gameon,
+			drone: drone,
+			died: true
+		}));
+	});
+}
+
 function nextStage() {
 	if (changingStage)
 		return;
@@ -274,11 +463,26 @@ function nextStage() {
 	changingStage = true;
 
 	if (level.curStage == level.stages.length - 1) {
+		if (script != null)
+			script.call("levelComplete");
+
 		DeathCounter.saveBestTime(level.level, level.time * 1000);
 		DeathCounter.saveBestDeaths(level.level, level.deaths);
-		FlxG.switchState(new MainMenuState());
+		active = false;
+
+		openSubState(new ModSubState("winSubstate", {
+			hasAI: isOffice,
+			level: level.level,
+			isStoryMode: data.isStoryMode,
+			gameon: gameon,
+			drone: drone,
+			deaths: level.deaths,
+			time: level.time
+		}));
+
 		return;
 	}
+
 	flashbang.alpha = 1;
 	FlxSpriteUtil.fadeOut(flashbang, 1);
 
@@ -288,7 +492,6 @@ function nextStage() {
 	FlxG.sound.play(Paths.sound("win"));
 
 	level.loadStage(1);
-
 	curStage = level.curStage;
 
 	player.x = level.playerX;

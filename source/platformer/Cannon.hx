@@ -59,6 +59,7 @@ class Cannon extends FlxNestedSprite {
 				setGraphicSize(32, 32);
 				this.color = FlxColor.LIME;
 			case "hazard":
+				//fuck you fuck you i have you why do you lag so much fuck you
 				makeGraphic(32, 32, FlxColor.WHITE);
 				setGraphicSize(32, 32);
 				this.color = FlxColor.RED;

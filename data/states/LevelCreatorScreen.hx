@@ -203,7 +203,7 @@ function saveLevel() {
 		+ 'function create() {\n\n'
 		+ '}\n\n'
 		+ 'function update(elapsed:Float) {}\n\n'
-		+ 'function nextStage(curStage:Int) {\n'
+		+ 'function nextStage() {\n'
 		+ '    trace("you on the next stage");\n'
 		+ '}\n\n'
 		+ 'function measureHit(curMeasure:Int) {\n'
@@ -232,7 +232,7 @@ function saveLevel() {
 		+ '        level.shootCannon("rotate", player);\n'
 		+ '    }\n'
 		+ '}\n\n'
-		+ 'function death() {}\n');
+		+ 'function levelComplete() {}\n');
 
 	if (songBytes != null)
 		File.saveBytes(Paths.getAssetsRoot() + "/music/" + music + ".ogg", songBytes);

@@ -1,0 +1,45 @@
+[
+    {
+        "text": "(You wake up in a dark and humid cabin in the middle of nowhere.)",
+        "waitForInput": true
+    },
+    {
+        "text": "(As you try to remember how you got here, a few things start coming back to you.)"
+    },
+    {
+        "text": "(You remember coming to this cabin to investigate something strange that has been happening inside it.)"
+    },
+    {
+        "text": "(But now that you're here, it seems that whatever this power is, it's messing with your memory.)"
+    },
+    {
+        "text": "(As you try to remember more, a TV suddenly turns on behind you.)"
+    },
+    {
+        "text": "'W-Who's there?!'"
+    },
+    {
+        "text": "(You take a look around.)"
+    },
+    {
+        "text": "(No one is there. Just a lonely TV in the middle of the cabin.)"
+    },
+    {
+        "text": "'Why the hell is this here...?'"
+    },
+    {
+        "text": "(You stare at the TV for a bit, but the static on the screen starts making your head hurt.)"
+    },
+    {
+        "text": "(Maybe this is what you came looking for, you think to yourself.)"
+    },
+    {
+        "text": "(You don't like this situation at all, but it's probably best to keep investigating.)"
+    },
+    {
+        "text": "(You pick up a controller lying near the TV.)"
+    },
+    {
+        "text": "(You press the power button and...)"
+    }
+]
